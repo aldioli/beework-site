@@ -1477,7 +1477,7 @@
         <div class="text-amber-400 text-sm font-bold mb-2" data-i18n="pricing.p1.tag">للمحلات الصغيرة</div>
         <h3 class="text-2xl font-extrabold mb-4" data-i18n="pricing.p1.title">📊 المتابعة الشهرية</h3>
         <div class="mb-6">
-          <span class="text-5xl font-black">500</span>
+          <span id="cms-price-monthly" class="text-5xl font-black">500</span>
           <span class="text-slate-400" data-i18n="pricing.p1.unit">ر.س / شهر</span>
         </div>
         <ul class="space-y-3 text-sm text-slate-400 mb-8 flex-1">
@@ -1502,7 +1502,7 @@
           الباقة المتكاملة
         </h3>
         <div class="mb-6">
-          <span class="text-5xl font-black">1,500</span>
+          <span id="cms-price-package" class="text-5xl font-black">1,500</span>
           <span class="text-slate-400" data-i18n="pricing.p2.unit">ر.س / شهر</span>
         </div>
         <ul class="space-y-3 text-sm text-slate-400 mb-8 flex-1">
@@ -1836,12 +1836,12 @@
           <a href="mailto:aldioli7@gmail.com" class="glass rounded-2xl p-5 hover:-translate-y-1 transition">
             <div class="text-3xl mb-2">📧</div>
             <div class="text-xs text-slate-400 mb-1" data-i18n="contact.email.label">إيميل</div>
-            <div class="text-sm font-bold break-all">aldioli7@gmail.com</div>
+            <div id="cms-email-display" class="text-sm font-bold break-all">aldioli7@gmail.com</div>
           </a>
           <a href="https://wa.me/966537759626" class="glass rounded-2xl p-5 hover:-translate-y-1 transition">
             <div class="text-3xl mb-2">💬</div>
             <div class="text-xs text-slate-400 mb-1" data-i18n="contact.wa.label">واتساب</div>
-            <div class="text-sm font-bold" dir="ltr">+966 53 775 9626</div>
+            <div id="cms-wa-display" class="text-sm font-bold" dir="ltr">+966 53 775 9626</div>
           </a>
           <a href="https://t.me/Alawlaqi_AI_bot" class="glass rounded-2xl p-5 hover:-translate-y-1 transition">
             <div class="text-3xl mb-2">🤖</div>
@@ -2889,5 +2889,29 @@ setTimeout(() => {
 }, 8000);
 </script>
 
+<script>
+// CMS content override from _data/content.json
+fetch('/_data/content.json').then(r=>r.json()).then(d=>{
+  if(d.price_monthly){var e=document.getElementById('cms-price-monthly');if(e)e.textContent=d.price_monthly;}
+  if(d.price_package){var e=document.getElementById('cms-price-package');if(e)e.textContent=d.price_package;}
+  if(d.email){
+    document.querySelectorAll('[href^="mailto:"]').forEach(el=>el.href='mailto:'+d.email);
+    var e=document.getElementById('cms-email-display');if(e)e.textContent=d.email;
+  }
+  if(d.whatsapp){
+    document.querySelectorAll('[href^="https://wa.me/"]').forEach(el=>el.href='https://wa.me/'+d.whatsapp);
+    var e=document.getElementById('cms-wa-display');if(e)e.textContent='+'+d.whatsapp.replace(/^00/,'');
+  }
+  var overrides={
+    'hero.badge':d.available_ar,
+    'tst.t1.quote':d.tst1_quote,'tst.t1.name':d.tst1_name,'tst.t1.role':d.tst1_role,
+    'tst.t2.quote':d.tst2_quote,'tst.t2.name':d.tst2_name,'tst.t2.role':d.tst2_role,
+    'tst.t3.quote':d.tst3_quote,'tst.t3.name':d.tst3_name,'tst.t3.role':d.tst3_role,
+  };
+  Object.entries(overrides).forEach(function(kv){
+    if(kv[1])document.querySelectorAll('[data-i18n="'+kv[0]+'"]').forEach(function(el){el.textContent=kv[1];});
+  });
+}).catch(function(){});
+</script>
 </body>
 </html>
