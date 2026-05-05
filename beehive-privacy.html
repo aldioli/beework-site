@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>سياسة الخصوصية — BeeHive</title>
+<meta name="description" content="سياسة الخصوصية لتطبيق BeeHive — كيف نجمع بياناتك ونستخدمها ونحميها." />
+<link rel="icon" type="image/png" href="site-logo.png" />
+<link rel="canonical" href="https://aldioli.us/beehive-privacy.html" />
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+<script src="https://cdn.tailwindcss.com"></script>
+
+<style>
+  * { font-family: 'Cairo', sans-serif; }
+  html { scroll-behavior: smooth; }
+  body {
+    background:
+      radial-gradient(ellipse at top right, #fef3c7 0%, transparent 50%),
+      radial-gradient(ellipse at bottom left, #d1fae5 0%, transparent 50%),
+      linear-gradient(135deg, #fffbeb 0%, #fef9f0 50%, #fef3c7 100%);
+    background-attachment: fixed;
+    color: #1e293b;
+    min-height: 100vh;
+  }
+  .glass {
+    background: rgba(255, 255, 255, 0.7);
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(245, 158, 11, 0.2);
+    box-shadow: 0 8px 32px rgba(245, 158, 11, 0.08);
+  }
+  .gradient-mix {
+    background: linear-gradient(135deg, #f59e0b, #10b981);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  h2 { color: #92400e; }
+  h3 { color: #475569; }
+  a.back-link:hover { transform: translateX(4px); }
+</style>
+</head>
+<body>
+
+<nav class="sticky top-0 z-40" style="background: rgba(255,251,235,0.85); backdrop-filter: blur(20px); border-bottom: 1px solid rgba(245,158,11,0.15);">
+  <div class="max-w-4xl mx-auto px-6 py-4 flex items-center justify-between">
+    <a href="/" class="flex items-center gap-3">
+      <img src="site-logo.png" alt="Logo" class="w-10 h-10 rounded-xl object-cover" />
+      <span class="font-extrabold gradient-mix text-lg">حسين العولقي</span>
+    </a>
+    <a href="/" class="back-link text-sm font-bold text-amber-700 transition-transform inline-block">العودة للرئيسية ←</a>
+  </div>
+</nav>
+
+<main class="max-w-4xl mx-auto px-6 py-16">
+  <div class="glass rounded-3xl p-8 md:p-12">
+    <div class="flex items-center gap-4 mb-8">
+      <img src="beehive-icon.png" alt="BeeHive" class="w-20 h-20 rounded-2xl object-contain bg-white p-2 shadow-lg" />
+      <div>
+        <h1 class="text-3xl md:text-4xl font-black gradient-mix">سياسة الخصوصية</h1>
+        <p class="text-slate-500 mt-1">تطبيق BeeHive — آخر تحديث: 4 مايو 2026</p>
+      </div>
+    </div>
+
+    <p class="text-slate-700 leading-relaxed mb-8">
+      نحن في BeeHive نحترم خصوصيتك ونلتزم بحماية بياناتك الشخصية. توضّح هذه السياسة
+      كيف نجمع المعلومات ونستخدمها ونحميها عند استخدامك لتطبيقنا.
+    </p>
+
+    <h2 class="text-2xl font-extrabold mb-3 mt-8">١. البيانات التي نجمعها</h2>
+    <ul class="list-disc pr-6 space-y-2 text-slate-700 leading-relaxed">
+      <li><strong>معلومات الحساب:</strong> الاسم ورقم الهاتف والبريد الإلكتروني عند التسجيل.</li>
+      <li><strong>بيانات الموقع:</strong> موقعك الجغرافي لعرض الحرفيين القريبين منك (بإذنك فقط).</li>
+      <li><strong>بيانات الاستخدام:</strong> سجل الطلبات والمحادثات والتقييمات لتحسين الخدمة.</li>
+      <li><strong>الصور:</strong> الصور التي ترفعها لوصف طلبك تُخزّن بأمان عبر Supabase.</li>
+    </ul>
+
+    <h2 class="text-2xl font-extrabold mb-3 mt-8">٢. كيف نستخدم بياناتك</h2>
+    <ul class="list-disc pr-6 space-y-2 text-slate-700 leading-relaxed">
+      <li>ربطك بأقرب الحرفيين المناسبين لطلبك.</li>
+      <li>إرسال إشعارات عبر Firebase Cloud Messaging (FCM) لتحديثات الطلبات.</li>
+      <li>تحسين تجربة التطبيق وحلّ المشاكل التقنية.</li>
+      <li>التواصل معك بشأن طلباتك أو تحديثات مهمة في الخدمة.</li>
+    </ul>
+
+    <h2 class="text-2xl font-extrabold mb-3 mt-8">٣. مشاركة البيانات</h2>
+    <p class="text-slate-700 leading-relaxed">
+      لا نبيع بياناتك أبداً لأي طرف ثالث. نشاركها فقط مع:
+    </p>
+    <ul class="list-disc pr-6 space-y-2 text-slate-700 leading-relaxed mt-2">
+      <li><strong>الحرفيين:</strong> الاسم وموقع الطلب فقط لتنفيذ الخدمة.</li>
+      <li><strong>مزودو البنية التحتية:</strong> Supabase (قاعدة البيانات) و Firebase (الإشعارات) ضمن سياساتهم الصارمة.</li>
+      <li><strong>الجهات القانونية:</strong> فقط عند طلب رسمي بموجب القانون.</li>
+    </ul>
+
+    <h2 class="text-2xl font-extrabold mb-3 mt-8">٤. حماية البيانات</h2>
+    <p class="text-slate-700 leading-relaxed">
+      نستخدم تشفير TLS لجميع الاتصالات بين التطبيق والخادم، وكلمات المرور تُخزّن مُشفّرة (hashed)،
+      ولا يمكن لأحد الوصول لبياناتك إلا بصلاحيات محدودة جداً.
+    </p>
+
+    <h2 class="text-2xl font-extrabold mb-3 mt-8">٥. حقوقك</h2>
+    <ul class="list-disc pr-6 space-y-2 text-slate-700 leading-relaxed">
+      <li>حق الوصول إلى بياناتك ومعرفة ما نجمعه.</li>
+      <li>حق تعديل أو تحديث معلوماتك الشخصية في أي وقت من إعدادات التطبيق.</li>
+      <li>حق حذف حسابك وبياناتك بالكامل عند الطلب.</li>
+      <li>حق سحب الموافقة على جمع بيانات الموقع في أي وقت.</li>
+    </ul>
+
+    <h2 class="text-2xl font-extrabold mb-3 mt-8">٦. ملفات تعريف الارتباط (Cookies)</h2>
+    <p class="text-slate-700 leading-relaxed">
+      التطبيق لا يستخدم cookies بالمعنى التقليدي، لكنه يحفظ جلسة تسجيل الدخول محلياً
+      على جهازك لتسهيل الاستخدام دون إعادة الدخول في كل مرة.
+    </p>
+
+    <h2 class="text-2xl font-extrabold mb-3 mt-8">٧. الأطفال</h2>
+    <p class="text-slate-700 leading-relaxed">
+      التطبيق غير موجّه للأطفال دون 13 عاماً. لا نجمع عمداً بيانات من الأطفال،
+      وإذا اكتشفنا ذلك سنحذفها فوراً.
+    </p>
+
+    <h2 class="text-2xl font-extrabold mb-3 mt-8">٨. تحديث هذه السياسة</h2>
+    <p class="text-slate-700 leading-relaxed">
+      قد نحدّث هذه السياسة من حين لآخر. سنُعلمك بأي تغييرات جوهرية عبر إشعار داخل التطبيق
+      أو عبر البريد الإلكتروني.
+    </p>
+
+    <h2 class="text-2xl font-extrabold mb-3 mt-8">٩. التواصل معنا</h2>
+    <p class="text-slate-700 leading-relaxed mb-4">
+      لأي سؤال حول الخصوصية أو طلب حذف بياناتك:
+    </p>
+    <div class="grid sm:grid-cols-2 gap-3">
+      <a href="mailto:aldioli7@gmail.com" class="glass rounded-2xl p-4 hover:-translate-y-1 transition flex items-center gap-3">
+        <span class="text-2xl">📧</span>
+        <div>
+          <div class="text-xs text-slate-500">إيميل</div>
+          <div class="font-bold text-sm">aldioli7@gmail.com</div>
+        </div>
+      </a>
+      <a href="https://wa.me/966537759626" class="glass rounded-2xl p-4 hover:-translate-y-1 transition flex items-center gap-3">
+        <span class="text-2xl">💬</span>
+        <div>
+          <div class="text-xs text-slate-500">واتساب</div>
+          <div class="font-bold text-sm" dir="ltr">+966 53 775 9626</div>
+        </div>
+      </a>
+    </div>
+  </div>
+
+  <div class="text-center mt-8 text-sm text-slate-500">
+    © 2026 BeeHive — حسين العولقي
+  </div>
+</main>
+
+</body>
+</html>

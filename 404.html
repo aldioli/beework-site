@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>الصفحة غير موجودة — حسين العولقي</title>
+<meta name="robots" content="noindex" />
+<link rel="icon" type="image/png" href="site-logo.png" />
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700;800;900&display=swap" rel="stylesheet">
+<script src="https://cdn.tailwindcss.com"></script>
+
+<style>
+  * { font-family: 'Cairo', sans-serif; }
+  body {
+    background:
+      radial-gradient(ellipse at top right, #fef3c7 0%, transparent 50%),
+      radial-gradient(ellipse at bottom left, #d1fae5 0%, transparent 50%),
+      linear-gradient(135deg, #fffbeb 0%, #fef9f0 50%, #fef3c7 100%);
+    background-attachment: fixed;
+    color: #1e293b;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .glass {
+    background: rgba(255, 255, 255, 0.7);
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(245, 158, 11, 0.2);
+    box-shadow: 0 8px 32px rgba(245, 158, 11, 0.08);
+  }
+  .gradient-mix {
+    background: linear-gradient(135deg, #f59e0b, #10b981);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  .hex {
+    width: 200px;
+    height: 230px;
+    clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+    background: linear-gradient(135deg, #fbbf24, #10b981);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 90px;
+    font-weight: 900;
+    box-shadow: 0 20px 60px rgba(245,158,11,0.3);
+    animation: float 4s ease-in-out infinite;
+  }
+  @keyframes float {
+    0%, 100% { transform: translateY(0) rotate(0deg); }
+    50% { transform: translateY(-15px) rotate(2deg); }
+  }
+</style>
+</head>
+<body>
+
+<main class="max-w-2xl mx-auto px-6 py-16 text-center">
+  <div class="flex justify-center mb-10">
+    <div class="hex">404</div>
+  </div>
+
+  <h1 class="text-4xl md:text-5xl font-black mb-4">
+    عذراً، <span class="gradient-mix">الصفحة غير موجودة</span>
+  </h1>
+  <p class="text-slate-600 text-lg mb-10 leading-relaxed">
+    يبدو أن الرابط الذي تبحث عنه لا يعمل أو تم نقله.<br/>
+    لكن لا تقلق، يمكنك العودة إلى الصفحة الرئيسية.
+  </p>
+
+  <div class="flex flex-wrap items-center justify-center gap-4">
+    <a href="/" class="px-8 py-4 rounded-full bg-gradient-to-l from-amber-400 to-emerald-400 text-slate-900 font-bold hover:scale-105 transition shadow-2xl shadow-amber-500/20">
+      العودة للرئيسية ←
+    </a>
+    <a href="/#contact" class="px-8 py-4 rounded-full glass font-bold hover:bg-white/80 transition">
+      تواصل معي
+    </a>
+  </div>
+
+  <div class="mt-16 text-sm text-slate-500">
+    © 2026 حسين العولقي
+  </div>
+</main>
+
+</body>
+</html>

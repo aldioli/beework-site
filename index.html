@@ -1,0 +1,2892 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>حسين العولقي — مهندس برمجيات و محاسب رقمي</title>
+<meta name="description" content="مهندس برمجيات وصانع منتجات رقمية، أبني تطبيقات Flutter وأنظمة محاسبية وأدير حسابات الأعمال عن بُعد وحضورياً." />
+
+<link rel="icon" type="image/png" href="site-logo.png" />
+<link rel="apple-touch-icon" href="site-logo.png" />
+
+<link rel="canonical" href="https://beework.art/" />
+
+<!-- Open Graph -->
+<meta property="og:title" content="حسين العولقي — مهندس برمجيات + محاسب رقمي" />
+<meta property="og:description" content="أبني منتجات رقمية وأدير حسابات أعمالك بذكاء" />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://beework.art" />
+<meta property="og:image" content="https://beework.art/site-logo.png" />
+<meta property="og:locale" content="ar_AR" />
+<meta property="og:locale:alternate" content="en_US" />
+<meta property="og:site_name" content="حسين العولقي" />
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="حسين العولقي — مهندس برمجيات + محاسب رقمي" />
+<meta name="twitter:description" content="أبني منتجات رقمية وأدير حسابات أعمالك بذكاء" />
+<meta name="twitter:image" content="https://beework.art/site-logo.png" />
+
+<!-- Schema.org Structured Data -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Person",
+      "@id": "https://beework.art/#person",
+      "name": "حسين العولقي",
+      "alternateName": "Hussein Al-Awlaqi",
+      "url": "https://beework.art",
+      "image": "https://beework.art/site-logo.png",
+      "email": "aldioli7@gmail.com",
+      "jobTitle": "مهندس برمجيات ومحاسب رقمي",
+      "knowsAbout": ["Flutter", "Supabase", "Odoo", "Python", "Claude AI", "ZATCA", "Excel VBA", "Docker"],
+      "sameAs": [
+        "https://github.com/aldioli",
+        "https://t.me/Alawlaqi_AI_bot"
+      ]
+    },
+    {
+      "@type": "ProfessionalService",
+      "@id": "https://beework.art/#service",
+      "name": "حسين العولقي — تطوير وتشغيل أنظمة الأعمال",
+      "url": "https://beework.art",
+      "image": "https://beework.art/site-logo.png",
+      "description": "تطوير تطبيقات Flutter، تشغيل أنظمة Odoo، متابعة حسابات، وقوالب محاسبية ذكية.",
+      "founder": { "@id": "https://beework.art/#person" },
+      "areaServed": ["SA", "YE", "AE"],
+      "priceRange": "$$",
+      "telephone": "+966537759626",
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "telephone": "+966537759626",
+        "contactType": "customer support",
+        "availableLanguage": ["Arabic", "English"]
+      }
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://beework.art/#website",
+      "url": "https://beework.art",
+      "name": "حسين العولقي",
+      "inLanguage": "ar",
+      "publisher": { "@id": "https://beework.art/#person" }
+    }
+  ]
+}
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;800;900&family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+  tailwind.config = {
+    theme: {
+      extend: {
+        fontFamily: {
+          cairo: ['Cairo', 'sans-serif'],
+          inter: ['Inter', 'sans-serif'],
+        },
+        animation: {
+          'float': 'float 6s ease-in-out infinite',
+          'glow': 'glow 3s ease-in-out infinite',
+          'fade-up': 'fadeUp 0.8s ease-out forwards',
+          'shine': 'shine 3s linear infinite',
+          'pulse-slow': 'pulseSlow 4s ease-in-out infinite',
+        },
+        keyframes: {
+          float: { '0%,100%': { transform: 'translateY(0)' }, '50%': { transform: 'translateY(-20px)' } },
+          glow: { '0%,100%': { opacity: '0.5' }, '50%': { opacity: '1' } },
+          fadeUp: { '0%': { opacity: '0', transform: 'translateY(30px)' }, '100%': { opacity: '1', transform: 'translateY(0)' } },
+          shine: { '0%': { backgroundPosition: '-200% center' }, '100%': { backgroundPosition: '200% center' } },
+          pulseSlow: { '0%,100%': { opacity: '0.4' }, '50%': { opacity: '0.8' } },
+        }
+      }
+    }
+  }
+</script>
+
+<style>
+  * { font-family: 'Cairo', sans-serif; }
+  html { scroll-behavior: smooth; }
+
+  body {
+    background:
+      radial-gradient(ellipse at top right, #2d1b69 0%, transparent 50%),
+      radial-gradient(ellipse at bottom left, #003d38 0%, transparent 50%),
+      radial-gradient(ellipse at center, #0f0a1e 0%, transparent 70%),
+      linear-gradient(135deg, #0B0F1A 0%, #0d1117 50%, #0B0F1A 100%);
+    background-attachment: fixed;
+    color: #e2e8f0;
+    overflow-x: hidden;
+    min-height: 100vh;
+    position: relative;
+  }
+  body > nav,
+  body > section,
+  body > footer,
+  body > .wa-float,
+  body > .banner-sweep {
+    position: relative;
+    z-index: 10;
+  }
+  body > nav { z-index: 50; }
+  body > .wa-float { z-index: 100; }
+  body > .banner-sweep { z-index: 60; }
+
+  ::selection { background: #fbbf24; color: #1e293b; }
+
+  /* Aurora animated background */
+  .aurora {
+    position: fixed;
+    inset: 0;
+    z-index: -2;
+    overflow: hidden;
+    pointer-events: none;
+  }
+  .aurora::before, .aurora::after {
+    content: '';
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(100px);
+    opacity: 0.35;
+    animation: auroraMove 20s ease-in-out infinite alternate;
+  }
+  .aurora::before {
+    top: -10%;
+    right: -10%;
+    width: 600px;
+    height: 600px;
+    background: radial-gradient(circle, #5B2EFF 0%, #7C3AFF 40%, transparent 70%);
+  }
+  .aurora::after {
+    bottom: -10%;
+    left: -10%;
+    width: 700px;
+    height: 700px;
+    background: radial-gradient(circle, #00C2A8 0%, #009688 40%, transparent 70%);
+    animation-delay: -10s;
+  }
+  @keyframes auroraMove {
+    0% { transform: translate(0,0) scale(1); }
+    50% { transform: translate(50px, 30px) scale(1.1); }
+    100% { transform: translate(-30px, 50px) scale(0.95); }
+  }
+
+  /* Honeycomb pattern overlay - multi-layer */
+  .honeycomb {
+    position: fixed;
+    inset: 0;
+    z-index: -1;
+    pointer-events: none;
+    background-image:
+      url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='80' height='92' viewBox='0 0 80 92'><polygon points='40,2 75,22 75,68 40,90 5,68 5,22' fill='none' stroke='%235B2EFF' stroke-width='1.2' stroke-opacity='0.25'/></svg>");
+    background-size: 80px 92px;
+    opacity: 0.7;
+    animation: honeycombDrift 50s linear infinite;
+  }
+  .honeycomb-2 {
+    position: fixed;
+    inset: 0;
+    z-index: -1;
+    pointer-events: none;
+    background-image:
+      url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='120' height='138' viewBox='0 0 120 138'><polygon points='60,3 113,33 113,103 60,135 7,103 7,33' fill='none' stroke='%2300C2A8' stroke-width='1' stroke-opacity='0.15'/></svg>");
+    background-size: 120px 138px;
+    opacity: 0.6;
+    animation: honeycombDrift2 80s linear infinite;
+  }
+  @keyframes honeycombDrift {
+    from { background-position: 0 0; }
+    to { background-position: 80px 92px; }
+  }
+  @keyframes honeycombDrift2 {
+    from { background-position: 0 0; }
+    to { background-position: -120px 138px; }
+  }
+
+  /* Rotating hexagon wrapper - holds the rotation */
+  .hex-rotate {
+    position: fixed;
+    z-index: -1;
+    pointer-events: none;
+    animation: hexSpin 20s linear infinite, hexDrift 18s ease-in-out infinite;
+  }
+  .hex-rotate-reverse {
+    position: fixed;
+    z-index: -1;
+    pointer-events: none;
+    animation: hexSpinReverse 25s linear infinite, hexDrift 22s ease-in-out infinite;
+  }
+  @keyframes hexSpin {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+  }
+  @keyframes hexSpinReverse {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(-360deg); }
+  }
+  @keyframes hexDrift {
+    0%, 100% { translate: 0 0; }
+    33% { translate: 50px -60px; }
+    66% { translate: -40px 40px; }
+  }
+
+  /* The hex shape inside */
+  .hex-shape {
+    width: 100%;
+    height: 100%;
+    clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+    animation: hexBreath 4s ease-in-out infinite;
+  }
+  @keyframes hexBreath {
+    0%, 100% { opacity: 0.25; transform: scale(1); }
+    50% { opacity: 0.6; transform: scale(1.08); }
+  }
+
+  /* Glowing hexagon (still rotating) */
+  .hex-glow {
+    position: fixed;
+    z-index: -1;
+    pointer-events: none;
+    width: 120px;
+    height: 138px;
+    clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+    animation: hexPulse 5s ease-in-out infinite, hexFloat 18s ease-in-out infinite, hexSpin 30s linear infinite;
+    filter: blur(1px);
+  }
+  @keyframes hexPulse {
+    0%, 100% { opacity: 0.2; }
+    50% { opacity: 0.5; }
+  }
+  @keyframes hexFloat {
+    0%, 100% { translate: 0 0; }
+    33% { translate: 40px -50px; }
+    66% { translate: -30px 35px; }
+  }
+
+  /* Outlined rotating hex */
+  .hex-outline {
+    position: fixed;
+    z-index: -1;
+    pointer-events: none;
+    animation: hexSpin 35s linear infinite, hexFloat 28s ease-in-out infinite;
+  }
+  .hex-outline svg {
+    width: 100%;
+    height: 100%;
+    overflow: visible;
+  }
+
+  /* Sparkle dots */
+  .sparkle {
+    position: fixed;
+    z-index: -1;
+    pointer-events: none;
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    animation: sparkleAnim 3s ease-in-out infinite;
+  }
+  @keyframes sparkleAnim {
+    0%, 100% { opacity: 0; transform: scale(0); }
+    50% { opacity: 1; transform: scale(1.5); }
+  }
+
+  /* Floating bee particles */
+  .floating-bee {
+    position: fixed;
+    z-index: -1;
+    pointer-events: none;
+    opacity: 0.12;
+    animation: floatBee 25s ease-in-out infinite;
+  }
+  @keyframes floatBee {
+    0%, 100% { transform: translate(0, 0) rotate(0deg); }
+    25% { transform: translate(100px, -50px) rotate(15deg); }
+    50% { transform: translate(50px, -100px) rotate(-10deg); }
+    75% { transform: translate(-50px, -30px) rotate(20deg); }
+  }
+
+  /* Animated banner sweep */
+  .banner-sweep {
+    position: relative;
+    overflow: hidden;
+    height: 4px;
+    background: linear-gradient(90deg, transparent, #5B2EFF, #00C2A8, #5B2EFF, transparent);
+    background-size: 200% 100%;
+    animation: sweepLine 6s linear infinite;
+  }
+  @keyframes sweepLine {
+    from { background-position: -100% 0; }
+    to { background-position: 100% 0; }
+  }
+
+  /* Loading Screen */
+  #loader {
+    position: fixed;
+    inset: 0;
+    background: linear-gradient(135deg, #0B0F1A, #1a1030);
+    z-index: 9999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: opacity 0.6s ease;
+  }
+  #loader.hidden { opacity: 0; pointer-events: none; }
+  .loader-spinner {
+    width: 60px;
+    height: 60px;
+    border: 3px solid rgba(91,46,255,0.15);
+    border-top-color: #5B2EFF;
+    border-right-color: #00C2A8;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+  }
+  @keyframes spin { to { transform: rotate(360deg); } }
+
+  /* Glass cards on light background */
+  .glass {
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(20px) saturate(180%);
+    -webkit-backdrop-filter: blur(20px) saturate(180%);
+    border: 1px solid rgba(91, 46, 255, 0.2);
+    box-shadow:
+      0 4px 24px rgba(91, 46, 255, 0.08),
+      0 1px 4px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease;
+  }
+  .glass:hover {
+    background: rgba(255, 255, 255, 0.09);
+    border-color: rgba(91, 46, 255, 0.4);
+    box-shadow:
+      0 12px 40px rgba(91, 46, 255, 0.2),
+      0 4px 12px rgba(0, 194, 168, 0.1);
+    transform: translateY(-4px);
+  }
+
+  /* Gradients */
+  .gradient-tech {
+    background: linear-gradient(135deg, #5B2EFF, #7C3AFF);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+  .gradient-acct {
+    background: linear-gradient(135deg, #00A896, #00C2A8);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+  .gradient-mix {
+    background: linear-gradient(90deg, #5B2EFF, #00C2A8, #5B2EFF);
+    background-size: 200% 100%;
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    animation: shine 4s linear infinite;
+  }
+  @keyframes shine {
+    0% { background-position: -200% center; }
+    100% { background-position: 200% center; }
+  }
+
+  /* Reveal animation */
+  .reveal { opacity: 0; transform: translateY(30px); transition: opacity 0.8s ease, transform 0.8s ease; }
+  .reveal.visible { opacity: 1; transform: translateY(0); }
+
+  /* Badge */
+  .badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    padding: 0.4rem 0.9rem;
+    border-radius: 9999px;
+    font-size: 0.75rem;
+    font-weight: 700;
+    background: linear-gradient(135deg, rgba(91,46,255,0.15), rgba(0,194,168,0.15));
+    border: 1px solid rgba(91,46,255,0.3);
+    color: #a78bfa;
+  }
+
+  /* Nav link */
+  .nav-link {
+    position: relative;
+    transition: color 0.3s;
+    color: #475569;
+  }
+  .nav-link:hover { color: #1e293b; }
+  .nav-link::after {
+    content: '';
+    position: absolute;
+    bottom: -6px;
+    right: 0;
+    width: 0;
+    height: 3px;
+    border-radius: 3px;
+    background: linear-gradient(90deg, #5B2EFF, #00C2A8);
+    transition: width 0.3s;
+  }
+  .nav-link:hover::after { width: 100%; }
+
+  /* WhatsApp Float Button */
+  .wa-float {
+    position: fixed !important;
+    bottom: 24px !important;
+    left: 24px !important;
+    right: auto !important;
+    inset-inline-start: 24px !important;
+    inset-inline-end: auto !important;
+    z-index: 1000 !important;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background: #25d366;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 10px 40px rgba(37, 211, 102, 0.4);
+    transition: transform 0.3s;
+  }
+  .wa-float::before {
+    content: '';
+    position: absolute;
+    inset: -10px;
+    border-radius: 50%;
+    border: 2px solid #25d366;
+    opacity: 0.5;
+    animation: ping 2s cubic-bezier(0,0,0.2,1) infinite;
+  }
+  @keyframes ping { 75%, 100% { transform: scale(1.5); opacity: 0; } }
+  .wa-float:hover { transform: scale(1.1); }
+
+  /* Tab buttons */
+  .tab-btn {
+    padding: 0.5rem 1.25rem;
+    border-radius: 9999px;
+    font-size: 0.85rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.3s;
+    border: 1px solid rgba(245,158,11,0.2);
+    background: rgba(255,255,255,0.6);
+    color: #78350f;
+  }
+  .tab-btn:hover { background: rgba(255,255,255,0.9); }
+  .tab-btn.active {
+    background: linear-gradient(135deg, #f59e0b, #10b981);
+    color: #fff;
+    border-color: transparent;
+    box-shadow: 0 4px 16px rgba(245, 158, 11, 0.3);
+  }
+
+  /* Pricing featured */
+  .pricing-card.featured {
+    background: linear-gradient(180deg, rgba(91,46,255,0.12), rgba(0,194,168,0.08));
+    border: 2px solid #5B2EFF;
+    transform: scale(1.03);
+    box-shadow: 0 20px 60px rgba(91, 46, 255, 0.25);
+  }
+
+  /* Timeline */
+  .timeline-line {
+    background: linear-gradient(180deg, #5B2EFF, #00C2A8);
+  }
+
+  /* Marquee */
+  .marquee {
+    display: flex;
+    overflow: hidden;
+    gap: 3rem;
+    mask-image: linear-gradient(90deg, transparent, black 10%, black 90%, transparent);
+  }
+  .marquee-track {
+    display: flex;
+    gap: 3rem;
+    animation: marquee 30s linear infinite;
+    flex-shrink: 0;
+  }
+  @keyframes marquee {
+    from { transform: translateX(0); }
+    to { transform: translateX(100%); }
+  }
+
+  /* Aurora animation keyframe */
+  @keyframes pulseSlow {
+    0%, 100% { opacity: 0.4; }
+    50% { opacity: 0.8; }
+  }
+  @keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-20px); }
+  }
+  @keyframes glow {
+    0%, 100% { opacity: 0.5; }
+    50% { opacity: 1; }
+  }
+
+  /* Banner stripes between sections */
+  .banner-decoration {
+    position: relative;
+    height: 100px;
+    overflow: hidden;
+    pointer-events: none;
+  }
+  .banner-decoration svg {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+  }
+
+  /* FAQ */
+  details summary { list-style: none; cursor: pointer; }
+  details summary::-webkit-details-marker { display: none; }
+  details[open] .faq-icon { transform: rotate(45deg); }
+  .faq-icon { transition: transform 0.3s; }
+
+  /* Scrollbar */
+  ::-webkit-scrollbar { width: 10px; }
+  ::-webkit-scrollbar-track { background: #0B0F1A; }
+  ::-webkit-scrollbar-thumb {
+    background: linear-gradient(180deg, #5B2EFF, #00C2A8);
+    border-radius: 10px;
+  }
+
+  /* Text color overrides */
+  .text-slate-300 { color: #cbd5e1 !important; }
+  .text-slate-400 { color: #94a3b8 !important; }
+  .text-slate-500 { color: #64748b !important; }
+  .text-slate-600 { color: #00C2A8 !important; }
+  .text-white { color: #ffffff !important; }
+  .border-white\/5 { border-color: rgba(91, 46, 255, 0.15) !important; }
+  .border-white\/10 { border-color: rgba(91, 46, 255, 0.2) !important; }
+
+  /* Hero buttons need light text */
+  .hero-cta-secondary { color: #e2e8f0; }
+
+  /* Process step circles */
+  .step-circle-amber { box-shadow: 0 8px 32px rgba(91, 46, 255, 0.5); }
+  .step-circle-emerald { box-shadow: 0 8px 32px rgba(0, 194, 168, 0.5); }
+
+  /* Bot fixed circle */
+  .bot-fixed {
+    position: fixed !important;
+    left: 20px !important;
+    top: 50% !important;
+    transform: translateY(-50%) !important;
+    width: 58px;
+    height: 58px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #5B2EFF, #00C2A8);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    box-shadow: 0 0 30px rgba(91,46,255,0.5), 0 0 60px rgba(0,194,168,0.25);
+    z-index: 998 !important;
+    text-decoration: none;
+    animation: botGlow 3s ease-in-out infinite;
+    transition: transform 0.3s, box-shadow 0.3s;
+  }
+  .bot-fixed:hover {
+    transform: translateY(-50%) scale(1.12) !important;
+    box-shadow: 0 0 50px rgba(91,46,255,0.8), 0 0 100px rgba(0,194,168,0.4);
+  }
+  @keyframes botGlow {
+    0%, 100% { box-shadow: 0 0 30px rgba(91,46,255,0.5), 0 0 60px rgba(0,194,168,0.25); }
+    50% { box-shadow: 0 0 50px rgba(91,46,255,0.8), 0 0 100px rgba(0,194,168,0.45); }
+  }
+  .bot-tooltip {
+    position: absolute;
+    left: 70px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(11,15,26,0.95);
+    border: 1px solid rgba(91,46,255,0.4);
+    color: #e2e8f0;
+    padding: 6px 14px;
+    border-radius: 12px;
+    font-size: 0.75rem;
+    font-weight: 700;
+    white-space: nowrap;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s;
+  }
+  .bot-fixed:hover .bot-tooltip { opacity: 1; }
+</style>
+</head>
+<body class="font-cairo">
+
+<!-- Loading Screen -->
+<div id="loader">
+  <div class="text-center">
+    <div class="loader-spinner mx-auto mb-4"></div>
+    <div class="text-sm text-slate-400" data-i18n="loader.text">جاري التحميل...</div>
+  </div>
+</div>
+
+<!-- Animated Background Layers -->
+<div class="aurora"></div>
+<div class="honeycomb"></div>
+<div class="honeycomb-2"></div>
+
+<!-- Glowing rotating hexagons -->
+<div class="hex-glow" style="top: 12%; right: 8%; width: 140px; height: 161px; background: radial-gradient(circle, #5B2EFF 30%, transparent 70%); animation-delay: 0s;"></div>
+<div class="hex-glow" style="top: 35%; left: 5%; width: 160px; height: 184px; background: radial-gradient(circle, #00C2A8 30%, transparent 70%); animation-delay: -2s;"></div>
+<div class="hex-glow" style="top: 65%; right: 15%; width: 130px; height: 150px; background: radial-gradient(circle, #7C3AFF 30%, transparent 70%); animation-delay: -3.5s;"></div>
+<div class="hex-glow" style="top: 95%; left: 12%; width: 150px; height: 173px; background: radial-gradient(circle, #5B2EFF 30%, transparent 70%); animation-delay: -1s;"></div>
+<div class="hex-glow" style="top: 130%; right: 25%; width: 140px; height: 161px; background: radial-gradient(circle, #00C2A8 30%, transparent 70%); animation-delay: -4s;"></div>
+
+<!-- Solid rotating hexagons (small) -->
+<div class="hex-rotate" style="top: 20%; left: 25%; width: 50px; height: 58px;">
+  <div class="hex-shape" style="background: linear-gradient(135deg, #5B2EFF, #7C3AFF);"></div>
+</div>
+<div class="hex-rotate-reverse" style="top: 45%; right: 22%; width: 70px; height: 81px; animation-delay: -3s;">
+  <div class="hex-shape" style="background: linear-gradient(135deg, #00C2A8, #009688);"></div>
+</div>
+<div class="hex-rotate" style="top: 75%; left: 18%; width: 60px; height: 69px; animation-delay: -7s;">
+  <div class="hex-shape" style="background: linear-gradient(135deg, #7C3AFF, #5B2EFF);"></div>
+</div>
+<div class="hex-rotate-reverse" style="top: 105%; right: 35%; width: 80px; height: 92px; animation-delay: -5s;">
+  <div class="hex-shape" style="background: linear-gradient(135deg, #5B2EFF, #00C2A8);"></div>
+</div>
+<div class="hex-rotate" style="top: 145%; left: 30%; width: 55px; height: 64px; animation-delay: -10s;">
+  <div class="hex-shape" style="background: linear-gradient(135deg, #00C2A8, #00D4B8);"></div>
+</div>
+
+<!-- Outlined rotating hexagons (SVG) -->
+<svg class="hex-outline" style="top: 8%; left: 45%; width: 90px; height: 104px;" viewBox="0 0 90 104">
+  <polygon points="45,3 87,26 87,78 45,101 3,78 3,26" fill="none" stroke="#5B2EFF" stroke-width="2" stroke-opacity="0.4"/>
+  <polygon points="45,15 75,32 75,72 45,89 15,72 15,32" fill="none" stroke="#7C3AFF" stroke-width="1.5" stroke-opacity="0.3"/>
+</svg>
+<svg class="hex-outline" style="top: 55%; right: 40%; width: 110px; height: 127px; animation-delay: -8s;" viewBox="0 0 110 127">
+  <polygon points="55,3 107,33 107,94 55,124 3,94 3,33" fill="none" stroke="#00C2A8" stroke-width="2" stroke-opacity="0.4"/>
+  <polygon points="55,18 92,40 92,87 55,109 18,87 18,40" fill="none" stroke="#00D4B8" stroke-width="1.5" stroke-opacity="0.3"/>
+</svg>
+<svg class="hex-outline" style="top: 90%; right: 50%; width: 100px; height: 115px; animation-delay: -15s;" viewBox="0 0 100 115">
+  <polygon points="50,3 97,30 97,85 50,112 3,85 3,30" fill="none" stroke="#5B2EFF" stroke-width="2" stroke-opacity="0.4"/>
+</svg>
+<svg class="hex-outline" style="top: 125%; left: 8%; width: 85px; height: 98px; animation-delay: -12s;" viewBox="0 0 85 98">
+  <polygon points="42,3 82,25 82,73 42,95 3,73 3,25" fill="none" stroke="#00C2A8" stroke-width="2" stroke-opacity="0.4"/>
+  <polygon points="42,15 72,32 72,66 42,83 12,66 12,32" fill="none" stroke="#00D4B8" stroke-width="1.5" stroke-opacity="0.3"/>
+</svg>
+
+<!-- Sparkles -->
+<div class="sparkle" style="top: 18%; left: 50%; background: #7C3AFF; animation-delay: 0s;"></div>
+<div class="sparkle" style="top: 38%; right: 12%; background: #00C2A8; animation-delay: -1s;"></div>
+<div class="sparkle" style="top: 70%; left: 8%; background: #5B2EFF; animation-delay: -2s;"></div>
+<div class="sparkle" style="top: 95%; right: 50%; background: #7C3AFF; animation-delay: -1.5s;"></div>
+<div class="sparkle" style="top: 120%; left: 60%; background: #00C2A8; animation-delay: -2.5s;"></div>
+
+<!-- Floating bee decorations -->
+<svg class="floating-bee" style="top: 15%; right: 8%; width: 60px;" viewBox="0 0 100 100" fill="#f59e0b">
+  <ellipse cx="50" cy="55" rx="20" ry="25"/>
+  <ellipse cx="35" cy="45" rx="15" ry="8" opacity="0.6"/>
+  <ellipse cx="65" cy="45" rx="15" ry="8" opacity="0.6"/>
+</svg>
+<svg class="floating-bee" style="top: 60%; left: 5%; width: 80px; animation-delay: -8s;" viewBox="0 0 100 100" fill="#10b981">
+  <ellipse cx="50" cy="55" rx="20" ry="25"/>
+  <ellipse cx="35" cy="45" rx="15" ry="8" opacity="0.6"/>
+  <ellipse cx="65" cy="45" rx="15" ry="8" opacity="0.6"/>
+</svg>
+<svg class="floating-bee" style="top: 110%; right: 15%; width: 50px; animation-delay: -15s;" viewBox="0 0 100 100" fill="#f59e0b">
+  <ellipse cx="50" cy="55" rx="20" ry="25"/>
+  <ellipse cx="35" cy="45" rx="15" ry="8" opacity="0.6"/>
+  <ellipse cx="65" cy="45" rx="15" ry="8" opacity="0.6"/>
+</svg>
+
+<!-- Top sweeping banner line -->
+<div class="banner-sweep fixed top-0 inset-x-0 z-50"></div>
+
+<!-- Bot Fixed Circle -->
+<a href="https://t.me/Alawlaqi_AI_bot" target="_blank" class="bot-fixed" aria-label="المساعد الذكي">
+  <svg width="26" height="26" viewBox="0 0 24 24" fill="white">
+    <path d="M12 0C5.374 0 0 5.373 0 12s5.374 12 12 12 12-5.373 12-12S18.626 0 12 0zm5.568 8.16c-.169 1.858-.896 6.728-1.27 8.971-.155.95-.464 1.268-.762 1.299-.65.06-1.143-.43-1.773-.84-.985-.642-1.546-1.04-2.5-1.667-1.105-.726-.388-1.124.241-1.776.165-.171 3.025-2.77 3.082-3.005.007-.03.014-.137-.052-.193s-.165-.039-.236-.022c-.101.024-1.704 1.082-4.81 3.176-.456.314-.868.466-1.238.458-.408-.008-1.193-.23-1.776-.42-.715-.232-1.282-.355-1.234-.752.025-.207.31-.42.853-.638 3.353-1.46 5.589-2.422 6.708-2.886 3.193-1.327 3.857-1.557 4.29-1.564.094-.002.305.022.442.131.116.092.148.216.164.305s.034.273.018.428z"/>
+  </svg>
+  <span class="bot-tooltip">🤖 المساعد الذكي</span>
+</a>
+
+
+<!-- Navbar -->
+<nav class="fixed top-1 inset-x-0 z-40" style="background: rgba(11,15,26,0.85); backdrop-filter: blur(20px) saturate(180%); border-bottom: 1px solid rgba(91,46,255,0.2); box-shadow: 0 4px 20px rgba(91,46,255,0.1);">
+  <div class="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
+    <a href="#" class="flex items-center gap-2.5 text-xl font-extrabold gradient-mix">
+      <img src="site-logo.png" alt="Logo" class="w-10 h-10 rounded-xl object-cover shadow-lg shadow-violet-500/30" />
+      <span>حسين العولقي</span>
+    </a>
+    <div class="hidden md:flex items-center gap-7 text-sm font-medium">
+      <a href="#about" class="nav-link" data-i18n="nav.about">من أنا</a>
+      <a href="#services" class="nav-link" data-i18n="nav.services">الخدمات</a>
+      <a href="#process" class="nav-link" data-i18n="nav.process">كيف نعمل</a>
+      <a href="#projects" class="nav-link" data-i18n="nav.projects">المشاريع</a>
+      <a href="#pricing" class="nav-link" data-i18n="nav.pricing">الباقات</a>
+      <a href="#contact" class="nav-link" data-i18n="nav.contact">تواصل</a>
+    </div>
+    <div class="flex items-center gap-3">
+      <button id="lang-toggle" class="px-3 py-2 rounded-full glass text-xs font-bold hover:bg-white/10 transition flex items-center gap-1.5">
+        <span>🌐</span>
+        <span id="lang-label">EN</span>
+      </button>
+      <a href="#contact" class="hidden md:inline-flex items-center gap-2 px-5 py-2 rounded-full bg-gradient-to-l from-violet-600 to-teal-400 text-white font-bold text-sm hover:scale-105 transition" data-i18n="nav.cta">
+        احجز استشارة
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+          <polyline points="22 7 13.5 15.5 8.5 10.5 2 17"/>
+          <polyline points="16 7 22 7 22 13"/>
+        </svg>
+      </a>
+    </div>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="relative min-h-screen flex items-center justify-center px-6 pt-24">
+  <div class="relative z-10 max-w-5xl mx-auto text-center">
+    <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full glass mb-8">
+      <span class="w-2 h-2 rounded-full bg-emerald-400 animate-glow"></span>
+      <span class="text-sm" data-i18n="hero.badge">متاح لاستقبال مشاريع جديدة</span>
+    </div>
+
+    <h1 class="text-5xl md:text-7xl font-black leading-tight mb-6" data-i18n-html="hero.title">
+      أبني <span class="gradient-tech">منتجات رقمية</span><br/>
+      وأدير <span class="gradient-acct">حسابات الأعمال</span>
+    </h1>
+
+    <p class="text-lg md:text-xl text-slate-400 max-w-2xl mx-auto mb-10 leading-relaxed" data-i18n-html="hero.subtitle">
+      مهندس برمجيات + محاسب — أساعدك تحوّل فكرتك إلى تطبيق وتنظّم حسابات شركتك بذكاء.
+      من <strong class="text-white">Flutter</strong> إلى <strong class="text-white">Odoo</strong>،
+      ومن قوالب Excel إلى أنظمة محاسبية متكاملة.
+    </p>
+
+    <div class="flex flex-col sm:flex-row items-center justify-center gap-4 flex-wrap">
+      <a href="#projects" class="px-8 py-4 rounded-full bg-gradient-to-l from-violet-600 to-teal-400 text-white font-bold hover:scale-105 transition shadow-2xl shadow-violet-500/30 inline-flex items-center gap-2" data-i18n="hero.cta1">
+        شاهد أعمالي
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+          <polyline points="22 7 13.5 15.5 8.5 10.5 2 17"/>
+          <polyline points="16 7 22 7 22 13"/>
+        </svg>
+      </a>
+      <a href="#contact" class="px-8 py-4 rounded-full glass font-bold hover:bg-white/80 transition" data-i18n="hero.cta2">
+        احجز استشارة مجانية →
+      </a>
+      <a href="https://t.me/Alawlaqi_AI_bot" target="_blank" class="px-6 py-4 rounded-full font-bold transition flex items-center gap-2 border-2 border-purple-400/40 hover:border-purple-400 hover:bg-purple-400/10" style="color: #6d28d9;">
+        <span class="text-xl">🤖</span>
+        <span data-i18n="hero.cta3">جرّب البوت الذكي</span>
+      </a>
+      <a href="mailto:aldioli7@gmail.com?subject=طلب%20السيرة%20الذاتية%20-%20CV&body=مرحباً%20حسين،%20أرغب%20بالحصول%20على%20نسخة%20من%20سيرتك%20الذاتية." class="px-6 py-4 rounded-full font-bold transition flex items-center gap-2" style="color: #475569;" data-i18n="hero.cv">
+        📥 اطلب CV
+      </a>
+    </div>
+
+    <!-- Animated Stats -->
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mt-20 max-w-3xl mx-auto">
+      <div class="glass rounded-2xl p-5">
+        <div class="text-3xl font-black gradient-tech counter" data-target="6">0</div>
+        <div class="text-xs text-slate-400 mt-1" data-i18n="hero.stat1">منتج رقمي</div>
+      </div>
+      <div class="glass rounded-2xl p-5">
+        <div class="text-3xl font-black gradient-mix counter" data-target="5">0</div>
+        <div class="text-xs text-slate-400 mt-1" data-i18n="hero.stat2">سنوات خبرة</div>
+      </div>
+      <div class="glass rounded-2xl p-5">
+        <div class="text-3xl font-black gradient-acct counter" data-target="10">0</div>
+        <div class="text-xs text-slate-400 mt-1" data-i18n="hero.stat3">شركة أتابعها</div>
+      </div>
+      <div class="glass rounded-2xl p-5">
+        <div class="text-3xl font-black gradient-mix counter" data-target="100" data-suffix="+">0</div>
+        <div class="text-xs text-slate-400 mt-1" data-i18n="hero.stat4">ميزة مبنية</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="absolute bottom-8 left-1/2 -translate-x-1/2 animate-float">
+    <div class="w-6 h-10 rounded-full border-2 border-slate-600 flex items-start justify-center p-1.5">
+      <div class="w-1 h-2 rounded-full bg-slate-400"></div>
+    </div>
+  </div>
+</section>
+
+<!-- FEATURES STRIP -->
+<section class="relative py-10 px-6">
+  <div class="max-w-5xl mx-auto">
+    <div class="glass rounded-2xl px-6 py-5" style="background: rgba(255,255,255,0.03); border-color: rgba(91,46,255,0.15);">
+      <div class="grid grid-cols-2 md:grid-cols-4 divide-x divide-x-reverse" style="divide-color: rgba(91,46,255,0.15);">
+
+        <!-- آمن -->
+        <div class="flex items-center gap-4 px-6 py-2 group">
+          <div class="w-11 h-11 rounded-xl flex items-center justify-center shrink-0 transition group-hover:scale-110" style="background: rgba(91,46,255,0.15);">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#5B2EFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+            </svg>
+          </div>
+          <div>
+            <div class="font-black text-sm tracking-wide" style="color:#5B2EFF;">آمن</div>
+            <div class="text-xs text-slate-400 leading-snug">بياناتك ومعاملاتك محمية</div>
+          </div>
+        </div>
+
+        <!-- سريع -->
+        <div class="flex items-center gap-4 px-6 py-2 group">
+          <div class="w-11 h-11 rounded-xl flex items-center justify-center shrink-0 transition group-hover:scale-110" style="background: rgba(0,194,168,0.12);">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#00C2A8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/>
+            </svg>
+          </div>
+          <div>
+            <div class="font-black text-sm tracking-wide" style="color:#00C2A8;">سريع</div>
+            <div class="text-xs text-slate-400 leading-snug">تسليم في الوقت المحدد</div>
+          </div>
+        </div>
+
+        <!-- رقمي -->
+        <div class="flex items-center gap-4 px-6 py-2 group">
+          <div class="w-11 h-11 rounded-xl flex items-center justify-center shrink-0 transition group-hover:scale-110" style="background: rgba(124,58,255,0.12);">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#7C3AFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="5" y="2" width="14" height="20" rx="2" ry="2"/><line x1="12" y1="18" x2="12.01" y2="18"/>
+            </svg>
+          </div>
+          <div>
+            <div class="font-black text-sm tracking-wide" style="color:#7C3AFF;">رقمي</div>
+            <div class="text-xs text-slate-400 leading-snug">100% خدمة إلكترونية</div>
+          </div>
+        </div>
+
+        <!-- موثوق -->
+        <div class="flex items-center gap-4 px-6 py-2 group">
+          <div class="w-11 h-11 rounded-xl flex items-center justify-center shrink-0 transition group-hover:scale-110" style="background: rgba(0,194,168,0.12);">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#00C2A8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/>
+            </svg>
+          </div>
+          <div>
+            <div class="font-black text-sm tracking-wide" style="color:#00C2A8;">موثوق</div>
+            <div class="text-xs text-slate-400 leading-snug">شفافية وأمانة في التعامل</div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TRUSTED BY MARQUEE -->
+<section class="relative py-12">
+  <div class="text-center mb-6 text-xs text-slate-500 font-bold tracking-widest uppercase" data-i18n="marquee.title">تقنيات أعمل بها</div>
+  <div class="marquee">
+    <div class="marquee-track">
+      <span class="text-3xl text-slate-600 hover:text-amber-400 transition cursor-default">📱 Flutter</span>
+      <span class="text-3xl text-slate-600 hover:text-emerald-400 transition cursor-default">⚡ Supabase</span>
+      <span class="text-3xl text-slate-600 hover:text-amber-400 transition cursor-default">🐍 Python</span>
+      <span class="text-3xl text-slate-600 hover:text-emerald-400 transition cursor-default">🏢 Odoo 17</span>
+      <span class="text-3xl text-slate-600 hover:text-amber-400 transition cursor-default">🐳 Docker</span>
+      <span class="text-3xl text-slate-600 hover:text-emerald-400 transition cursor-default">🤖 Claude AI</span>
+      <span class="text-3xl text-slate-600 hover:text-amber-400 transition cursor-default">📊 Excel/VBA</span>
+      <span class="text-3xl text-slate-600 hover:text-emerald-400 transition cursor-default">🔐 ZATCA</span>
+    </div>
+    <div class="marquee-track" aria-hidden="true">
+      <span class="text-3xl text-slate-600">📱 Flutter</span>
+      <span class="text-3xl text-slate-600">⚡ Supabase</span>
+      <span class="text-3xl text-slate-600">🐍 Python</span>
+      <span class="text-3xl text-slate-600">🏢 Odoo 17</span>
+      <span class="text-3xl text-slate-600">🐳 Docker</span>
+      <span class="text-3xl text-slate-600">🤖 Claude AI</span>
+      <span class="text-3xl text-slate-600">📊 Excel/VBA</span>
+      <span class="text-3xl text-slate-600">🔐 ZATCA</span>
+    </div>
+  </div>
+</section>
+
+<!-- HERO SLIDER / BANNERS -->
+<section class="relative py-12 px-6 overflow-hidden">
+  <div class="max-w-5xl mx-auto">
+    <div class="slider-container relative rounded-3xl overflow-hidden" style="height: 200px;">
+
+      <!-- Slide 1 -->
+      <div class="slide active" style="background: linear-gradient(135deg, #5B2EFF 0%, #00C2A8 100%);">
+        <div class="slide-content">
+          <div class="slide-icon">📊</div>
+          <div>
+            <div class="slide-title">حسابات أعمالك — بلا تعقيد</div>
+            <div class="slide-sub">متابعة شهرية + تقارير مالية + ZATCA — كل شيء في مكان واحد</div>
+          </div>
+          <a href="#services" class="slide-btn">ابدأ الآن →</a>
+        </div>
+      </div>
+
+      <!-- Slide 2 -->
+      <div class="slide" style="background: linear-gradient(135deg, #7C3AFF 0%, #5B2EFF 60%, #00C2A8 100%);">
+        <div class="slide-content">
+          <div class="slide-icon">📱</div>
+          <div>
+            <div class="slide-title">فكرتك → تطبيق حقيقي</div>
+            <div class="slide-sub">نبني تطبيقات Flutter احترافية لـ Android & iOS بأسرع وقت</div>
+          </div>
+          <a href="#services" class="slide-btn">اعرف أكثر →</a>
+        </div>
+      </div>
+
+      <!-- Slide 3 -->
+      <div class="slide" style="background: linear-gradient(135deg, #00C2A8 0%, #009688 40%, #5B2EFF 100%);">
+        <div class="slide-content">
+          <div class="slide-icon">🏢</div>
+          <div>
+            <div class="slide-title">نظام Odoo ERP لأعمالك</div>
+            <div class="slide-sub">فواتير ضريبية + مخزون + تقارير — كل شيء آلي وذكي</div>
+          </div>
+          <a href="#contact" class="slide-btn">احجز استشارة →</a>
+        </div>
+      </div>
+
+      <!-- Slide 4 -->
+      <div class="slide" style="background: linear-gradient(135deg, #1a0a4a 0%, #5B2EFF 50%, #00C2A8 100%);">
+        <div class="slide-content">
+          <div class="slide-icon">🤖</div>
+          <div>
+            <div class="slide-title">ذكاء اصطناعي في خدمة أعمالك</div>
+            <div class="slide-sub">بوتات ذكية + Claude AI + أتمتة كاملة لعمليات شركتك</div>
+          </div>
+          <a href="#contact" class="slide-btn">تواصل معنا →</a>
+        </div>
+      </div>
+
+      <!-- Dots -->
+      <div class="slider-dots">
+        <span class="dot active" onclick="goSlide(0)"></span>
+        <span class="dot" onclick="goSlide(1)"></span>
+        <span class="dot" onclick="goSlide(2)"></span>
+        <span class="dot" onclick="goSlide(3)"></span>
+      </div>
+
+      <!-- Arrows -->
+      <button class="slider-arrow slider-prev" onclick="prevSlide()">‹</button>
+      <button class="slider-arrow slider-next" onclick="nextSlide()">›</button>
+    </div>
+  </div>
+</section>
+
+<style>
+  .slider-container { position: relative; }
+  .slide {
+    position: absolute;
+    inset: 0;
+    opacity: 0;
+    transform: translateX(100%);
+    transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+    display: flex;
+    align-items: center;
+    padding: 0 40px;
+  }
+  .slide.active { opacity: 1; transform: translateX(0); }
+  .slide.prev { opacity: 0; transform: translateX(-100%); }
+  .slide-content {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+    width: 100%;
+  }
+  .slide-icon {
+    font-size: 3.5rem;
+    flex-shrink: 0;
+    filter: drop-shadow(0 0 20px rgba(255,255,255,0.4));
+    animation: iconFloat 3s ease-in-out infinite;
+  }
+  @keyframes iconFloat { 0%,100%{transform:translateY(0);} 50%{transform:translateY(-8px);} }
+  .slide-title {
+    font-size: 1.4rem;
+    font-weight: 900;
+    color: white;
+    margin-bottom: 6px;
+    text-shadow: 0 2px 10px rgba(0,0,0,0.3);
+  }
+  .slide-sub {
+    font-size: 0.82rem;
+    color: rgba(255,255,255,0.8);
+    line-height: 1.5;
+  }
+  .slide-btn {
+    margin-right: auto;
+    flex-shrink: 0;
+    background: rgba(255,255,255,0.2);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255,255,255,0.35);
+    color: white;
+    padding: 10px 22px;
+    border-radius: 50px;
+    font-size: 0.82rem;
+    font-weight: 700;
+    text-decoration: none;
+    transition: all 0.2s;
+    white-space: nowrap;
+  }
+  .slide-btn:hover { background: rgba(255,255,255,0.35); transform: scale(1.05); }
+  .slider-dots {
+    position: absolute;
+    bottom: 14px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 8px;
+  }
+  .dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.4);
+    cursor: pointer;
+    transition: all 0.3s;
+  }
+  .dot.active { background: white; width: 24px; border-radius: 4px; }
+  .slider-arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(255,255,255,0.15);
+    border: none;
+    color: white;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    font-size: 1.4rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.2s;
+    line-height: 1;
+  }
+  .slider-arrow:hover { background: rgba(255,255,255,0.3); }
+  .slider-prev { right: 10px; }
+  .slider-next { left: 10px; }
+  @media (max-width: 640px) {
+    .slide { padding: 0 20px; }
+    .slide-title { font-size: 1rem; }
+    .slide-btn { display: none; }
+    .slide-icon { font-size: 2.5rem; }
+  }
+</style>
+
+<script>
+  // SLIDER
+  let currentSlide = 0;
+  const slides = document.querySelectorAll('.slide');
+  const dots = document.querySelectorAll('.dot');
+  let sliderTimer;
+
+  function goSlide(n) {
+    slides[currentSlide].classList.remove('active');
+    slides[currentSlide].classList.add('prev');
+    setTimeout(() => slides[currentSlide < slides.length ? currentSlide : 0].classList.remove('prev'), 600);
+    dots[currentSlide].classList.remove('active');
+    currentSlide = (n + slides.length) % slides.length;
+    slides[currentSlide].classList.add('active');
+    dots[currentSlide].classList.add('active');
+    resetTimer();
+  }
+  function nextSlide() { goSlide(currentSlide + 1); }
+  function prevSlide() { goSlide(currentSlide - 1); }
+  function resetTimer() {
+    clearInterval(sliderTimer);
+    sliderTimer = setInterval(() => goSlide(currentSlide + 1), 4500);
+  }
+  resetTimer();
+</script>
+
+<!-- ABOUT -->
+<section id="about" class="relative py-32 px-6">
+  <div class="max-w-5xl mx-auto">
+    <div class="reveal grid md:grid-cols-2 gap-12 items-center">
+      <div>
+        <span class="badge" data-i18n="about.badge"><span>👋</span> من أنا</span>
+        <h2 class="text-4xl md:text-5xl font-black mt-4 mb-6 leading-tight" data-i18n-html="about.title">
+          أحوّل المشاكل المعقّدة<br/>إلى <span class="gradient-mix">حلول بسيطة</span>
+        </h2>
+        <p class="text-slate-400 leading-relaxed mb-4" data-i18n="about.p1">
+          حسين العولقي — مهندس برمجيات وصانع منتجات رقمية، ومحاسب بخبرة عملية في إدارة حسابات
+          المحلات والشركات الصغيرة.
+        </p>
+        <p class="text-slate-400 leading-relaxed mb-4" data-i18n-html="about.p2">
+          أؤمن إن <strong class="text-white">التقنية + المحاسبة = ثنائية ذهبية</strong>.
+          أبني تطبيقات Flutter للمتاجر، أنظمة Odoo للعقارات، وقوالب محاسبية جاهزة،
+          وأقدّم متابعة حسابات شهرية عن بُعد أو حضورياً.
+        </p>
+        <div class="flex flex-wrap gap-2 mt-6">
+          <span class="badge" data-i18n="about.tag1">🇸🇦 السعودية</span>
+          <span class="badge" data-i18n="about.tag2">🇾🇪 اليمن</span>
+          <span class="badge" data-i18n="about.tag3">🌍 عن بُعد</span>
+          <span class="badge" data-i18n="about.tag4">⚡ تسليم سريع</span>
+        </div>
+      </div>
+
+      <div class="grid grid-cols-2 gap-4">
+        <div class="glass rounded-2xl p-6 hover:-translate-y-2 transition">
+          <div class="text-3xl mb-3">💻</div>
+          <h3 class="font-bold mb-2" data-i18n="about.card1.title">جانب تقني</h3>
+          <p class="text-xs text-slate-400" data-i18n="about.card1.desc">Flutter, Supabase, Odoo, Python</p>
+        </div>
+        <div class="glass rounded-2xl p-6 hover:-translate-y-2 transition mt-8">
+          <div class="text-3xl mb-3">📊</div>
+          <h3 class="font-bold mb-2" data-i18n="about.card2.title">جانب محاسبي</h3>
+          <p class="text-xs text-slate-400" data-i18n="about.card2.desc">SAR, ZATCA, Excel, Sheets</p>
+        </div>
+        <div class="glass rounded-2xl p-6 hover:-translate-y-2 transition">
+          <div class="mb-3">
+            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5">
+              <defs><linearGradient id="cGrad" x1="0%" y1="100%" x2="100%" y2="0%"><stop offset="0%" stop-color="#5B2EFF"/><stop offset="100%" stop-color="#00C2A8"/></linearGradient></defs>
+              <polyline points="22 7 13.5 15.5 8.5 10.5 2 17" stroke="url(#cGrad)"/>
+              <polyline points="16 7 22 7 22 13" stroke="url(#cGrad)"/>
+            </svg>
+          </div>
+          <h3 class="font-bold mb-2" data-i18n="about.card3.title">صانع منتجات</h3>
+          <p class="text-xs text-slate-400" data-i18n="about.card3.desc">من الفكرة إلى Play Store</p>
+        </div>
+        <div class="glass rounded-2xl p-6 hover:-translate-y-2 transition mt-8">
+          <div class="text-3xl mb-3">🤖</div>
+          <h3 class="font-bold mb-2" data-i18n="about.card4.title">AI Integrator</h3>
+          <p class="text-xs text-slate-400" data-i18n="about.card4.desc">Claude API, Telegram Bots</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section id="services" class="relative py-32 px-6">
+  <div class="max-w-6xl mx-auto">
+    <div class="reveal text-center mb-16">
+      <span class="badge" data-i18n="services.badge"><span>🛠️</span> الخدمات</span>
+      <h2 class="text-4xl md:text-5xl font-black mt-4 mb-4" data-i18n-html="services.title">
+        كيف <span class="gradient-mix">أساعدك</span>؟
+      </h2>
+      <p class="text-slate-400 max-w-2xl mx-auto" data-i18n="services.subtitle">جانبان متكاملان من نفس الشخص — وفّر وقتك وثق بمن يفهم التقنية والأرقام معاً.</p>
+      <div class="inline-flex items-center gap-2 mt-6 px-5 py-2.5 rounded-full" style="background:rgba(91,46,255,0.1);border:1px solid rgba(91,46,255,0.3);">
+        <span class="w-2 h-2 rounded-full bg-violet-400 animate-pulse"></span>
+        <span class="text-sm font-semibold" style="color:#a78bfa;">🚧 الموقع قيد التطوير — خدمات إضافية قريباً</span>
+      </div>
+    </div>
+
+    <div class="grid md:grid-cols-2 gap-6">
+      <!-- TECH -->
+      <div class="reveal glass rounded-3xl p-8 border-r-4 border-amber-400">
+        <div class="text-4xl mb-4">💻</div>
+        <h3 class="text-2xl font-extrabold gradient-tech mb-6" data-i18n="services.tech.title">الجانب التقني</h3>
+        <ul class="space-y-4">
+          <li class="flex items-start gap-3">
+            <span class="text-amber-400 mt-1">●</span>
+            <div>
+              <strong class="block" data-i18n="services.tech.i1.t">تطوير تطبيقات Flutter</strong>
+              <span class="text-sm text-slate-400" data-i18n="services.tech.i1.d">من الفكرة إلى Play Store / App Store</span>
+            </div>
+          </li>
+          <li class="flex items-start gap-3">
+            <span class="text-amber-400 mt-1">●</span>
+            <div>
+              <strong class="block" data-i18n="services.tech.i2.t">أنظمة Odoo / ERP</strong>
+              <span class="text-sm text-slate-400" data-i18n="services.tech.i2.d">تثبيت، تخصيص، تقارير، فواتير ZATCA</span>
+            </div>
+          </li>
+          <li class="flex items-start gap-3">
+            <span class="text-amber-400 mt-1">●</span>
+            <div>
+              <strong class="block" data-i18n="services.tech.i3.t">بوتات ذكية + AI</strong>
+              <span class="text-sm text-slate-400" data-i18n="services.tech.i3.d">Telegram + Claude API لخدمة عملائك</span>
+            </div>
+          </li>
+          <li class="flex items-start gap-3">
+            <span class="text-amber-400 mt-1">●</span>
+            <div>
+              <strong class="block" data-i18n="services.tech.i4.t">حلول مخصصة</strong>
+              <span class="text-sm text-slate-400" data-i18n="services.tech.i4.d">أتمتة، تكامل APIs، Web scraping</span>
+            </div>
+          </li>
+        </ul>
+      </div>
+
+      <!-- ACCT -->
+      <div class="reveal glass rounded-3xl p-8 border-r-4 border-emerald-400">
+        <div class="text-4xl mb-4">📊</div>
+        <h3 class="text-2xl font-extrabold gradient-acct mb-6" data-i18n="services.acct.title">الجانب المحاسبي</h3>
+        <ul class="space-y-4">
+          <li class="flex items-start gap-3">
+            <span class="text-emerald-400 mt-1">●</span>
+            <div>
+              <strong class="block" data-i18n="services.acct.i1.t">متابعة حسابات شهرية</strong>
+              <span class="text-sm text-slate-400" data-i18n="services.acct.i1.d">عن بُعد — تقارير دورية + تحليل أرباح</span>
+            </div>
+          </li>
+          <li class="flex items-start gap-3">
+            <span class="text-emerald-400 mt-1">●</span>
+            <div>
+              <strong class="block" data-i18n="services.acct.i2.t">محاسبة المحلات حضورياً</strong>
+              <span class="text-sm text-slate-400" data-i18n="services.acct.i2.d">جرد، مبيعات، مصاريف، رواتب</span>
+            </div>
+          </li>
+          <li class="flex items-start gap-3">
+            <span class="text-emerald-400 mt-1">●</span>
+            <div>
+              <strong class="block" data-i18n="services.acct.i3.t">قوالب محاسبية جاهزة</strong>
+              <span class="text-sm text-slate-400" data-i18n="services.acct.i3.d">Excel / Google Sheets مخصصة لنشاطك</span>
+            </div>
+          </li>
+          <li class="flex items-start gap-3">
+            <span class="text-emerald-400 mt-1">●</span>
+            <div>
+              <strong class="block" data-i18n="services.acct.i4.t">فواتير ZATCA متوافقة</strong>
+              <span class="text-sm text-slate-400" data-i18n="services.acct.i4.d">QR Code + ضريبة القيمة المضافة</span>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Hybrid -->
+    <div class="reveal mt-6 glass rounded-3xl p-8 border-2 text-center" style="border-color: rgba(91,46,255,0.35); background: linear-gradient(135deg, rgba(91,46,255,0.08), rgba(0,194,168,0.06));">
+      <div class="mx-auto mb-4 flex items-center justify-center" style="width:64px;height:64px;border-radius:18px;background:linear-gradient(135deg,rgba(91,46,255,0.2),rgba(0,194,168,0.15));border:1px solid rgba(91,46,255,0.3);">
+        <svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5">
+          <defs>
+            <linearGradient id="hGrad" x1="0%" y1="100%" x2="100%" y2="0%">
+              <stop offset="0%" stop-color="#5B2EFF"/>
+              <stop offset="100%" stop-color="#00C2A8"/>
+            </linearGradient>
+          </defs>
+          <polyline points="22 7 13.5 15.5 8.5 10.5 2 17" stroke="url(#hGrad)"/>
+          <polyline points="16 7 22 7 22 13" stroke="url(#hGrad)"/>
+        </svg>
+      </div>
+      <h3 class="text-2xl font-extrabold gradient-mix mb-3" data-i18n="services.hybrid.title">المزيج الذهبي — الباقة المتكاملة</h3>
+      <p class="text-slate-400 max-w-2xl mx-auto" data-i18n-html="services.hybrid.desc">
+        تطوير تطبيق + متابعة حساباتك الشهرية + أنظمة محاسبية مخصصة لنشاطك.
+        <strong class="text-white">شخص واحد يفهم تقنية أعمالك ومحاسبتها معاً.</strong>
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- PROCESS / كيف نعمل -->
+<section id="process" class="relative py-32 px-6">
+  <div class="max-w-5xl mx-auto">
+    <div class="reveal text-center mb-16">
+      <span class="badge" data-i18n="process.badge"><span>🛤️</span> رحلة العمل</span>
+      <h2 class="text-4xl md:text-5xl font-black mt-4 mb-4" data-i18n-html="process.title">
+        كيف <span class="gradient-mix">نعمل سويّة</span>؟
+      </h2>
+      <p class="text-slate-400 max-w-2xl mx-auto" data-i18n="process.subtitle">عملية واضحة من 4 مراحل — لا مفاجآت، لا تعقيدات.</p>
+    </div>
+
+    <div class="relative">
+      <!-- Vertical line -->
+      <div class="absolute right-1/2 translate-x-1/2 top-0 bottom-0 w-1 timeline-line hidden md:block"></div>
+
+      <div class="space-y-12">
+        <!-- Step 1 -->
+        <div class="reveal grid md:grid-cols-2 gap-8 items-center">
+          <div class="md:text-left order-2 md:order-1">
+            <div class="glass rounded-3xl p-8">
+              <div class="text-amber-400 font-bold text-sm mb-2" data-i18n="process.s1.label">المرحلة 01</div>
+              <h3 class="text-2xl font-extrabold mb-3" data-i18n="process.s1.title">📞 المكالمة الأولى</h3>
+              <p class="text-slate-400" data-i18n="process.s1.desc">نتحدث 30 دقيقة عبر واتساب أو Google Meet لفهم مشروعك، أهدافك، وميزانيتك. مجاناً وبدون التزام.</p>
+            </div>
+          </div>
+          <div class="order-1 md:order-2 flex justify-center">
+            <div class="w-20 h-20 rounded-full bg-gradient-to-br from-amber-400 to-amber-600 flex items-center justify-center text-3xl font-black text-slate-900 shadow-2xl shadow-amber-500/30">1</div>
+          </div>
+        </div>
+
+        <!-- Step 2 -->
+        <div class="reveal grid md:grid-cols-2 gap-8 items-center">
+          <div class="flex justify-center">
+            <div class="w-20 h-20 rounded-full bg-gradient-to-br from-emerald-400 to-emerald-600 flex items-center justify-center text-3xl font-black text-slate-900 shadow-2xl shadow-emerald-500/30">2</div>
+          </div>
+          <div>
+            <div class="glass rounded-3xl p-8">
+              <div class="text-emerald-400 font-bold text-sm mb-2" data-i18n="process.s2.label">المرحلة 02</div>
+              <h3 class="text-2xl font-extrabold mb-3" data-i18n="process.s2.title">📝 العرض والاتفاق</h3>
+              <p class="text-slate-400" data-i18n="process.s2.desc">أرسل لك عرضاً مفصّلاً: المخرجات، الجدول الزمني، السعر النهائي. لا رسوم خفية ولا تكاليف إضافية.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Step 3 -->
+        <div class="reveal grid md:grid-cols-2 gap-8 items-center">
+          <div class="md:text-left order-2 md:order-1">
+            <div class="glass rounded-3xl p-8">
+              <div class="text-amber-400 font-bold text-sm mb-2" data-i18n="process.s3.label">المرحلة 03</div>
+              <h3 class="text-2xl font-extrabold mb-3" data-i18n="process.s3.title">🚀 التنفيذ والتحديثات</h3>
+              <p class="text-slate-400" data-i18n="process.s3.desc">أبدأ التنفيذ مع تحديثات دورية أسبوعية. تشاهد التقدّم الحقيقي وتطلب التعديلات في وقتها.</p>
+            </div>
+          </div>
+          <div class="order-1 md:order-2 flex justify-center">
+            <div class="w-20 h-20 rounded-full bg-gradient-to-br from-amber-400 to-amber-600 flex items-center justify-center text-3xl font-black text-slate-900 shadow-2xl shadow-amber-500/30">3</div>
+          </div>
+        </div>
+
+        <!-- Step 4 -->
+        <div class="reveal grid md:grid-cols-2 gap-8 items-center">
+          <div class="flex justify-center">
+            <div class="w-20 h-20 rounded-full bg-gradient-to-br from-emerald-400 to-emerald-600 flex items-center justify-center text-3xl font-black text-slate-900 shadow-2xl shadow-emerald-500/30">4</div>
+          </div>
+          <div>
+            <div class="glass rounded-3xl p-8">
+              <div class="text-emerald-400 font-bold text-sm mb-2" data-i18n="process.s4.label">المرحلة 04</div>
+              <h3 class="text-2xl font-extrabold mb-3" data-i18n="process.s4.title">🎉 التسليم والدعم</h3>
+              <p class="text-slate-400" data-i18n="process.s4.desc">أسلّم المشروع جاهزاً للعمل + شهر دعم فني مجاني + تدريب على الاستخدام إن احتجت.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROJECTS -->
+<section id="projects" class="relative py-32 px-6">
+  <div class="max-w-6xl mx-auto">
+    <div class="reveal text-center mb-12">
+      <span class="badge" data-i18n="projects.badge"><span>⭐</span> أعمالي</span>
+      <h2 class="text-4xl md:text-5xl font-black mt-4 mb-4" data-i18n-html="projects.title">
+        مشاريع <span class="gradient-mix">منشورة وحقيقية</span>
+      </h2>
+      <p class="text-slate-400 max-w-2xl mx-auto mb-8" data-i18n="projects.subtitle">
+        ليست أفكار بل منتجات تعمل اليوم. كل مشروع حلّ مشكلة فعلية لمستخدمين حقيقيين.
+      </p>
+
+      <!-- Filter Tabs -->
+      <div class="flex flex-wrap items-center justify-center gap-2">
+        <button class="tab-btn active" data-filter="all" data-i18n="projects.filter.all">الكل</button>
+        <button class="tab-btn" data-filter="tech" data-i18n="projects.filter.tech">📱 تطبيقات</button>
+        <button class="tab-btn" data-filter="acct" data-i18n="projects.filter.acct">📊 محاسبة</button>
+        <button class="tab-btn" data-filter="ai" data-i18n="projects.filter.ai">🤖 ذكاء اصطناعي</button>
+      </div>
+    </div>
+
+    <div id="projects-grid" class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+
+      <article class="reveal project-card glass rounded-3xl p-6 hover:-translate-y-2 transition" data-cat="tech">
+        <div class="aspect-video rounded-2xl mb-5 flex items-center justify-center p-4" style="background: #ffffff; border: 1px solid rgba(245,158,11,0.15); box-shadow: inset 0 0 40px rgba(245,158,11,0.05);">
+          <img src="beehive-icon.png" alt="BeeHive" class="w-full h-full object-contain" />
+        </div>
+        <div class="flex items-center justify-between mb-3">
+          <h3 class="text-xl font-extrabold">BeeHive</h3>
+          <span class="text-xs px-2 py-1 rounded-full bg-amber-500/20 text-amber-700 font-bold" data-i18n="projects.p1.status">اختبار داخلي</span>
+        </div>
+        <p class="text-sm text-slate-600 leading-relaxed mb-4" data-i18n="projects.p1.desc">سوق رقمي يربط العملاء بالحرفيين في اليمن. سباك، كهربائي، نجار — احجز بضغطة.</p>
+        <div class="flex flex-wrap gap-1.5 mb-5">
+          <span class="badge text-[10px]">Flutter</span>
+          <span class="badge text-[10px]">Supabase</span>
+          <span class="badge text-[10px]">FCM</span>
+        </div>
+        <a href="#contact" class="text-sm font-bold text-amber-600 hover:underline" data-i18n="projects.p1.cta">سجّل كمختبِر ←</a>
+      </article>
+
+      <article class="reveal project-card glass rounded-3xl p-6 hover:-translate-y-2 transition" data-cat="acct">
+        <div class="aspect-video rounded-2xl mb-5 flex items-center justify-center text-7xl" style="background: linear-gradient(135deg, #10b981, #059669);">🏢</div>
+        <div class="flex items-center justify-between mb-3">
+          <h3 class="text-xl font-extrabold" data-i18n="projects.p2.title">نظام عقارات Odoo</h3>
+          <span class="text-xs px-2 py-1 rounded-full bg-emerald-500/20 text-emerald-400" data-i18n="projects.p2.status">يعمل</span>
+        </div>
+        <p class="text-sm text-slate-400 leading-relaxed mb-4" data-i18n="projects.p2.desc">نظام محاسبي وعقاري كامل بالريال السعودي مع QR ZATCA وفواتير ضريبية متوافقة.</p>
+        <div class="flex flex-wrap gap-1.5 mb-5">
+          <span class="badge text-[10px]">Odoo 17</span>
+          <span class="badge text-[10px]">Docker</span>
+          <span class="badge text-[10px]">ZATCA</span>
+        </div>
+        <a href="https://beework.art" class="text-sm font-bold text-emerald-400 hover:underline">aldioli.us ←</a>
+      </article>
+
+      <article class="reveal project-card glass rounded-3xl p-6 hover:-translate-y-2 transition" data-cat="tech">
+        <div class="aspect-video rounded-2xl mb-5 flex items-center justify-center text-7xl" style="background: linear-gradient(135deg, #6366f1, #4f46e5);">💳</div>
+        <div class="flex items-center justify-between mb-3">
+          <h3 class="text-xl font-extrabold">BeePay</h3>
+          <span class="text-xs px-2 py-1 rounded-full bg-amber-500/20 text-amber-400" data-i18n="projects.p3.status">قيد التطوير</span>
+        </div>
+        <p class="text-sm text-slate-400 leading-relaxed mb-4" data-i18n="projects.p3.desc">محفظة رقمية مصممة للسوق اليمني — تحويلات وإيداعات وسحوبات بدون بنك.</p>
+        <div class="flex flex-wrap gap-1.5 mb-5">
+          <span class="badge text-[10px]">Flutter</span>
+          <span class="badge text-[10px]">Fintech</span>
+        </div>
+        <span class="text-sm font-bold text-slate-500" data-i18n="projects.p3.cta">قريباً ←</span>
+      </article>
+
+      <article class="reveal project-card glass rounded-3xl p-6 hover:-translate-y-2 transition" data-cat="acct">
+        <div class="aspect-video rounded-2xl mb-5 flex items-center justify-center text-7xl" style="background: linear-gradient(135deg, #047857, #10b981);">📄</div>
+        <div class="flex items-center justify-between mb-3">
+          <h3 class="text-xl font-extrabold" data-i18n="projects.p4.title">فاتورة QR ضريبية</h3>
+          <span class="text-xs px-2 py-1 rounded-full bg-emerald-500/20 text-emerald-400" data-i18n="projects.p4.status">جاهز</span>
+        </div>
+        <p class="text-sm text-slate-400 leading-relaxed mb-4" data-i18n="projects.p4.desc">قالب Excel ذكي بـ VBA يولّد QR Code ZATCA تلقائياً عند إدخال الرقم الضريبي.</p>
+        <div class="flex flex-wrap gap-1.5 mb-5">
+          <span class="badge text-[10px]">Excel</span>
+          <span class="badge text-[10px]">VBA</span>
+          <span class="badge text-[10px]">ZATCA</span>
+        </div>
+        <a href="#contact" class="text-sm font-bold text-emerald-400 hover:underline" data-i18n="projects.p4.cta">اطلب القالب ←</a>
+      </article>
+
+      <article class="reveal project-card glass rounded-3xl p-6 hover:-translate-y-2 transition" data-cat="ai">
+        <div class="aspect-video rounded-2xl mb-5 flex items-center justify-center text-7xl" style="background: linear-gradient(135deg, #8b5cf6, #6d28d9);">🤖</div>
+        <div class="flex items-center justify-between mb-3">
+          <h3 class="text-xl font-extrabold" data-i18n="projects.p5.title">السكرتير الذكي</h3>
+          <span class="text-xs px-2 py-1 rounded-full bg-emerald-500/20 text-emerald-400" data-i18n="projects.p5.status">يعمل</span>
+        </div>
+        <p class="text-sm text-slate-400 leading-relaxed mb-4" data-i18n="projects.p5.desc">بوت Telegram مدعوم بـ Claude AI — يجاوب الاستفسارات ويتذكر السياق ويتعلم.</p>
+        <div class="flex flex-wrap gap-1.5 mb-5">
+          <span class="badge text-[10px]">Claude API</span>
+          <span class="badge text-[10px]">Telegram</span>
+          <span class="badge text-[10px]">Python</span>
+        </div>
+        <a href="#contact" class="text-sm font-bold text-purple-400 hover:underline" data-i18n="projects.p5.cta">جرّب البوت ←</a>
+      </article>
+
+      <article class="reveal project-card glass rounded-3xl p-6 hover:-translate-y-2 transition" data-cat="acct">
+        <div class="aspect-video rounded-2xl mb-5 flex items-center justify-center text-7xl" style="background: linear-gradient(135deg, #f59e0b, #d97706);">📊</div>
+        <div class="flex items-center justify-between mb-3">
+          <h3 class="text-xl font-extrabold" data-i18n="projects.p6.title">قوالب محاسبية</h3>
+          <span class="text-xs px-2 py-1 rounded-full bg-emerald-500/20 text-emerald-400" data-i18n="projects.p6.status">جاهزة</span>
+        </div>
+        <p class="text-sm text-slate-400 leading-relaxed mb-4" data-i18n="projects.p6.desc">مجموعة قوالب Google Sheets جاهزة للمحلات والعقارات — مبيعات، مصاريف، تقارير.</p>
+        <div class="flex flex-wrap gap-1.5 mb-5">
+          <span class="badge text-[10px]">Sheets</span>
+          <span class="badge text-[10px]">App Script</span>
+        </div>
+        <a href="#contact" class="text-sm font-bold text-amber-400 hover:underline" data-i18n="projects.p6.cta">اطلب القالب ←</a>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<!-- PRICING / الباقات -->
+<section id="pricing" class="relative py-32 px-6">
+  <div class="max-w-6xl mx-auto">
+    <div class="reveal text-center mb-16">
+      <span class="badge" data-i18n="pricing.badge"><span>💎</span> الباقات</span>
+      <h2 class="text-4xl md:text-5xl font-black mt-4 mb-4" data-i18n-html="pricing.title">
+        أسعار <span class="gradient-mix">شفّافة وعادلة</span>
+      </h2>
+      <p class="text-slate-400 max-w-2xl mx-auto" data-i18n="pricing.subtitle">اختر الباقة المناسبة — أو اطلب عرضاً مخصصاً لاحتياجاتك.</p>
+    </div>
+
+    <div class="grid md:grid-cols-3 gap-6">
+
+      <!-- Starter -->
+      <div class="reveal pricing-card glass rounded-3xl p-8 flex flex-col">
+        <div class="text-amber-400 text-sm font-bold mb-2" data-i18n="pricing.p1.tag">للمحلات الصغيرة</div>
+        <h3 class="text-2xl font-extrabold mb-4" data-i18n="pricing.p1.title">📊 المتابعة الشهرية</h3>
+        <div class="mb-6">
+          <span class="text-5xl font-black">500</span>
+          <span class="text-slate-400" data-i18n="pricing.p1.unit">ر.س / شهر</span>
+        </div>
+        <ul class="space-y-3 text-sm text-slate-400 mb-8 flex-1">
+          <li class="flex gap-2"><span class="text-emerald-400">✓</span><span data-i18n="pricing.p1.f1">متابعة حسابات شهرية</span></li>
+          <li class="flex gap-2"><span class="text-emerald-400">✓</span><span data-i18n="pricing.p1.f2">تقرير مالي شهري</span></li>
+          <li class="flex gap-2"><span class="text-emerald-400">✓</span><span data-i18n="pricing.p1.f3">فواتير ZATCA متوافقة</span></li>
+          <li class="flex gap-2"><span class="text-slate-600">✗</span><span data-i18n="pricing.p1.f5">تطوير أنظمة</span></li>
+        </ul>
+        <a href="#contact" class="block text-center px-6 py-3 rounded-full glass font-bold hover:bg-white/10 transition" data-i18n="pricing.p1.cta">ابدأ الآن</a>
+      </div>
+
+      <!-- Featured: Hybrid -->
+      <div class="reveal pricing-card featured glass rounded-3xl p-8 flex flex-col relative">
+        <div class="absolute -top-4 left-1/2 -translate-x-1/2 px-4 py-1 rounded-full bg-gradient-to-l from-violet-600 to-teal-400 text-white text-xs font-black" data-i18n="pricing.p2.badge">الأكثر طلباً ⭐</div>
+        <div class="gradient-mix text-sm font-bold mb-2" data-i18n="pricing.p2.tag">للأعمال المتوسطة</div>
+        <h3 class="text-2xl font-extrabold mb-4 flex items-center gap-2" data-i18n="pricing.p2.title">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5">
+            <defs><linearGradient id="pGrad" x1="0%" y1="100%" x2="100%" y2="0%"><stop offset="0%" stop-color="#5B2EFF"/><stop offset="100%" stop-color="#00C2A8"/></linearGradient></defs>
+            <polyline points="22 7 13.5 15.5 8.5 10.5 2 17" stroke="url(#pGrad)"/>
+            <polyline points="16 7 22 7 22 13" stroke="url(#pGrad)"/>
+          </svg>
+          الباقة المتكاملة
+        </h3>
+        <div class="mb-6">
+          <span class="text-5xl font-black">1,500</span>
+          <span class="text-slate-400" data-i18n="pricing.p2.unit">ر.س / شهر</span>
+        </div>
+        <ul class="space-y-3 text-sm text-slate-400 mb-8 flex-1">
+          <li class="flex gap-2"><span class="text-emerald-400">✓</span><span data-i18n="pricing.p2.f1">كل ما في باقة المتابعة</span></li>
+          <li class="flex gap-2"><span class="text-emerald-400">✓</span><span data-i18n="pricing.p2.f2">نظام Odoo مخصص</span></li>
+          <li class="flex gap-2"><span class="text-emerald-400">✓</span><span data-i18n="pricing.p2.f3">قوالب Excel/Sheets خاصة</span></li>
+          <li class="flex gap-2"><span class="text-emerald-400">✓</span><span data-i18n="pricing.p2.f4">تحليلات ذكية بالـ AI</span></li>
+          <li class="flex gap-2"><span class="text-emerald-400">✓</span><span data-i18n="pricing.p2.f5">زيارة حضورية شهرية</span></li>
+        </ul>
+        <a href="#contact" class="block text-center px-6 py-3 rounded-full bg-gradient-to-l from-violet-600 to-teal-400 text-white font-bold hover:scale-105 transition" data-i18n="pricing.p2.cta">احجز الآن</a>
+      </div>
+
+      <!-- App Dev -->
+      <div class="reveal pricing-card glass rounded-3xl p-8 flex flex-col">
+        <div class="text-emerald-400 text-sm font-bold mb-2" data-i18n="pricing.p3.tag">للشركات والأفكار</div>
+        <h3 class="text-2xl font-extrabold mb-4" data-i18n="pricing.p3.title">🚀 تطوير تطبيق</h3>
+        <div class="mb-6">
+          <span class="text-5xl font-black" data-i18n="pricing.p3.price">حسب</span>
+          <span class="text-slate-400" data-i18n="pricing.p3.unit">المشروع</span>
+        </div>
+        <ul class="space-y-3 text-sm text-slate-400 mb-8 flex-1">
+          <li class="flex gap-2"><span class="text-emerald-400">✓</span><span data-i18n="pricing.p3.f1">تصميم UI/UX كامل</span></li>
+          <li class="flex gap-2"><span class="text-emerald-400">✓</span><span data-i18n="pricing.p3.f2">تطوير Flutter (iOS+Android)</span></li>
+          <li class="flex gap-2"><span class="text-emerald-400">✓</span><span data-i18n="pricing.p3.f3">Backend + قاعدة بيانات</span></li>
+          <li class="flex gap-2"><span class="text-emerald-400">✓</span><span data-i18n="pricing.p3.f4">رفع على المتاجر</span></li>
+          <li class="flex gap-2"><span class="text-emerald-400">✓</span><span data-i18n="pricing.p3.f5">3 أشهر دعم مجاني</span></li>
+        </ul>
+        <a href="#contact" class="block text-center px-6 py-3 rounded-full glass font-bold hover:bg-white/10 transition" data-i18n="pricing.p3.cta">اطلب عرضاً</a>
+      </div>
+
+    </div>
+
+    <p class="reveal text-center text-sm text-slate-500 mt-8" data-i18n="pricing.note">
+      💡 جميع الباقات تشمل ضمان رضا أو استرجاع كامل خلال 7 أيام
+    </p>
+  </div>
+</section>
+
+<!-- PAYMENT METHODS -->
+<section class="relative py-24 px-6">
+  <div class="max-w-4xl mx-auto">
+    <div class="reveal text-center mb-12">
+      <span class="badge"><span>💳</span> طرق الدفع</span>
+      <h2 class="text-3xl md:text-4xl font-black mt-4 mb-3">
+        ادفع بطريقتك <span class="gradient-mix">المفضلة</span>
+      </h2>
+      <p class="text-slate-400">نقبل مختلف طرق الدفع المحلية والدولية لراحتك</p>
+    </div>
+
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+
+      <!-- PayPal -->
+      <a href="https://paypal.me/aldioli7" target="_blank" class="reveal glass rounded-3xl p-6 text-center hover:-translate-y-2 transition group">
+        <div class="w-14 h-14 mx-auto mb-4 rounded-2xl flex items-center justify-center" style="background: linear-gradient(135deg, #003087, #009cde);">
+          <svg width="30" height="30" viewBox="0 0 24 24" fill="white">
+            <path d="M7.076 21.337H2.47a.641.641 0 0 1-.633-.74L4.944.901C5.026.382 5.474 0 5.998 0h7.46c2.57 0 4.578.543 5.69 1.81 1.01 1.15 1.304 2.42 1.012 4.287-.023.143-.047.288-.077.437-.983 5.05-4.349 6.797-8.647 6.797h-2.19c-.524 0-.968.382-1.05.9l-1.12 7.106zm14.146-14.42a3.35 3.35 0 0 0-.607-.541c-.013.076-.026.175-.041.254-.93 4.778-4.005 7.201-9.138 7.201h-2.19a.563.563 0 0 0-.556.479l-1.187 7.527h-.506l-.24 1.516a.56.56 0 0 0 .554.647h3.882c.46 0 .85-.334.922-.788.06-.26.76-4.852.816-5.09a.932.932 0 0 1 .923-.788h.58c3.76 0 6.705-1.528 7.565-5.946.36-1.847.174-3.388-.777-4.471z"/>
+          </svg>
+        </div>
+        <div class="font-bold text-sm mb-1">PayPal</div>
+        <div class="text-xs text-slate-400">aldioli7@gmail.com</div>
+      </a>
+
+      <!-- Apple Pay -->
+      <div class="reveal glass rounded-3xl p-6 text-center hover:-translate-y-2 transition group relative">
+        <span class="absolute top-3 left-3 text-[10px] font-bold px-2 py-0.5 rounded-full" style="background:rgba(91,46,255,0.15);color:#a78bfa;">قريباً</span>
+        <div class="w-14 h-14 mx-auto mb-4 rounded-2xl flex items-center justify-center" style="background: linear-gradient(135deg, #1c1c1e, #3a3a3c);">
+          <svg width="30" height="30" viewBox="0 0 24 24" fill="white">
+            <path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/>
+          </svg>
+        </div>
+        <div class="font-bold text-sm mb-1">Apple Pay</div>
+        <div class="text-xs text-slate-400">قريباً</div>
+      </div>
+
+      <!-- Google Pay -->
+      <div class="reveal glass rounded-3xl p-6 text-center hover:-translate-y-2 transition group relative">
+        <span class="absolute top-3 left-3 text-[10px] font-bold px-2 py-0.5 rounded-full" style="background:rgba(0,194,168,0.15);color:#34d399;">قريباً</span>
+        <div class="w-14 h-14 mx-auto mb-4 rounded-2xl flex items-center justify-center" style="background: linear-gradient(135deg, #4285F4, #34A853);">
+          <svg width="30" height="30" viewBox="0 0 24 24" fill="white">
+            <path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/>
+            <path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/>
+            <path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z" fill="#FBBC05"/>
+            <path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/>
+          </svg>
+        </div>
+        <div class="font-bold text-sm mb-1">Google Pay</div>
+        <div class="text-xs text-slate-400">قريباً</div>
+      </div>
+
+      <!-- Wise / Bank Transfer -->
+      <div class="reveal glass rounded-3xl p-6 text-center hover:-translate-y-2 transition group">
+        <div class="w-14 h-14 mx-auto mb-4 rounded-2xl flex items-center justify-center" style="background: linear-gradient(135deg, #00b9ff, #9bffd3);">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="white">
+            <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-2h2v2zm0-4h-2V7h2v6z"/>
+          </svg>
+        </div>
+        <div class="font-bold text-sm mb-1">تحويل بنكي</div>
+        <div class="text-xs text-slate-400">اسأل للتفاصيل</div>
+      </div>
+
+      <!-- مدى -->
+      <div class="reveal glass rounded-3xl p-6 text-center hover:-translate-y-2 transition group">
+        <div class="w-14 h-14 mx-auto mb-4 rounded-2xl flex items-center justify-center text-white font-black" style="background: linear-gradient(135deg, #006633, #009900);">
+          <span style="font-size:0.85rem; font-weight:900;">مدى</span>
+        </div>
+        <div class="font-bold text-sm mb-1">مدى</div>
+        <div class="text-xs text-slate-400">عبر الفاتورة الرسمية</div>
+      </div>
+
+    </div>
+
+    <!-- PayPal highlight -->
+    <div class="reveal mt-6 glass rounded-3xl p-6 flex flex-col md:flex-row items-center justify-between gap-4" style="border-color: rgba(0,156,222,0.4);">
+      <div class="flex items-center gap-4">
+        <div class="w-12 h-12 rounded-xl flex items-center justify-center shrink-0" style="background: linear-gradient(135deg, #003087, #009cde);">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="white">
+            <path d="M7.076 21.337H2.47a.641.641 0 0 1-.633-.74L4.944.901C5.026.382 5.474 0 5.998 0h7.46c2.57 0 4.578.543 5.69 1.81 1.01 1.15 1.304 2.42 1.012 4.287-.023.143-.047.288-.077.437-.983 5.05-4.349 6.797-8.647 6.797h-2.19c-.524 0-.968.382-1.05.9l-1.12 7.106zm14.146-14.42a3.35 3.35 0 0 0-.607-.541c-.013.076-.026.175-.041.254-.93 4.778-4.005 7.201-9.138 7.201h-2.19a.563.563 0 0 0-.556.479l-1.187 7.527h-.506l-.24 1.516a.56.56 0 0 0 .554.647h3.882c.46 0 .85-.334.922-.788.06-.26.76-4.852.816-5.09a.932.932 0 0 1 .923-.788h.58c3.76 0 6.705-1.528 7.565-5.946.36-1.847.174-3.388-.777-4.471z"/>
+          </svg>
+        </div>
+        <div>
+          <div class="font-bold">PayPal الدولي</div>
+          <div class="text-sm text-slate-400" dir="ltr">aldioli7@gmail.com</div>
+        </div>
+      </div>
+      <a href="https://paypal.me/aldioli7" target="_blank"
+         class="inline-flex items-center gap-2 px-6 py-3 rounded-full font-bold text-white hover:scale-105 transition shrink-0"
+         style="background: linear-gradient(135deg, #003087, #009cde); box-shadow: 0 8px 30px rgba(0,156,222,0.3);">
+        ادفع الآن عبر PayPal ←
+      </a>
+    </div>
+
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section class="relative py-32 px-6">
+  <div class="max-w-6xl mx-auto">
+    <div class="reveal text-center mb-16">
+      <span class="badge" data-i18n="tst.badge"><span>💬</span> آراء العملاء</span>
+      <h2 class="text-4xl md:text-5xl font-black mt-4 mb-4" data-i18n-html="tst.title">
+        ماذا يقول <span class="gradient-mix">من عمل معي</span>
+      </h2>
+    </div>
+
+    <div class="grid md:grid-cols-3 gap-6">
+      <div class="reveal glass rounded-3xl p-8">
+        <div class="flex gap-1 mb-4 text-amber-400">★★★★★</div>
+        <p class="text-slate-300 leading-relaxed mb-6 italic" data-i18n="tst.t1.quote">
+          "عبدالله بنى لنا نظام محاسبة كامل بـ Odoo في وقت قياسي. الفواتير الضريبية تشتغل بسلاسة، والدعم الفني سريع جداً."
+        </p>
+        <div class="flex items-center gap-3">
+          <div class="w-12 h-12 rounded-full bg-gradient-to-br from-amber-400 to-emerald-400 flex items-center justify-center font-black text-slate-900">أ</div>
+          <div>
+            <div class="font-bold" data-i18n="tst.t1.name">أحمد محمد</div>
+            <div class="text-xs text-slate-400" data-i18n="tst.t1.role">شركة الشاطئ الأبيض</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="reveal glass rounded-3xl p-8">
+        <div class="flex gap-1 mb-4 text-amber-400">★★★★★</div>
+        <p class="text-slate-300 leading-relaxed mb-6 italic" data-i18n="tst.t2.quote">
+          "تطبيق BeeHive حلّ مشكلة كانت تواجهنا منذ سنوات. التصميم احترافي والاستخدام بسيط حتى لكبار السن."
+        </p>
+        <div class="flex items-center gap-3">
+          <div class="w-12 h-12 rounded-full bg-gradient-to-br from-emerald-400 to-purple-500 flex items-center justify-center font-black text-slate-900">س</div>
+          <div>
+            <div class="font-bold" data-i18n="tst.t2.name">سامي العولقي</div>
+            <div class="text-xs text-slate-400" data-i18n="tst.t2.role">عميل BeeHive</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="reveal glass rounded-3xl p-8">
+        <div class="flex gap-1 mb-4 text-amber-400">★★★★★</div>
+        <p class="text-slate-300 leading-relaxed mb-6 italic" data-i18n="tst.t3.quote">
+          "متابعتنا الشهرية صارت منتظمة وسلسة. التقارير واضحة ومفصّلة، وأقدر أقرر بناءً على أرقام دقيقة."
+        </p>
+        <div class="flex items-center gap-3">
+          <div class="w-12 h-12 rounded-full bg-gradient-to-br from-purple-500 to-amber-400 flex items-center justify-center font-black text-slate-900">م</div>
+          <div>
+            <div class="font-bold" data-i18n="tst.t3.name">محمد الحجاج</div>
+            <div class="text-xs text-slate-400" data-i18n="tst.t3.role">صاحب محل تجاري</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="relative py-32 px-6">
+  <div class="max-w-3xl mx-auto">
+    <div class="reveal text-center mb-16">
+      <span class="badge" data-i18n="faq.badge"><span>❓</span> الأسئلة الشائعة</span>
+      <h2 class="text-4xl md:text-5xl font-black mt-4 mb-4" data-i18n-html="faq.title">
+        إجابات <span class="gradient-mix">مباشرة</span>
+      </h2>
+    </div>
+
+    <div class="space-y-4">
+      <details class="reveal glass rounded-2xl p-6 group">
+        <summary class="flex justify-between items-center font-bold text-lg">
+          <span data-i18n="faq.q1">هل تستطيع العمل عن بُعد بالكامل؟</span>
+          <span class="faq-icon text-2xl text-amber-400">+</span>
+        </summary>
+        <p class="mt-4 text-slate-400 leading-relaxed" data-i18n="faq.a1">
+          نعم، أعمل مع عملاء من السعودية واليمن ودول الخليج بالكامل عن بُعد. أستخدم Google Meet للاجتماعات، WhatsApp للتواصل اليومي، و Trello/Notion لمتابعة المشاريع.
+        </p>
+      </details>
+
+      <details class="reveal glass rounded-2xl p-6 group">
+        <summary class="flex justify-between items-center font-bold text-lg">
+          <span data-i18n="faq.q2">كم تستغرق مدة تطوير تطبيق Flutter كامل؟</span>
+          <span class="faq-icon text-2xl text-amber-400">+</span>
+        </summary>
+        <p class="mt-4 text-slate-400 leading-relaxed" data-i18n="faq.a2">
+          يعتمد على حجم المشروع. تطبيق MVP بميزات أساسية: 4-6 أسابيع. تطبيق متكامل بإدارة وقاعدة بيانات: 8-12 أسبوع. أعطيك تقديراً دقيقاً بعد المكالمة الأولى.
+        </p>
+      </details>
+
+      <details class="reveal glass rounded-2xl p-6 group">
+        <summary class="flex justify-between items-center font-bold text-lg">
+          <span data-i18n="faq.q3">هل تستخدم تقنيات حديثة وآمنة؟</span>
+          <span class="faq-icon text-2xl text-amber-400">+</span>
+        </summary>
+        <p class="mt-4 text-slate-400 leading-relaxed" data-i18n="faq.a3">
+          أستخدم أحدث الإصدارات: Flutter 3.x، Supabase، PostgreSQL، Docker. كلمات المرور مشفّرة بـ SHA256 + Salt، الاتصالات عبر HTTPS، والبيانات الحسّاسة في خوادم محمية.
+        </p>
+      </details>
+
+      <details class="reveal glass rounded-2xl p-6 group">
+        <summary class="flex justify-between items-center font-bold text-lg">
+          <span data-i18n="faq.q4">ماذا يحدث بعد تسليم المشروع؟</span>
+          <span class="faq-icon text-2xl text-amber-400">+</span>
+        </summary>
+        <p class="mt-4 text-slate-400 leading-relaxed" data-i18n="faq.a4">
+          أقدّم شهر دعم فني مجاني لإصلاح أي مشاكل. بعدها يمكن الاشتراك في باقة صيانة شهرية، أو شراء ساعات دعم حسب الحاجة.
+        </p>
+      </details>
+
+      <details class="reveal glass rounded-2xl p-6 group">
+        <summary class="flex justify-between items-center font-bold text-lg">
+          <span data-i18n="faq.q5">هل أملك الكود المصدري بعد التسليم؟</span>
+          <span class="faq-icon text-2xl text-amber-400">+</span>
+        </summary>
+        <p class="mt-4 text-slate-400 leading-relaxed" data-i18n="faq.a5">
+          نعم، 100%. الكود المصدري + قاعدة البيانات + جميع الحسابات تنتقل لك بعد التسليم النهائي. لست مرتبطاً بي بأي شكل.
+        </p>
+      </details>
+
+      <details class="reveal glass rounded-2xl p-6 group">
+        <summary class="flex justify-between items-center font-bold text-lg">
+          <span data-i18n="faq.q6">كيف يتم الدفع؟</span>
+          <span class="faq-icon text-2xl text-amber-400">+</span>
+        </summary>
+        <p class="mt-4 text-slate-400 leading-relaxed" data-i18n="faq.a6">
+          للمشاريع: 30% مقدّم + 40% منتصف + 30% عند التسليم. للاشتراكات الشهرية: تحويل بنكي شهري. أقبل ريال سعودي، دولار، USDT.
+        </p>
+      </details>
+    </div>
+  </div>
+</section>
+
+<!-- BLOG PREVIEW -->
+<section class="relative py-32 px-6">
+  <div class="max-w-6xl mx-auto">
+    <div class="reveal flex items-end justify-between mb-12 flex-wrap gap-4">
+      <div>
+        <span class="badge" data-i18n="blog.badge"><span>📝</span> المدوّنة</span>
+        <h2 class="text-4xl md:text-5xl font-black mt-4" data-i18n-html="blog.title">
+          أفكار <span class="gradient-mix">ومقالات</span>
+        </h2>
+      </div>
+      <span class="text-sm font-bold text-slate-500" data-i18n="blog.soon">المدوّنة قريباً</span>
+    </div>
+
+    <div class="grid md:grid-cols-3 gap-6">
+      <article class="reveal glass rounded-3xl overflow-hidden hover:-translate-y-2 transition">
+        <div class="aspect-video flex items-center justify-center p-6" style="background: #ffffff; border-bottom: 1px solid rgba(245,158,11,0.15);">
+          <img src="beehive-icon.png" alt="BeeHive" class="w-full h-full object-contain" />
+        </div>
+        <div class="p-6">
+          <div class="text-xs text-amber-400 font-bold mb-2" data-i18n="blog.b1.cat">تجربة شخصية</div>
+          <h3 class="text-lg font-extrabold mb-3 leading-tight" data-i18n="blog.b1.title">كيف بنيت BeeHive من فكرة إلى Play Store في 3 أشهر</h3>
+          <p class="text-sm text-slate-400 mb-4" data-i18n="blog.b1.desc">رحلتي مع Flutter + Supabase وتحديات تطوير تطبيق MVP بميزانية محدودة...</p>
+          <span class="text-sm font-bold text-slate-500" data-i18n="blog.cta">قريباً ←</span>
+        </div>
+      </article>
+
+      <article class="reveal glass rounded-3xl overflow-hidden hover:-translate-y-2 transition">
+        <div class="aspect-video flex items-center justify-center text-6xl" style="background: linear-gradient(135deg, #10b981, #059669);">🏢</div>
+        <div class="p-6">
+          <div class="text-xs text-emerald-400 font-bold mb-2" data-i18n="blog.b2.cat">دليل تقني</div>
+          <h3 class="text-lg font-extrabold mb-3 leading-tight" data-i18n="blog.b2.title">دليل ZATCA الشامل: ربط Odoo بفواتير ضريبية متوافقة</h3>
+          <p class="text-sm text-slate-400 mb-4" data-i18n="blog.b2.desc">شرح خطوة بخطوة لإعداد QR Code ZATCA على نظام Odoo 17 من الصفر...</p>
+          <span class="text-sm font-bold text-slate-500" data-i18n="blog.cta">قريباً ←</span>
+        </div>
+      </article>
+
+      <article class="reveal glass rounded-3xl overflow-hidden hover:-translate-y-2 transition">
+        <div class="aspect-video flex items-center justify-center text-6xl" style="background: linear-gradient(135deg, #8b5cf6, #6d28d9);">🤖</div>
+        <div class="p-6">
+          <div class="text-xs text-purple-400 font-bold mb-2" data-i18n="blog.b3.cat">ذكاء اصطناعي</div>
+          <h3 class="text-lg font-extrabold mb-3 leading-tight" data-i18n="blog.b3.title">كيف تحوّل واتساب أعمالك إلى موظف ذكي بـ Claude AI</h3>
+          <p class="text-sm text-slate-400 mb-4" data-i18n="blog.b3.desc">دمج Claude API مع Telegram لإنشاء بوت يفهم العربية ويتعلم من المحادثات...</p>
+          <span class="text-sm font-bold text-slate-500" data-i18n="blog.cta">قريباً ←</span>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact" class="relative py-32 px-6">
+  <div class="max-w-3xl mx-auto">
+    <div class="reveal glass rounded-3xl p-10 md:p-14 text-center relative overflow-hidden">
+      <div class="absolute -top-20 -right-20 w-64 h-64 rounded-full blur-3xl" style="background: rgba(91,46,255,0.25);"></div>
+      <div class="absolute -bottom-20 -left-20 w-64 h-64 rounded-full blur-3xl" style="background: rgba(0,194,168,0.2);"></div>
+
+      <div class="relative">
+        <span class="badge" data-i18n="contact.badge"><span>📬</span> هيا نتحدث</span>
+        <h2 class="text-4xl md:text-5xl font-black mt-4 mb-4" data-i18n-html="contact.title">
+          عندك <span class="gradient-mix">فكرة أو مشكلة</span>؟
+        </h2>
+        <p class="text-slate-400 mb-10 max-w-xl mx-auto" data-i18n="contact.subtitle">
+          استشارة أولية مجانية. أرسل تفاصيل مشروعك وأرد عليك خلال 24 ساعة.
+        </p>
+
+        <div class="grid md:grid-cols-3 gap-4 mb-8">
+          <a href="mailto:aldioli7@gmail.com" class="glass rounded-2xl p-5 hover:-translate-y-1 transition">
+            <div class="text-3xl mb-2">📧</div>
+            <div class="text-xs text-slate-400 mb-1" data-i18n="contact.email.label">إيميل</div>
+            <div class="text-sm font-bold break-all">aldioli7@gmail.com</div>
+          </a>
+          <a href="https://wa.me/966537759626" class="glass rounded-2xl p-5 hover:-translate-y-1 transition">
+            <div class="text-3xl mb-2">💬</div>
+            <div class="text-xs text-slate-400 mb-1" data-i18n="contact.wa.label">واتساب</div>
+            <div class="text-sm font-bold" dir="ltr">+966 53 775 9626</div>
+          </a>
+          <a href="https://t.me/Alawlaqi_AI_bot" class="glass rounded-2xl p-5 hover:-translate-y-1 transition">
+            <div class="text-3xl mb-2">🤖</div>
+            <div class="text-xs text-slate-400 mb-1" data-i18n="contact.tg.label">تيليجرام</div>
+            <div class="text-sm font-bold">@Alawlaqi_AI_bot</div>
+          </a>
+        </div>
+
+        <a href="mailto:aldioli7@gmail.com?subject=استشارة جديدة من aldioli.us"
+           class="inline-flex items-center gap-2 px-10 py-4 rounded-full bg-gradient-to-l from-violet-600 to-teal-400 text-white font-bold hover:scale-105 transition shadow-2xl shadow-emerald-500/20">
+          <span data-i18n="contact.cta">ابدأ مشروعك الآن</span>
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="22 7 13.5 15.5 8.5 10.5 2 17"/>
+            <polyline points="16 7 22 7 22 13"/>
+          </svg>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- BOT BANNER -->
+<section class="relative py-20 px-6">
+  <div class="max-w-5xl mx-auto">
+    <div class="reveal glass rounded-3xl p-10 md:p-14 relative overflow-hidden" style="background: linear-gradient(135deg, rgba(139,92,246,0.12), rgba(251,191,36,0.12), rgba(16,185,129,0.12));">
+      <!-- Decorative hexagons -->
+      <div style="position: absolute; top: -30px; right: -30px; width: 150px; height: 173px; clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%); background: linear-gradient(135deg, #8b5cf6, #6d28d9); opacity: 0.15;"></div>
+      <div style="position: absolute; bottom: -40px; left: -40px; width: 200px; height: 230px; clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%); background: linear-gradient(135deg, #fbbf24, #f59e0b); opacity: 0.15;"></div>
+
+      <div class="relative grid md:grid-cols-2 gap-8 items-center">
+        <div>
+          <span class="badge" data-i18n="bot.badge"><span>🤖</span> ذكاء اصطناعي</span>
+          <h2 class="text-3xl md:text-4xl font-black mt-4 mb-4 leading-tight" data-i18n-html="bot.title">
+            تحدّث مع <span class="gradient-mix">سكرتيري الذكي</span>
+          </h2>
+          <p class="text-slate-600 mb-6 leading-relaxed" data-i18n="bot.desc">
+            بوت تيليجرام مدعوم بـ Claude AI — يجاوب على أسئلتك حول خدماتي،
+            يحجز لك استشارة، ويعطيك معلومات فورية. متاح 24/7 ويفهم العربية تماماً.
+          </p>
+          <div class="flex flex-wrap gap-3">
+            <a href="https://t.me/Alawlaqi_AI_bot" target="_blank"
+               class="inline-flex items-center gap-2 px-6 py-3 rounded-full text-white font-bold hover:scale-105 transition shadow-lg"
+               style="background: linear-gradient(135deg, #8b5cf6, #6d28d9); box-shadow: 0 10px 30px rgba(139,92,246,0.3);">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="white">
+                <path d="M12 0C5.374 0 0 5.373 0 12s5.374 12 12 12 12-5.373 12-12S18.626 0 12 0zm5.568 8.16c-.169 1.858-.896 6.728-1.27 8.971-.155.95-.464 1.268-.762 1.299-.65.06-1.143-.43-1.773-.84-.985-.642-1.546-1.04-2.5-1.667-1.105-.726-.388-1.124.241-1.776.165-.171 3.025-2.77 3.082-3.005.007-.03.014-.137-.052-.193s-.165-.039-.236-.022c-.101.024-1.704 1.082-4.81 3.176-.456.314-.868.466-1.238.458-.408-.008-1.193-.23-1.776-.42-.715-.232-1.282-.355-1.234-.752.025-.207.31-.42.853-.638 3.353-1.46 5.589-2.422 6.708-2.886 3.193-1.327 3.857-1.557 4.29-1.564.094-.002.305.022.442.131.116.092.148.216.164.305s.034.273.018.428z"/>
+              </svg>
+              <span data-i18n="bot.cta">ابدأ المحادثة</span>
+            </a>
+            <a href="https://t.me/Alawlaqi_AI_bot" target="_blank"
+               class="inline-flex items-center gap-2 px-6 py-3 rounded-full font-bold glass hover:scale-105 transition" style="color: #6d28d9;">
+              @Alawlaqi_AI_bot
+            </a>
+          </div>
+        </div>
+
+        <div class="relative">
+          <!-- Phone mockup with chat -->
+          <div class="rounded-3xl p-4 mx-auto max-w-sm" style="background: linear-gradient(135deg, #1e293b, #334155); box-shadow: 0 20px 60px rgba(0,0,0,0.2);">
+            <div class="bg-white rounded-2xl p-4 space-y-3" style="min-height: 280px;">
+              <!-- Bot header -->
+              <div class="flex items-center gap-2 pb-3 border-b border-slate-100">
+                <div class="w-10 h-10 rounded-full flex items-center justify-center text-white" style="background: linear-gradient(135deg, #8b5cf6, #6d28d9);">🤖</div>
+                <div>
+                  <div class="font-bold text-sm" style="color: #1e293b;" data-i18n="bot.chat.name">السكرتير الذكي</div>
+                  <div class="text-xs text-emerald-500 flex items-center gap-1">
+                    <span class="w-1.5 h-1.5 bg-emerald-500 rounded-full"></span>
+                    <span data-i18n="bot.chat.online">متصل الآن</span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Bot message -->
+              <div class="flex justify-start">
+                <div class="rounded-2xl rounded-tr-sm px-4 py-2 max-w-[80%] text-sm" style="background: #f1f5f9; color: #1e293b;" data-i18n="bot.chat.msg1">
+                  مرحباً 👋 أنا مساعد حسين الذكي، كيف أقدر أساعدك اليوم؟
+                </div>
+              </div>
+
+              <!-- User message -->
+              <div class="flex justify-end">
+                <div class="rounded-2xl rounded-tl-sm px-4 py-2 max-w-[80%] text-sm text-white" style="background: linear-gradient(135deg, #8b5cf6, #6d28d9);" data-i18n="bot.chat.msg2">
+                  أبي أعرف أسعار تطوير تطبيق
+                </div>
+              </div>
+
+              <!-- Bot typing -->
+              <div class="flex justify-start">
+                <div class="rounded-2xl rounded-tr-sm px-4 py-2 text-sm" style="background: #f1f5f9; color: #1e293b;">
+                  <span class="inline-flex gap-1">
+                    <span class="w-1.5 h-1.5 bg-slate-400 rounded-full animate-bounce" style="animation-delay: 0s;"></span>
+                    <span class="w-1.5 h-1.5 bg-slate-400 rounded-full animate-bounce" style="animation-delay: 0.2s;"></span>
+                    <span class="w-1.5 h-1.5 bg-slate-400 rounded-full animate-bounce" style="animation-delay: 0.4s;"></span>
+                  </span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES BOTTOM BAR (VIX-style) -->
+<div class="relative border-t border-b py-5 px-6" style="border-color: rgba(91,46,255,0.2); background: rgba(11,15,26,0.9); backdrop-filter: blur(20px);">
+  <div class="max-w-5xl mx-auto grid grid-cols-2 md:grid-cols-4 divide-x divide-x-reverse" style="divide-color: rgba(91,46,255,0.15);">
+
+    <a href="#services" class="flex items-center gap-3 px-6 py-2 group hover:opacity-80 transition">
+      <div class="w-9 h-9 rounded-full flex items-center justify-center shrink-0" style="border: 1.5px solid #5B2EFF;">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#5B2EFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/>
+        </svg>
+      </div>
+      <div>
+        <div class="font-black text-xs tracking-widest uppercase" style="color:#5B2EFF;">حساباتي</div>
+        <div class="text-xs text-slate-500">متابعة شهرية</div>
+      </div>
+    </a>
+
+    <a href="#services" class="flex items-center gap-3 px-6 py-2 group hover:opacity-80 transition">
+      <div class="w-9 h-9 rounded-full flex items-center justify-center shrink-0" style="border: 1.5px solid #00C2A8;">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#00C2A8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <rect x="5" y="2" width="14" height="20" rx="2"/><line x1="12" y1="18" x2="12.01" y2="18"/>
+        </svg>
+      </div>
+      <div>
+        <div class="font-black text-xs tracking-widest uppercase" style="color:#00C2A8;">تطبيقاتي</div>
+        <div class="text-xs text-slate-500">Flutter & Mobile</div>
+      </div>
+    </a>
+
+    <a href="#services" class="flex items-center gap-3 px-6 py-2 group hover:opacity-80 transition">
+      <div class="w-9 h-9 rounded-full flex items-center justify-center shrink-0" style="border: 1.5px solid #7C3AFF;">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#7C3AFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/>
+        </svg>
+      </div>
+      <div>
+        <div class="font-black text-xs tracking-widest uppercase" style="color:#7C3AFF;">أنظمة ERP</div>
+        <div class="text-xs text-slate-500">Odoo & Solutions</div>
+      </div>
+    </a>
+
+    <a href="#contact" class="flex items-center gap-3 px-6 py-2 group hover:opacity-80 transition">
+      <div class="w-9 h-9 rounded-full flex items-center justify-center shrink-0" style="border: 1.5px solid #00C2A8;">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#00C2A8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>
+        </svg>
+      </div>
+      <div>
+        <div class="font-black text-xs tracking-widest uppercase" style="color:#00C2A8;">عالمي</div>
+        <div class="text-xs text-slate-500">خدمة عن بُعد</div>
+      </div>
+    </a>
+
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer class="relative py-12 px-6 border-t border-white/5">
+  <div class="max-w-6xl mx-auto">
+    <div class="grid md:grid-cols-4 gap-8 mb-8">
+      <div class="md:col-span-2">
+        <div class="flex items-center gap-3 mb-3">
+          <img src="site-logo.png" alt="Logo" class="w-12 h-12 rounded-xl object-cover" />
+          <div class="font-extrabold gradient-mix text-2xl">حسين العولقي</div>
+        </div>
+        <p class="text-sm text-slate-400 max-w-sm leading-relaxed" data-i18n="footer.tagline">
+          مهندس برمجيات + محاسب رقمي. أبني منتجات وأدير حسابات الأعمال بذكاء.
+        </p>
+      </div>
+      <div>
+        <div class="font-bold mb-4 text-sm" data-i18n="footer.col1.title">خدمات</div>
+        <ul class="space-y-2 text-sm text-slate-400">
+          <li><a href="#services" class="hover:text-white" data-i18n="footer.col1.l1">تطوير تطبيقات</a></li>
+          <li><a href="#services" class="hover:text-white" data-i18n="footer.col1.l2">أنظمة Odoo</a></li>
+          <li><a href="#services" class="hover:text-white" data-i18n="footer.col1.l3">متابعة حسابات</a></li>
+          <li><a href="#services" class="hover:text-white" data-i18n="footer.col1.l4">قوالب محاسبية</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="font-bold mb-4 text-sm" data-i18n="footer.col2.title">روابط</div>
+        <ul class="space-y-2 text-sm text-slate-400">
+          <li><a href="https://beework.art" class="hover:text-white" data-i18n="footer.col2.l1">Odoo Live</a></li>
+          <li><a href="/beehive-privacy.html" class="hover:text-white" data-i18n="footer.col2.l2">سياسة الخصوصية</a></li>
+          <li><a href="https://github.com/aldioli" class="hover:text-white" data-i18n="footer.col2.l3">GitHub</a></li>
+          <li><a href="https://t.me/Alawlaqi_AI_bot" class="hover:text-white" data-i18n="footer.col2.l4">Telegram Bot</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="pt-8 border-t border-white/5 flex flex-col md:flex-row items-center justify-between gap-4 text-sm text-slate-500">
+      <div data-i18n="footer.copy">© 2026 حسين العولقي — كل الحقوق محفوظة</div>
+      <div class="flex items-center gap-2">
+        <span class="w-2 h-2 rounded-full bg-emerald-400 animate-glow"></span>
+        <span data-i18n="footer.love">مصمّم ومبنيّ بحُب 💛</span>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // Loader
+  window.addEventListener('load', () => {
+    setTimeout(() => document.getElementById('loader').classList.add('hidden'), 400);
+  });
+
+  // Reveal on scroll
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) entry.target.classList.add('visible');
+    });
+  }, { threshold: 0.1 });
+  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+  // Animated counters
+  const counters = document.querySelectorAll('.counter');
+  const counterObs = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        const el = entry.target;
+        const target = +el.dataset.target;
+        const suffix = el.dataset.suffix || '';
+        const duration = 2000;
+        const start = performance.now();
+        const animate = (now) => {
+          const progress = Math.min((now - start) / duration, 1);
+          const eased = 1 - Math.pow(1 - progress, 3);
+          el.textContent = Math.floor(eased * target) + suffix;
+          if (progress < 1) requestAnimationFrame(animate);
+        };
+        requestAnimationFrame(animate);
+        counterObs.unobserve(el);
+      }
+    });
+  }, { threshold: 0.5 });
+  counters.forEach(el => counterObs.observe(el));
+
+  // Project filter tabs
+  const tabs = document.querySelectorAll('.tab-btn');
+  const cards = document.querySelectorAll('.project-card');
+  tabs.forEach(tab => {
+    tab.addEventListener('click', () => {
+      tabs.forEach(t => t.classList.remove('active'));
+      tab.classList.add('active');
+      const filter = tab.dataset.filter;
+      cards.forEach(card => {
+        if (filter === 'all' || card.dataset.cat === filter) {
+          card.style.display = '';
+          card.classList.add('visible');
+        } else {
+          card.style.display = 'none';
+        }
+      });
+    });
+  });
+
+  // Language Toggle (AR / EN) — full content translation
+  const i18n = {
+    ar: {
+      // Loader
+      'loader.text': 'جاري التحميل...',
+      // Nav
+      'nav.about': 'من أنا',
+      'nav.services': 'الخدمات',
+      'nav.process': 'كيف نعمل',
+      'nav.projects': 'المشاريع',
+      'nav.pricing': 'الباقات',
+      'nav.contact': 'تواصل',
+      'nav.cta': 'احجز استشارة',
+      // Hero
+      'hero.badge': 'متاح لاستقبال مشاريع جديدة',
+      'hero.title': 'أبني <span class="gradient-tech">منتجات رقمية</span><br/>وأدير <span class="gradient-acct">حسابات الأعمال</span>',
+      'hero.subtitle': 'مهندس برمجيات + محاسب — أساعدك تحوّل فكرتك إلى تطبيق وتنظّم حسابات شركتك بذكاء. من <strong class="text-white">Flutter</strong> إلى <strong class="text-white">Odoo</strong>، ومن قوالب Excel إلى أنظمة محاسبية متكاملة.',
+      'hero.cta1': 'شاهد أعمالي ↓',
+      'hero.cta2': 'احجز استشارة مجانية →',
+      'hero.cta3': 'جرّب البوت الذكي',
+      'hero.cv': '📥 اطلب CV',
+      'hero.stat1': 'منتج رقمي',
+      'hero.stat2': 'سنوات خبرة',
+      'hero.stat3': 'شركة أتابعها',
+      'hero.stat4': 'ميزة مبنية',
+      // Marquee
+      'marquee.title': 'تقنيات أعمل بها',
+      // About
+      'about.badge': '👋 من أنا',
+      'about.title': 'أحوّل المشاكل المعقّدة<br/>إلى <span class="gradient-mix">حلول بسيطة</span>',
+      'about.p1': 'حسين العولقي — مهندس برمجيات وصانع منتجات رقمية، ومحاسب بخبرة عملية في إدارة حسابات المحلات والشركات الصغيرة.',
+      'about.p2': 'أؤمن إن <strong class="text-white">التقنية + المحاسبة = ثنائية ذهبية</strong>. أبني تطبيقات Flutter للمتاجر، أنظمة Odoo للعقارات، وقوالب محاسبية جاهزة، وأقدّم متابعة حسابات شهرية عن بُعد أو حضورياً.',
+      'about.tag1': '🇸🇦 السعودية',
+      'about.tag2': '🇾🇪 اليمن',
+      'about.tag3': '🌍 عن بُعد',
+      'about.tag4': '⚡ تسليم سريع',
+      'about.card1.title': 'جانب تقني',
+      'about.card1.desc': 'Flutter, Supabase, Odoo, Python',
+      'about.card2.title': 'جانب محاسبي',
+      'about.card2.desc': 'SAR, ZATCA, Excel, Sheets',
+      'about.card3.title': 'صانع منتجات',
+      'about.card3.desc': 'من الفكرة إلى Play Store',
+      'about.card4.title': 'AI Integrator',
+      'about.card4.desc': 'Claude API, Telegram Bots',
+      // Services
+      'services.badge': '🛠️ الخدمات',
+      'services.title': 'كيف <span class="gradient-mix">أساعدك</span>؟',
+      'services.subtitle': 'جانبان متكاملان من نفس الشخص — وفّر وقتك وثق بمن يفهم التقنية والأرقام معاً.',
+      'services.tech.title': 'الجانب التقني',
+      'services.tech.i1.t': 'تطوير تطبيقات Flutter',
+      'services.tech.i1.d': 'من الفكرة إلى Play Store / App Store',
+      'services.tech.i2.t': 'أنظمة Odoo / ERP',
+      'services.tech.i2.d': 'تثبيت، تخصيص، تقارير، فواتير ZATCA',
+      'services.tech.i3.t': 'بوتات ذكية + AI',
+      'services.tech.i3.d': 'Telegram + Claude API لخدمة عملائك',
+      'services.tech.i4.t': 'حلول مخصصة',
+      'services.tech.i4.d': 'أتمتة، تكامل APIs، Web scraping',
+      'services.acct.title': 'الجانب المحاسبي',
+      'services.acct.i1.t': 'متابعة حسابات شهرية',
+      'services.acct.i1.d': 'عن بُعد — تقارير دورية + تحليل أرباح',
+      'services.acct.i2.t': 'محاسبة المحلات حضورياً',
+      'services.acct.i2.d': 'جرد، مبيعات، مصاريف، رواتب',
+      'services.acct.i3.t': 'قوالب محاسبية جاهزة',
+      'services.acct.i3.d': 'Excel / Google Sheets مخصصة لنشاطك',
+      'services.acct.i4.t': 'فواتير ZATCA متوافقة',
+      'services.acct.i4.d': 'QR Code + ضريبة القيمة المضافة',
+      'services.hybrid.title': 'المزيج الذهبي — الباقة المتكاملة',
+      'services.hybrid.desc': 'تطوير تطبيق + متابعة حساباتك الشهرية + أنظمة محاسبية مخصصة لنشاطك. <strong class="text-white">شخص واحد يفهم تقنية أعمالك ومحاسبتها معاً.</strong>',
+      // Process
+      'process.badge': '🛤️ رحلة العمل',
+      'process.title': 'كيف <span class="gradient-mix">نعمل سويّة</span>؟',
+      'process.subtitle': 'عملية واضحة من 4 مراحل — لا مفاجآت، لا تعقيدات.',
+      'process.s1.label': 'المرحلة 01',
+      'process.s1.title': '📞 المكالمة الأولى',
+      'process.s1.desc': 'نتحدث 30 دقيقة عبر واتساب أو Google Meet لفهم مشروعك، أهدافك، وميزانيتك. مجاناً وبدون التزام.',
+      'process.s2.label': 'المرحلة 02',
+      'process.s2.title': '📝 العرض والاتفاق',
+      'process.s2.desc': 'أرسل لك عرضاً مفصّلاً: المخرجات، الجدول الزمني، السعر النهائي. لا رسوم خفية ولا تكاليف إضافية.',
+      'process.s3.label': 'المرحلة 03',
+      'process.s3.title': '🚀 التنفيذ والتحديثات',
+      'process.s3.desc': 'أبدأ التنفيذ مع تحديثات دورية أسبوعية. تشاهد التقدّم الحقيقي وتطلب التعديلات في وقتها.',
+      'process.s4.label': 'المرحلة 04',
+      'process.s4.title': '🎉 التسليم والدعم',
+      'process.s4.desc': 'أسلّم المشروع جاهزاً للعمل + شهر دعم فني مجاني + تدريب على الاستخدام إن احتجت.',
+      // Projects
+      'projects.badge': '⭐ أعمالي',
+      'projects.title': 'مشاريع <span class="gradient-mix">منشورة وحقيقية</span>',
+      'projects.subtitle': 'ليست أفكار بل منتجات تعمل اليوم. كل مشروع حلّ مشكلة فعلية لمستخدمين حقيقيين.',
+      'projects.filter.all': 'الكل',
+      'projects.filter.tech': '📱 تطبيقات',
+      'projects.filter.acct': '📊 محاسبة',
+      'projects.filter.ai': '🤖 ذكاء اصطناعي',
+      'projects.p1.status': 'اختبار داخلي',
+      'projects.p1.desc': 'سوق رقمي يربط العملاء بالحرفيين في اليمن. سباك، كهربائي، نجار — احجز بضغطة.',
+      'projects.p1.cta': 'سجّل كمختبِر ←',
+      'projects.p2.title': 'نظام عقارات Odoo',
+      'projects.p2.status': 'يعمل',
+      'projects.p2.desc': 'نظام محاسبي وعقاري كامل بالريال السعودي مع QR ZATCA وفواتير ضريبية متوافقة.',
+      'projects.p3.status': 'قيد التطوير',
+      'projects.p3.desc': 'محفظة رقمية مصممة للسوق اليمني — تحويلات وإيداعات وسحوبات بدون بنك.',
+      'projects.p3.cta': 'قريباً ←',
+      'projects.p4.title': 'فاتورة QR ضريبية',
+      'projects.p4.status': 'جاهز',
+      'projects.p4.desc': 'قالب Excel ذكي بـ VBA يولّد QR Code ZATCA تلقائياً عند إدخال الرقم الضريبي.',
+      'projects.p4.cta': 'اطلب القالب ←',
+      'projects.p5.title': 'السكرتير الذكي',
+      'projects.p5.status': 'يعمل',
+      'projects.p5.desc': 'بوت Telegram مدعوم بـ Claude AI — يجاوب الاستفسارات ويتذكر السياق ويتعلم.',
+      'projects.p5.cta': 'جرّب البوت ←',
+      'projects.p6.title': 'قوالب محاسبية',
+      'projects.p6.status': 'جاهزة',
+      'projects.p6.desc': 'مجموعة قوالب Google Sheets جاهزة للمحلات والعقارات — مبيعات، مصاريف، تقارير.',
+      'projects.p6.cta': 'اطلب القالب ←',
+      // Pricing
+      'pricing.badge': '💎 الباقات',
+      'pricing.title': 'أسعار <span class="gradient-mix">شفّافة وعادلة</span>',
+      'pricing.subtitle': 'اختر الباقة المناسبة — أو اطلب عرضاً مخصصاً لاحتياجاتك.',
+      'pricing.p1.tag': 'للمحلات الصغيرة',
+      'pricing.p1.title': '📊 المتابعة الشهرية',
+      'pricing.p1.unit': 'ر.س / شهر',
+      'pricing.p1.f1': 'متابعة حسابات شهرية',
+      'pricing.p1.f2': 'تقرير مالي شهري',
+      'pricing.p1.f3': 'فواتير ZATCA متوافقة',
+      'pricing.p1.f4': 'دعم واتساب',
+      'pricing.p1.f5': 'تطوير أنظمة',
+      'pricing.p1.cta': 'ابدأ الآن',
+      'pricing.p2.badge': 'الأكثر طلباً ⭐',
+      'pricing.p2.tag': 'للأعمال المتوسطة',
+      'pricing.p2.title': '🎯 الباقة المتكاملة',
+      'pricing.p2.unit': 'ر.س / شهر',
+      'pricing.p2.f1': 'كل ما في باقة المتابعة',
+      'pricing.p2.f2': 'نظام Odoo مخصص',
+      'pricing.p2.f3': 'قوالب Excel/Sheets خاصة',
+      'pricing.p2.f4': 'تحليلات ذكية بالـ AI',
+      'pricing.p2.f5': 'زيارة حضورية شهرية',
+      'pricing.p2.cta': 'احجز الآن',
+      'pricing.p3.tag': 'للشركات والأفكار',
+      'pricing.p3.title': '🚀 تطوير تطبيق',
+      'pricing.p3.price': 'حسب',
+      'pricing.p3.unit': 'المشروع',
+      'pricing.p3.f1': 'تصميم UI/UX كامل',
+      'pricing.p3.f2': 'تطوير Flutter (iOS+Android)',
+      'pricing.p3.f3': 'Backend + قاعدة بيانات',
+      'pricing.p3.f4': 'رفع على المتاجر',
+      'pricing.p3.f5': '3 أشهر دعم مجاني',
+      'pricing.p3.cta': 'اطلب عرضاً',
+      'pricing.note': '💡 جميع الباقات تشمل ضمان رضا أو استرجاع كامل خلال 7 أيام',
+      // Testimonials
+      'tst.badge': '💬 آراء العملاء',
+      'tst.title': 'ماذا يقول <span class="gradient-mix">من عمل معي</span>',
+      'tst.t1.quote': '"عبدالله بنى لنا نظام محاسبة كامل بـ Odoo في وقت قياسي. الفواتير الضريبية تشتغل بسلاسة، والدعم الفني سريع جداً."',
+      'tst.t1.name': 'أحمد محمد',
+      'tst.t1.role': 'شركة الشاطئ الأبيض',
+      'tst.t2.quote': '"تطبيق BeeHive حلّ مشكلة كانت تواجهنا منذ سنوات. التصميم احترافي والاستخدام بسيط حتى لكبار السن."',
+      'tst.t2.name': 'سامي العولقي',
+      'tst.t2.role': 'عميل BeeHive',
+      'tst.t3.quote': '"متابعتنا الشهرية صارت منتظمة وسلسة. التقارير واضحة ومفصّلة، وأقدر أقرر بناءً على أرقام دقيقة."',
+      'tst.t3.name': 'محمد الحجاج',
+      'tst.t3.role': 'صاحب محل تجاري',
+      // FAQ
+      'faq.badge': '❓ الأسئلة الشائعة',
+      'faq.title': 'إجابات <span class="gradient-mix">مباشرة</span>',
+      'faq.q1': 'هل تستطيع العمل عن بُعد بالكامل؟',
+      'faq.a1': 'نعم، أعمل مع عملاء من السعودية واليمن ودول الخليج بالكامل عن بُعد. أستخدم Google Meet للاجتماعات، WhatsApp للتواصل اليومي، و Trello/Notion لمتابعة المشاريع.',
+      'faq.q2': 'كم تستغرق مدة تطوير تطبيق Flutter كامل؟',
+      'faq.a2': 'يعتمد على حجم المشروع. تطبيق MVP بميزات أساسية: 4-6 أسابيع. تطبيق متكامل بإدارة وقاعدة بيانات: 8-12 أسبوع. أعطيك تقديراً دقيقاً بعد المكالمة الأولى.',
+      'faq.q3': 'هل تستخدم تقنيات حديثة وآمنة؟',
+      'faq.a3': 'أستخدم أحدث الإصدارات: Flutter 3.x، Supabase، PostgreSQL، Docker. كلمات المرور مشفّرة بـ SHA256 + Salt، الاتصالات عبر HTTPS، والبيانات الحسّاسة في خوادم محمية.',
+      'faq.q4': 'ماذا يحدث بعد تسليم المشروع؟',
+      'faq.a4': 'أقدّم شهر دعم فني مجاني لإصلاح أي مشاكل. بعدها يمكن الاشتراك في باقة صيانة شهرية، أو شراء ساعات دعم حسب الحاجة.',
+      'faq.q5': 'هل أملك الكود المصدري بعد التسليم؟',
+      'faq.a5': 'نعم، 100%. الكود المصدري + قاعدة البيانات + جميع الحسابات تنتقل لك بعد التسليم النهائي. لست مرتبطاً بي بأي شكل.',
+      'faq.q6': 'كيف يتم الدفع؟',
+      'faq.a6': 'للمشاريع: 30% مقدّم + 40% منتصف + 30% عند التسليم. للاشتراكات الشهرية: تحويل بنكي شهري. أقبل ريال سعودي، دولار، USDT.',
+      // Blog
+      'blog.badge': '📝 المدوّنة',
+      'blog.title': 'أفكار <span class="gradient-mix">ومقالات</span>',
+      'blog.soon': 'المدوّنة قريباً',
+      'blog.b1.cat': 'تجربة شخصية',
+      'blog.b1.title': 'كيف بنيت BeeHive من فكرة إلى Play Store في 3 أشهر',
+      'blog.b1.desc': 'رحلتي مع Flutter + Supabase وتحديات تطوير تطبيق MVP بميزانية محدودة...',
+      'blog.b2.cat': 'دليل تقني',
+      'blog.b2.title': 'دليل ZATCA الشامل: ربط Odoo بفواتير ضريبية متوافقة',
+      'blog.b2.desc': 'شرح خطوة بخطوة لإعداد QR Code ZATCA على نظام Odoo 17 من الصفر...',
+      'blog.b3.cat': 'ذكاء اصطناعي',
+      'blog.b3.title': 'كيف تحوّل واتساب أعمالك إلى موظف ذكي بـ Claude AI',
+      'blog.b3.desc': 'دمج Claude API مع Telegram لإنشاء بوت يفهم العربية ويتعلم من المحادثات...',
+      'blog.cta': 'قريباً ←',
+      // Contact
+      'contact.badge': '📬 هيا نتحدث',
+      'contact.title': 'عندك <span class="gradient-mix">فكرة أو مشكلة</span>؟',
+      'contact.subtitle': 'استشارة أولية مجانية. أرسل تفاصيل مشروعك وأرد عليك خلال 24 ساعة.',
+      'contact.email.label': 'إيميل',
+      'contact.wa.label': 'واتساب',
+      'contact.tg.label': 'تيليجرام',
+      'contact.cta': 'ابدأ مشروعك الآن',
+      // Bot Banner
+      'bot.badge': '🤖 ذكاء اصطناعي',
+      'bot.title': 'تحدّث مع <span class="gradient-mix">سكرتيري الذكي</span>',
+      'bot.desc': 'بوت تيليجرام مدعوم بـ Claude AI — يجاوب على أسئلتك حول خدماتي، يحجز لك استشارة، ويعطيك معلومات فورية. متاح 24/7 ويفهم العربية تماماً.',
+      'bot.cta': 'ابدأ المحادثة',
+      'bot.chat.name': 'السكرتير الذكي',
+      'bot.chat.online': 'متصل الآن',
+      'bot.chat.msg1': 'مرحباً 👋 أنا مساعد حسين الذكي، كيف أقدر أساعدك اليوم؟',
+      'bot.chat.msg2': 'أبي أعرف أسعار تطوير تطبيق',
+      // Footer
+      'footer.tagline': 'مهندس برمجيات + محاسب رقمي. أبني منتجات وأدير حسابات الأعمال بذكاء.',
+      'footer.col1.title': 'خدمات',
+      'footer.col1.l1': 'تطوير تطبيقات',
+      'footer.col1.l2': 'أنظمة Odoo',
+      'footer.col1.l3': 'متابعة حسابات',
+      'footer.col1.l4': 'قوالب محاسبية',
+      'footer.col2.title': 'روابط',
+      'footer.col2.l1': 'Odoo Live',
+      'footer.col2.l2': 'سياسة الخصوصية',
+      'footer.col2.l3': 'GitHub',
+      'footer.col2.l4': 'Telegram Bot',
+      'footer.copy': '© 2026 حسين العولقي — كل الحقوق محفوظة',
+      'footer.love': 'مصمّم ومبنيّ بحُب 💛',
+    },
+    en: {
+      'loader.text': 'Loading...',
+      'nav.about': 'About',
+      'nav.services': 'Services',
+      'nav.process': 'Process',
+      'nav.projects': 'Projects',
+      'nav.pricing': 'Pricing',
+      'nav.contact': 'Contact',
+      'nav.cta': 'Book a call',
+      'hero.badge': 'Available for new projects',
+      'hero.title': 'I build <span class="gradient-tech">digital products</span><br/>and manage <span class="gradient-acct">business accounts</span>',
+      'hero.subtitle': 'Software engineer + accountant — I help you turn ideas into apps and organize your books smartly. From <strong class="text-white">Flutter</strong> to <strong class="text-white">Odoo</strong>, and from Excel templates to full accounting systems.',
+      'hero.cta1': 'See my work ↓',
+      'hero.cta2': 'Free consultation →',
+      'hero.cta3': 'Try the AI bot',
+      'hero.cv': '📥 Request CV',
+      'hero.stat1': 'Digital products',
+      'hero.stat2': 'Years experience',
+      'hero.stat3': 'Companies I serve',
+      'hero.stat4': 'Features built',
+      'marquee.title': 'Tech I work with',
+      'about.badge': '👋 About me',
+      'about.title': 'I turn complex problems<br/>into <span class="gradient-mix">simple solutions</span>',
+      'about.p1': 'Hussein Al-Awlaqi — software engineer and digital product maker, plus an accountant with hands-on experience managing books for shops and small businesses.',
+      'about.p2': 'I believe <strong class="text-white">tech + accounting = a golden duo</strong>. I build Flutter apps for stores, Odoo systems for real estate, ready-made accounting templates, and offer monthly bookkeeping remotely or on-site.',
+      'about.tag1': '🇸🇦 Saudi Arabia',
+      'about.tag2': '🇾🇪 Yemen',
+      'about.tag3': '🌍 Remote',
+      'about.tag4': '⚡ Fast delivery',
+      'about.card1.title': 'Tech side',
+      'about.card1.desc': 'Flutter, Supabase, Odoo, Python',
+      'about.card2.title': 'Accounting side',
+      'about.card2.desc': 'SAR, ZATCA, Excel, Sheets',
+      'about.card3.title': 'Product maker',
+      'about.card3.desc': 'From idea to Play Store',
+      'about.card4.title': 'AI Integrator',
+      'about.card4.desc': 'Claude API, Telegram Bots',
+      'services.badge': '🛠️ Services',
+      'services.title': 'How can I <span class="gradient-mix">help you</span>?',
+      'services.subtitle': 'Two complementary sides from one person — save time and trust someone who understands tech and numbers together.',
+      'services.tech.title': 'Tech side',
+      'services.tech.i1.t': 'Flutter app development',
+      'services.tech.i1.d': 'From idea to Play Store / App Store',
+      'services.tech.i2.t': 'Odoo / ERP systems',
+      'services.tech.i2.d': 'Install, customize, reports, ZATCA invoices',
+      'services.tech.i3.t': 'AI bots',
+      'services.tech.i3.d': 'Telegram + Claude API to serve customers',
+      'services.tech.i4.t': 'Custom solutions',
+      'services.tech.i4.d': 'Automation, API integration, web scraping',
+      'services.acct.title': 'Accounting side',
+      'services.acct.i1.t': 'Monthly bookkeeping',
+      'services.acct.i1.d': 'Remote — periodic reports + profit analysis',
+      'services.acct.i2.t': 'On-site shop accounting',
+      'services.acct.i2.d': 'Inventory, sales, expenses, payroll',
+      'services.acct.i3.t': 'Ready-made templates',
+      'services.acct.i3.d': 'Excel / Google Sheets tailored to your business',
+      'services.acct.i4.t': 'ZATCA-compliant invoices',
+      'services.acct.i4.d': 'QR Code + VAT-compliant',
+      'services.hybrid.title': 'The Golden Mix — Full Package',
+      'services.hybrid.desc': 'App development + monthly bookkeeping + custom accounting systems for your business. <strong class="text-white">One person who understands both your tech and your books.</strong>',
+      'process.badge': '🛤️ How we work',
+      'process.title': 'How <span class="gradient-mix">we work together</span>?',
+      'process.subtitle': 'A clear 4-stage process — no surprises, no complications.',
+      'process.s1.label': 'Stage 01',
+      'process.s1.title': '📞 First call',
+      'process.s1.desc': 'We talk for 30 minutes via WhatsApp or Google Meet to understand your project, goals, and budget. Free, no commitment.',
+      'process.s2.label': 'Stage 02',
+      'process.s2.title': '📝 Proposal & agreement',
+      'process.s2.desc': 'I send you a detailed proposal: deliverables, timeline, final price. No hidden fees, no extra costs.',
+      'process.s3.label': 'Stage 03',
+      'process.s3.title': '🚀 Execution & updates',
+      'process.s3.desc': 'I start working with weekly progress updates. You see real progress and request changes on time.',
+      'process.s4.label': 'Stage 04',
+      'process.s4.title': '🎉 Delivery & support',
+      'process.s4.desc': 'I deliver a working project + 1 month of free support + training on usage if needed.',
+      'projects.badge': '⭐ My work',
+      'projects.title': 'Real <span class="gradient-mix">published projects</span>',
+      'projects.subtitle': 'Not ideas — products that work today. Each one solved a real problem for real users.',
+      'projects.filter.all': 'All',
+      'projects.filter.tech': '📱 Apps',
+      'projects.filter.acct': '📊 Accounting',
+      'projects.filter.ai': '🤖 AI',
+      'projects.p1.status': 'Internal testing',
+      'projects.p1.desc': 'A digital marketplace connecting customers with skilled workers in Yemen. Plumber, electrician, carpenter — book in one tap.',
+      'projects.p1.cta': 'Sign up as tester ←',
+      'projects.p2.title': 'Odoo Real Estate',
+      'projects.p2.status': 'Live',
+      'projects.p2.desc': 'A complete real estate accounting system in SAR with ZATCA QR and compliant tax invoices.',
+      'projects.p3.status': 'In development',
+      'projects.p3.desc': 'A digital wallet built for the Yemeni market — transfers, deposits, withdrawals without a bank.',
+      'projects.p3.cta': 'Coming soon ←',
+      'projects.p4.title': 'Tax QR Invoice',
+      'projects.p4.status': 'Ready',
+      'projects.p4.desc': 'A smart Excel template with VBA that auto-generates ZATCA QR Codes when you enter the tax number.',
+      'projects.p4.cta': 'Request template ←',
+      'projects.p5.title': 'AI Secretary',
+      'projects.p5.status': 'Live',
+      'projects.p5.desc': 'A Telegram bot powered by Claude AI — answers questions, remembers context, and learns.',
+      'projects.p5.cta': 'Try the bot ←',
+      'projects.p6.title': 'Accounting templates',
+      'projects.p6.status': 'Ready',
+      'projects.p6.desc': 'A set of ready-made Google Sheets for shops and real estate — sales, expenses, reports.',
+      'projects.p6.cta': 'Request template ←',
+      'pricing.badge': '💎 Pricing',
+      'pricing.title': '<span class="gradient-mix">Transparent and fair</span> prices',
+      'pricing.subtitle': 'Pick a package — or request a custom quote for your needs.',
+      'pricing.p1.tag': 'For small shops',
+      'pricing.p1.title': '📊 Monthly bookkeeping',
+      'pricing.p1.unit': 'SAR / month',
+      'pricing.p1.f1': 'Monthly bookkeeping',
+      'pricing.p1.f2': 'Monthly financial report',
+      'pricing.p1.f3': 'ZATCA-compliant invoices',
+      'pricing.p1.f4': 'WhatsApp support',
+      'pricing.p1.f5': 'System development',
+      'pricing.p1.cta': 'Get started',
+      'pricing.p2.badge': 'Most popular ⭐',
+      'pricing.p2.tag': 'For mid-size businesses',
+      'pricing.p2.title': '🎯 Full package',
+      'pricing.p2.unit': 'SAR / month',
+      'pricing.p2.f1': 'Everything in Monthly',
+      'pricing.p2.f2': 'Custom Odoo system',
+      'pricing.p2.f3': 'Custom Excel/Sheets templates',
+      'pricing.p2.f4': 'AI-powered analytics',
+      'pricing.p2.f5': 'Monthly on-site visit',
+      'pricing.p2.cta': 'Book now',
+      'pricing.p3.tag': 'For companies & ideas',
+      'pricing.p3.title': '🚀 App development',
+      'pricing.p3.price': 'Custom',
+      'pricing.p3.unit': 'per project',
+      'pricing.p3.f1': 'Full UI/UX design',
+      'pricing.p3.f2': 'Flutter dev (iOS+Android)',
+      'pricing.p3.f3': 'Backend + database',
+      'pricing.p3.f4': 'Store publishing',
+      'pricing.p3.f5': '3 months free support',
+      'pricing.p3.cta': 'Request quote',
+      'pricing.note': '💡 All packages include a 7-day full satisfaction guarantee or refund',
+      'tst.badge': '💬 Testimonials',
+      'tst.title': 'What <span class="gradient-mix">my clients say</span>',
+      'tst.t1.quote': '"Hussein built us a complete Odoo accounting system in record time. Tax invoices run smoothly, and support is super fast."',
+      'tst.t1.name': 'Ahmed Mohammed',
+      'tst.t1.role': 'White Beach Co.',
+      'tst.t2.quote': '"BeeHive solved a problem we had for years. Professional design and easy enough for the elderly to use."',
+      'tst.t2.name': 'Sami Al-Awlaqi',
+      'tst.t2.role': 'BeeHive customer',
+      'tst.t3.quote': '"Our monthly bookkeeping is now consistent and smooth. Reports are clear and detailed, and I can decide based on accurate numbers."',
+      'tst.t3.name': 'Mohammed Al-Hajjaj',
+      'tst.t3.role': 'Shop owner',
+      'faq.badge': '❓ FAQ',
+      'faq.title': '<span class="gradient-mix">Direct</span> answers',
+      'faq.q1': 'Can you work fully remote?',
+      'faq.a1': 'Yes, I work with clients across Saudi Arabia, Yemen, and the Gulf fully remotely. I use Google Meet for meetings, WhatsApp for daily communication, and Trello/Notion for project tracking.',
+      'faq.q2': 'How long does a full Flutter app take?',
+      'faq.a2': 'Depends on scope. MVP with core features: 4-6 weeks. Full app with admin and database: 8-12 weeks. I give an exact estimate after the first call.',
+      'faq.q3': 'Do you use modern, secure tech?',
+      'faq.a3': 'I use the latest versions: Flutter 3.x, Supabase, PostgreSQL, Docker. Passwords hashed with SHA256 + Salt, HTTPS connections, and sensitive data on protected servers.',
+      'faq.q4': 'What happens after delivery?',
+      'faq.a4': 'I provide one month of free support to fix any issues. After that you can subscribe to monthly maintenance, or buy support hours as needed.',
+      'faq.q5': 'Do I own the source code after delivery?',
+      'faq.a5': 'Yes, 100%. Source code + database + all accounts transfer to you after final delivery. You are not tied to me in any way.',
+      'faq.q6': 'How does payment work?',
+      'faq.a6': 'For projects: 30% upfront + 40% midway + 30% on delivery. Monthly subscriptions: bank transfer. I accept SAR, USD, USDT.',
+      'blog.badge': '📝 Blog',
+      'blog.title': 'Ideas <span class="gradient-mix">& articles</span>',
+      'blog.soon': 'Blog coming soon',
+      'blog.b1.cat': 'Personal story',
+      'blog.b1.title': 'How I built BeeHive from idea to Play Store in 3 months',
+      'blog.b1.desc': 'My journey with Flutter + Supabase and the challenges of building an MVP on a tight budget...',
+      'blog.b2.cat': 'Tech guide',
+      'blog.b2.title': 'The full ZATCA guide: connecting Odoo to compliant tax invoices',
+      'blog.b2.desc': 'Step-by-step setup of ZATCA QR Codes on Odoo 17 from scratch...',
+      'blog.b3.cat': 'AI',
+      'blog.b3.title': 'Turn your WhatsApp business into a smart employee with Claude AI',
+      'blog.b3.desc': 'Integrating Claude API with Telegram to build an Arabic-fluent bot that learns from conversations...',
+      'blog.cta': 'Soon ←',
+      'contact.badge': '📬 Let\'s talk',
+      'contact.title': 'Got an <span class="gradient-mix">idea or a problem</span>?',
+      'contact.subtitle': 'Free initial consultation. Send your project details and I\'ll reply within 24 hours.',
+      'contact.email.label': 'Email',
+      'contact.wa.label': 'WhatsApp',
+      'contact.tg.label': 'Telegram',
+      'contact.cta': 'Start your project now',
+      'bot.badge': '🤖 AI',
+      'bot.title': 'Talk to my <span class="gradient-mix">AI secretary</span>',
+      'bot.desc': 'A Telegram bot powered by Claude AI — answers your questions about my services, books a consultation, and gives you instant info. Available 24/7 and fully understands Arabic.',
+      'bot.cta': 'Start chatting',
+      'bot.chat.name': 'AI Secretary',
+      'bot.chat.online': 'Online now',
+      'bot.chat.msg1': 'Hi 👋 I\'m Hussein\'s AI assistant, how can I help you today?',
+      'bot.chat.msg2': 'I want to know app development pricing',
+      'footer.tagline': 'Software engineer + digital accountant. I build products and run business books smartly.',
+      'footer.col1.title': 'Services',
+      'footer.col1.l1': 'App development',
+      'footer.col1.l2': 'Odoo systems',
+      'footer.col1.l3': 'Bookkeeping',
+      'footer.col1.l4': 'Accounting templates',
+      'footer.col2.title': 'Links',
+      'footer.col2.l1': 'Odoo Live',
+      'footer.col2.l2': 'Privacy Policy',
+      'footer.col2.l3': 'GitHub',
+      'footer.col2.l4': 'Telegram Bot',
+      'footer.copy': '© 2026 Hussein Al-Awlaqi — All rights reserved',
+      'footer.love': 'Designed and built with love 💛',
+    }
+  };
+
+  const langBtn = document.getElementById('lang-toggle');
+  const langLabel = document.getElementById('lang-label');
+  const savedLang = localStorage.getItem('lang') || 'ar';
+  let currentLang = savedLang;
+
+  const applyLang = (lang) => {
+    document.documentElement.lang = lang;
+    document.documentElement.dir = lang === 'ar' ? 'rtl' : 'ltr';
+    langLabel.textContent = lang === 'ar' ? 'EN' : 'AR';
+
+    document.querySelectorAll('[data-i18n]').forEach(el => {
+      const key = el.dataset.i18n;
+      const txt = i18n[lang][key];
+      if (txt !== undefined) el.textContent = txt;
+    });
+
+    document.querySelectorAll('[data-i18n-html]').forEach(el => {
+      const key = el.dataset.i18nHtml;
+      const html = i18n[lang][key];
+      if (html !== undefined) el.innerHTML = html;
+    });
+  };
+
+  // Apply on initial load if saved lang differs from default
+  if (currentLang !== 'ar') applyLang(currentLang);
+
+  langBtn.addEventListener('click', () => {
+    currentLang = currentLang === 'ar' ? 'en' : 'ar';
+    localStorage.setItem('lang', currentLang);
+    applyLang(currentLang);
+  });
+</script>
+
+<!-- ============ IN-BROWSER AI CHAT WIDGET ============ -->
+<style>
+  #ai-chat-btn {
+    position: fixed;
+    bottom: 100px;
+    right: 24px;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #5B2EFF, #00C2A8);
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 0 30px rgba(91,46,255,0.5), 0 0 60px rgba(0,194,168,0.25);
+    z-index: 997;
+    animation: botGlow 3s ease-in-out infinite;
+    transition: transform 0.3s;
+  }
+  #ai-chat-btn:hover { transform: scale(1.1); }
+  #ai-chat-btn .chat-badge {
+    position: absolute;
+    top: -4px;
+    right: -4px;
+    width: 18px;
+    height: 18px;
+    background: #00C2A8;
+    border-radius: 50%;
+    border: 2px solid #0B0F1A;
+    animation: chatPing 2s ease-in-out infinite;
+  }
+  @keyframes chatPing { 0%,100%{transform:scale(1);opacity:1;} 50%{transform:scale(1.3);opacity:0.7;} }
+
+  #ai-chat-window {
+    position: fixed;
+    bottom: 170px;
+    right: 20px;
+    width: 360px;
+    height: 500px;
+    border-radius: 24px;
+    background: #0d1117;
+    border: 1px solid rgba(91,46,255,0.3);
+    box-shadow: 0 30px 80px rgba(0,0,0,0.6), 0 0 40px rgba(91,46,255,0.15);
+    z-index: 996;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    transform: scale(0.8) translateY(20px);
+    opacity: 0;
+    pointer-events: none;
+    transition: all 0.35s cubic-bezier(0.34,1.56,0.64,1);
+  }
+  #ai-chat-window.open {
+    transform: scale(1) translateY(0);
+    opacity: 1;
+    pointer-events: all;
+  }
+  .chat-header {
+    padding: 16px 20px;
+    background: linear-gradient(135deg, rgba(91,46,255,0.2), rgba(0,194,168,0.1));
+    border-bottom: 1px solid rgba(91,46,255,0.2);
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  .chat-avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #5B2EFF, #00C2A8);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+    flex-shrink: 0;
+  }
+  .chat-messages {
+    flex: 1;
+    overflow-y: auto;
+    padding: 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    scrollbar-width: thin;
+    scrollbar-color: rgba(91,46,255,0.3) transparent;
+  }
+  .chat-bubble {
+    max-width: 82%;
+    padding: 10px 14px;
+    border-radius: 18px;
+    font-size: 0.82rem;
+    line-height: 1.5;
+    animation: bubbleIn 0.3s ease;
+  }
+  @keyframes bubbleIn { from{opacity:0;transform:translateY(8px);} to{opacity:1;transform:translateY(0);} }
+  .chat-bubble.bot {
+    background: rgba(91,46,255,0.15);
+    border: 1px solid rgba(91,46,255,0.2);
+    color: #e2e8f0;
+    border-bottom-right-radius: 4px;
+    align-self: flex-start;
+  }
+  .chat-bubble.user {
+    background: linear-gradient(135deg, #5B2EFF, #00C2A8);
+    color: white;
+    border-bottom-left-radius: 4px;
+    align-self: flex-end;
+  }
+  .chat-typing {
+    display: flex;
+    gap: 4px;
+    padding: 12px 16px;
+    background: rgba(91,46,255,0.1);
+    border-radius: 18px;
+    border-bottom-right-radius: 4px;
+    align-self: flex-start;
+    width: fit-content;
+  }
+  .chat-typing span {
+    width: 7px;
+    height: 7px;
+    background: #7C3AFF;
+    border-radius: 50%;
+    animation: typingDot 1.2s ease-in-out infinite;
+  }
+  .chat-typing span:nth-child(2){animation-delay:0.2s;}
+  .chat-typing span:nth-child(3){animation-delay:0.4s;}
+  @keyframes typingDot { 0%,80%,100%{transform:scale(0.6);opacity:0.4;} 40%{transform:scale(1);opacity:1;} }
+  .chat-quick-btns {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    padding: 0 16px 10px;
+  }
+  .chat-quick-btn {
+    background: rgba(91,46,255,0.12);
+    border: 1px solid rgba(91,46,255,0.25);
+    color: #a78bfa;
+    padding: 5px 12px;
+    border-radius: 20px;
+    font-size: 0.72rem;
+    cursor: pointer;
+    transition: all 0.2s;
+    font-family: 'Cairo', sans-serif;
+  }
+  .chat-quick-btn:hover { background: rgba(91,46,255,0.25); color: white; }
+  .chat-input-row {
+    display: flex;
+    gap: 8px;
+    padding: 12px 16px;
+    border-top: 1px solid rgba(91,46,255,0.15);
+  }
+  #chat-input {
+    flex: 1;
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(91,46,255,0.2);
+    border-radius: 14px;
+    padding: 10px 14px;
+    color: #e2e8f0;
+    font-size: 0.82rem;
+    font-family: 'Cairo', sans-serif;
+    outline: none;
+    transition: border-color 0.2s;
+  }
+  #chat-input:focus { border-color: rgba(91,46,255,0.5); }
+  #chat-input::placeholder { color: #475569; }
+  #chat-send {
+    width: 40px;
+    height: 40px;
+    border-radius: 12px;
+    background: linear-gradient(135deg, #5B2EFF, #00C2A8);
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.2s;
+    flex-shrink: 0;
+  }
+  #chat-send:hover { transform: scale(1.1); }
+</style>
+
+<!-- Chat Trigger Button -->
+<button id="ai-chat-btn" onclick="toggleChat()" aria-label="المساعد الذكي">
+  <svg width="26" height="26" viewBox="0 0 24 24" fill="white">
+    <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" stroke="white" stroke-width="0" fill="white"/>
+  </svg>
+  <span class="chat-badge"></span>
+</button>
+
+<!-- Chat Window -->
+<div id="ai-chat-window">
+  <div class="chat-header">
+    <div class="chat-avatar">🤖</div>
+    <div>
+      <div style="font-weight:800;font-size:0.9rem;color:#e2e8f0;">المساعد الذكي</div>
+      <div style="font-size:0.7rem;color:#00C2A8;display:flex;align-items:center;gap:4px;">
+        <span style="width:6px;height:6px;background:#00C2A8;border-radius:50%;display:inline-block;"></span>
+        متصل الآن • يرد فوراً
+      </div>
+    </div>
+    <button onclick="toggleChat()" style="margin-right:auto;background:none;border:none;color:#64748b;cursor:pointer;font-size:1.2rem;line-height:1;">✕</button>
+  </div>
+
+  <div class="chat-messages" id="chat-messages"></div>
+
+  <div class="chat-quick-btns" id="chat-quick-btns">
+    <button class="chat-quick-btn" onclick="sendQuick('ما هي خدماتك؟')">الخدمات</button>
+    <button class="chat-quick-btn" onclick="sendQuick('ما هي الأسعار؟')">الأسعار</button>
+    <button class="chat-quick-btn" onclick="sendQuick('كيف أتواصل معك؟')">تواصل</button>
+    <button class="chat-quick-btn" onclick="sendQuick('هل تعمل عن بُعد؟')">عن بُعد</button>
+  </div>
+
+  <div class="chat-input-row">
+    <input id="chat-input" placeholder="اكتب سؤالك هنا..." onkeypress="if(event.key==='Enter')sendMsg()"/>
+    <button id="chat-send" onclick="sendMsg()">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="white">
+        <path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/>
+      </svg>
+    </button>
+  </div>
+</div>
+
+<script>
+// ============ AI CHAT WIDGET ============
+let chatOpen = false;
+let chatStarted = false;
+
+function toggleChat() {
+  chatOpen = !chatOpen;
+  document.getElementById('ai-chat-window').classList.toggle('open', chatOpen);
+  if (chatOpen && !chatStarted) {
+    chatStarted = true;
+    setTimeout(() => botTypeThenSay('مرحباً! 👋 أنا مساعد حسين الذكي.\nكيف أقدر أساعدك اليوم؟ اختر من الأسئلة السريعة أو اكتب سؤالك.'), 500);
+  }
+}
+
+function addMsg(text, type) {
+  const box = document.getElementById('chat-messages');
+  const div = document.createElement('div');
+  div.className = 'chat-bubble ' + type;
+  div.innerText = text;
+  box.appendChild(div);
+  box.scrollTop = box.scrollHeight;
+}
+
+function showTyping() {
+  const box = document.getElementById('chat-messages');
+  const t = document.createElement('div');
+  t.className = 'chat-typing';
+  t.id = 'typing-indicator';
+  t.innerHTML = '<span></span><span></span><span></span>';
+  box.appendChild(t);
+  box.scrollTop = box.scrollHeight;
+}
+
+function hideTyping() {
+  const t = document.getElementById('typing-indicator');
+  if (t) t.remove();
+}
+
+function botTypeThenSay(msg, delay = 900) {
+  showTyping();
+  setTimeout(() => { hideTyping(); addMsg(msg, 'bot'); }, delay);
+}
+
+const responses = [
+  {
+    keys: ['خدم','ماذا تقدم','تعمل','تبني','تساعد'],
+    reply: '🛠️ أقدم ثلاث خدمات رئيسية:\n\n1️⃣ متابعة حسابات شهرية (عن بُعد أو حضوري)\n2️⃣ تطوير تطبيقات Flutter للجوال\n3️⃣ أنظمة Odoo ERP + فواتير ZATCA\n\nكل ما تحتاجه في شخص واحد! 💪'
+  },
+  {
+    keys: ['سعر','تكلف','كم','باقة','تكاليف'],
+    reply: '💎 الباقات المتاحة:\n\n📊 متابعة شهرية — 500 ر.س/شهر\n🎯 الباقة المتكاملة — 1,500 ر.س/شهر\n🚀 تطوير تطبيق — حسب المشروع\n\nاستشارة أولى مجانية دائماً ✅'
+  },
+  {
+    keys: ['تواصل','اتصل','واتساب','ايميل','تيليجرام','كيف أطلب'],
+    reply: '📬 تواصل معي عبر:\n\n📧 aldioli7@gmail.com\n💬 واتساب: 966537759626+\n🤖 تيليجرام: @Alawlaqi_AI_bot\n\nأرد خلال 24 ساعة عادةً ⚡'
+  },
+  {
+    keys: ['بُعد','عن بعد','اون لاين','خارج','دولة','يمن','سعودية'],
+    reply: '🌍 نعم! أعمل بالكامل عن بُعد مع عملاء في:\n🇸🇦 السعودية  🇾🇪 اليمن  🇦🇪 الإمارات\n\nكل التسليم يكون إلكترونياً، وأستخدم أحدث أدوات التعاون عن بُعد 💻'
+  },
+  {
+    keys: ['flutter','تطبيق','موبايل','اندرويد','ios','متجر'],
+    reply: '📱 تطوير تطبيقات Flutter:\n\n✅ تصميم UI/UX كامل\n✅ Android + iOS من كود واحد\n✅ Backend بـ Supabase\n✅ رفع على Google Play & App Store\n✅ 3 أشهر دعم مجاني بعد التسليم'
+  },
+  {
+    keys: ['odoo','erp','نظام','محاسبة','فاتور','zatca'],
+    reply: '🏢 أنظمة Odoo ERP:\n\n✅ تثبيت وتخصيص كامل\n✅ فواتير ZATCA متوافقة مع هيئة الزكاة\n✅ تقارير مالية تلقائية\n✅ ربط مع المخزون والمبيعات\n✅ تدريب فريقك على الاستخدام'
+  },
+  {
+    keys: ['paypal','دفع','تحويل','stc','مدى'],
+    reply: '💳 طرق الدفع المقبولة:\n\n🔵 PayPal — aldioli7@gmail.com\n🟣 STC Pay — 0537759626\n🟢 مدى — عبر الفاتورة الرسمية\n🏦 تحويل بنكي — اسأل للتفاصيل'
+  },
+  {
+    keys: ['شكر','شكراً','ممتاز','رائع','جميل','سلام','مرحب'],
+    reply: 'شكراً لك! 😊 يسعدني خدمتك دائماً.\nهل تريد معرفة المزيد عن أي خدمة؟'
+  },
+];
+
+function getReply(msg) {
+  const m = msg.toLowerCase();
+  for (const r of responses) {
+    if (r.keys.some(k => m.includes(k))) return r.reply;
+  }
+  return 'شكراً على سؤالك! 🤔\nلم أفهم تماماً — يمكنك التواصل مباشرة:\n📧 aldioli7@gmail.com\n💬 واتساب: 966537759626+\n\nأو اضغط أحد الأسئلة السريعة أدناه 👇';
+}
+
+function sendMsg() {
+  const input = document.getElementById('chat-input');
+  const msg = input.value.trim();
+  if (!msg) return;
+  addMsg(msg, 'user');
+  input.value = '';
+  botTypeThenSay(getReply(msg), 1000);
+}
+
+function sendQuick(q) {
+  addMsg(q, 'user');
+  botTypeThenSay(getReply(q), 1000);
+}
+
+// Auto-open hint after 8 seconds
+setTimeout(() => {
+  if (!chatOpen) {
+    const btn = document.getElementById('ai-chat-btn');
+    btn.style.animation = 'botGlow 0.5s ease-in-out 3';
+  }
+}, 8000);
+</script>
+
+</body>
+</html>
