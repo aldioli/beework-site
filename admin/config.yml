@@ -1,0 +1,19 @@
+backend:
+  name: github
+  repo: aldioli/beework-site
+  branch: main
+
+media_folder: "."
+public_folder: "."
+
+locale: ar
+
+collections:
+  - name: "pages"
+    label: "الصفحات"
+    files:
+      - name: "index"
+        label: "الصفحة الرئيسية"
+        file: "index.html"
+        fields:
+          - { label: "المحتوى الكامل", name: "body", widget: "text" }
