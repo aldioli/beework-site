@@ -4,15 +4,84 @@ backend:
 
 media_folder: "."
 public_folder: "."
-
 locale: ar
 
 collections:
-  - name: "pages"
-    label: "الصفحات"
+  - name: "settings"
+    label: "إعدادات الموقع"
     files:
-      - name: "index"
-        label: "الصفحة الرئيسية"
-        file: "index.html"
+
+      - name: "content"
+        label: "محتوى الموقع"
+        file: "_data/content.json"
+        format: json
         fields:
-          - { label: "المحتوى الكامل", name: "body", widget: "text" }
+
+          - label: "حالة التوفر (عربي)"
+            name: "available_ar"
+            widget: "string"
+            hint: "مثال: متاح لاستقبال مشاريع جديدة | مشغول حالياً"
+
+          - label: "Availability (English)"
+            name: "available_en"
+            widget: "string"
+
+          - label: "سعر المتابعة الشهرية (ر.س)"
+            name: "price_monthly"
+            widget: "string"
+            hint: "مثال: 500"
+
+          - label: "سعر الباقة المتكاملة (ر.س)"
+            name: "price_package"
+            widget: "string"
+            hint: "مثال: 1,500"
+
+          - label: "البريد الإلكتروني"
+            name: "email"
+            widget: "string"
+
+          - label: "رقم الواتساب (بدون +)"
+            name: "whatsapp"
+            widget: "string"
+            hint: "مثال: 966537759626"
+
+          - label: "معرف تيليجرام"
+            name: "telegram"
+            widget: "string"
+            hint: "مثال: @Alawlaqi_AI_bot"
+
+          - label: "رأي العميل الأول — النص"
+            name: "tst1_quote"
+            widget: "text"
+
+          - label: "رأي العميل الأول — الاسم"
+            name: "tst1_name"
+            widget: "string"
+
+          - label: "رأي العميل الأول — المسمى"
+            name: "tst1_role"
+            widget: "string"
+
+          - label: "رأي العميل الثاني — النص"
+            name: "tst2_quote"
+            widget: "text"
+
+          - label: "رأي العميل الثاني — الاسم"
+            name: "tst2_name"
+            widget: "string"
+
+          - label: "رأي العميل الثاني — المسمى"
+            name: "tst2_role"
+            widget: "string"
+
+          - label: "رأي العميل الثالث — النص"
+            name: "tst3_quote"
+            widget: "text"
+
+          - label: "رأي العميل الثالث — الاسم"
+            name: "tst3_name"
+            widget: "string"
+
+          - label: "رأي العميل الثالث — المسمى"
+            name: "tst3_role"
+            widget: "string"
