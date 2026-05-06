@@ -2865,7 +2865,11 @@ const responses = [
 ];
 
 function getReply(msg) {
-  const m = msg.toLowerCase();
+  const m = msg.trim();
+  if (/السلام/.test(m)) return 'وعليكم السلام ورحمة الله وبركاته! 🤝\nأهلاً بك، كيف أقدر أساعدك اليوم؟';
+  if (/صباح/.test(m)) return 'صباح النور! ☀️\nكيف أقدر أفيدك اليوم؟';
+  if (/مساء/.test(m)) return 'مساء النور! 🌙\nكيف أقدر أفيدك؟';
+  if (/مرحب|أهلا|اهلا|هلا|هلو|هاي|hi\b|hello/.test(m.toLowerCase())) return 'أهلاً وسهلاً! 👋\nكيف أقدر أساعدك اليوم؟';
   for (const r of responses) {
     if (r.keys.some(k => m.includes(k))) return r.reply;
   }
