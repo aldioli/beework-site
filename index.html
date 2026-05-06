@@ -1838,11 +1838,11 @@
             <div class="text-xs text-slate-400 mb-1" data-i18n="contact.email.label">إيميل</div>
             <div id="cms-email-display" class="text-sm font-bold break-all">aldioli7@gmail.com</div>
           </a>
-          <a href="https://wa.me/966537759626" class="glass rounded-2xl p-5 hover:-translate-y-1 transition">
-            <div class="text-3xl mb-2">💬</div>
-            <div class="text-xs text-slate-400 mb-1" data-i18n="contact.wa.label">واتساب</div>
-            <div id="cms-wa-display" class="text-sm font-bold" dir="ltr">+966 53 775 9626</div>
-          </a>
+          <div class="glass rounded-2xl p-5 flex flex-col items-center justify-center text-center" style="border: 1px dashed rgba(91,46,255,0.3); opacity: 0.75;">
+            <div class="text-3xl mb-2">🚧</div>
+            <div class="text-xs text-slate-400 mb-1">قيد التطوير</div>
+            <div class="text-sm font-bold text-slate-500">خيارات إضافية قريباً</div>
+          </div>
           <a href="https://t.me/Alawlaqi_AI_bot" class="glass rounded-2xl p-5 hover:-translate-y-1 transition">
             <div class="text-3xl mb-2">🤖</div>
             <div class="text-xs text-slate-400 mb-1" data-i18n="contact.tg.label">تيليجرام</div>
@@ -2834,7 +2834,7 @@ const responses = [
   },
   {
     keys: ['تواصل','اتصل','واتساب','ايميل','تيليجرام','كيف أطلب'],
-    reply: '📬 تواصل معي عبر:\n\n📧 aldioli7@gmail.com\n💬 واتساب: 966537759626+\n🤖 تيليجرام: @Alawlaqi_AI_bot\n\nأرد خلال 24 ساعة عادةً ⚡'
+    reply: '📬 تواصل معي عبر:\n\n📧 aldioli7@gmail.com\n🤖 تيليجرام: @Alawlaqi_AI_bot\n\nأرد خلال 24 ساعة عادةً ⚡'
   },
   {
     keys: ['بُعد','عن بعد','اون لاين','خارج','دولة','يمن','سعودية'],
@@ -2863,7 +2863,7 @@ function getReply(msg) {
   for (const r of responses) {
     if (r.keys.some(k => m.includes(k))) return r.reply;
   }
-  return 'شكراً على سؤالك! 🤔\nلم أفهم تماماً — يمكنك التواصل مباشرة:\n📧 aldioli7@gmail.com\n💬 واتساب: 966537759626+\n\nأو اضغط أحد الأسئلة السريعة أدناه 👇';
+  return 'شكراً على سؤالك! 🤔\nلم أفهم تماماً — يمكنك التواصل مباشرة:\n📧 aldioli7@gmail.com\n🤖 تيليجرام: @Alawlaqi_AI_bot\n\nأو اضغط أحد الأسئلة السريعة أدناه 👇';
 }
 
 function sendMsg() {
