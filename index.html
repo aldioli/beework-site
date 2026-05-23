@@ -1,507 +1,255 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="beework — نبني التجارب الرقمية. تطبيقات Flutter، بوتات ذكية، مواقع إبداعية.">
-  <title>beework</title>
-  <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700;900&family=Space+Grotesk:wght@300;400;700&display=swap" rel="stylesheet">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="beework — نبني التجارب الرقمية. تطبيقات Flutter، بوتات ذكية، مواقع إبداعية.">
+<title>beework</title>
+<link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700;900&family=Space+Grotesk:wght@300;400;700;900&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --acc:#8b5cf6;--acc2:#ec4899;--acc3:#3b82f6;
+  --c1:#f5f0ff;--c2:#c4b5d8;--c3:#7060a0;
+}
+html{scroll-behavior:auto}
+body{background:#000;color:var(--c1);font-family:'Tajawal',sans-serif;overflow-x:hidden}
 
-  <style>
-    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+/* ══ BLOBS ══ */
+.blobs{position:fixed;inset:0;z-index:0;overflow:hidden;pointer-events:none}
+.blob{position:absolute;border-radius:50%;filter:blur(90px)}
+.b1{width:900px;height:900px;top:-180px;left:-180px;
+    background:radial-gradient(circle,rgba(139,92,246,.55),transparent 68%);
+    animation:bA 9s ease-in-out infinite alternate}
+.b2{width:700px;height:700px;top:25%;right:-150px;
+    background:radial-gradient(circle,rgba(236,72,153,.45),transparent 68%);
+    animation:bB 11s ease-in-out infinite alternate}
+.b3{width:800px;height:800px;bottom:-200px;left:25%;
+    background:radial-gradient(circle,rgba(59,130,246,.4),transparent 68%);
+    animation:bC 13s ease-in-out infinite alternate}
+@keyframes bA{to{transform:translate(120px,90px) scale(1.18)}}
+@keyframes bB{to{transform:translate(-90px,70px) scale(.88)}}
+@keyframes bC{to{transform:translate(80px,-110px) scale(1.22)}}
 
-    :root {
-      --accent: #c8a0ff;
-      --accent2: #ff80ab;
-      --c1: #f0e6ff;
-      --c2: #b8a0cc;
-      --c3: #6050a0;
-    }
+/* ══ CANVAS ══ */
+#three-canvas{position:fixed;inset:0;width:100%;height:100%;z-index:1;pointer-events:none}
 
-    html { scroll-behavior: auto; }
+/* ══ CURSOR SPOTLIGHT ══ */
+#spot{position:fixed;width:420px;height:420px;border-radius:50%;
+  background:radial-gradient(circle,rgba(139,92,246,.1) 0%,transparent 68%);
+  pointer-events:none;z-index:2;transform:translate(-50%,-50%);
+  transition:left .07s,top .07s}
 
-    body {
-      background: #050508;
-      color: var(--c1);
-      font-family: 'Tajawal', sans-serif;
-      overflow-x: hidden;
-    }
+/* ══ PROGRESS BAR ══ */
+#prog{position:fixed;top:0;left:0;height:2px;width:100%;
+  background:linear-gradient(90deg,var(--acc),var(--acc2));
+  transform-origin:left;transform:scaleX(0);z-index:300}
 
-    /* ─── Canvas ─── */
-    #bg-canvas {
-      position: fixed;
-      inset: 0;
-      width: 100%;
-      height: 100%;
-      z-index: 0;
-      pointer-events: none;
-    }
+/* ══ LOGO ══ */
+.logo{position:fixed;top:30px;right:44px;z-index:100;
+  font-family:'Space Grotesk',sans-serif;font-weight:900;font-size:1.1rem;
+  letter-spacing:.06em;color:#fff;text-decoration:none;mix-blend-mode:difference}
 
-    /* ─── Cursor glow ─── */
-    #cursor-glow {
-      position: fixed;
-      width: 350px;
-      height: 350px;
-      border-radius: 50%;
-      background: radial-gradient(circle, rgba(200,160,255,.07) 0%, transparent 70%);
-      pointer-events: none;
-      z-index: 2;
-      transform: translate(-50%,-50%);
-      will-change: left, top;
-    }
+/* ══ NAV DOTS ══ */
+.nav-dots{position:fixed;left:30px;top:50%;transform:translateY(-50%);
+  z-index:100;display:flex;flex-direction:column;gap:14px}
+.dot{width:5px;height:5px;border-radius:50%;background:rgba(255,255,255,.22);
+  cursor:pointer;transition:all .35s;border:1px solid rgba(255,255,255,.14)}
+.dot.on{background:var(--acc);transform:scale(1.7);box-shadow:0 0 14px var(--acc)}
 
-    /* ─── Progress bar ─── */
-    #progress-bar {
-      position: fixed;
-      top: 0; left: 0;
-      height: 2px;
-      width: 100%;
-      background: linear-gradient(90deg, var(--accent), var(--accent2));
-      transform-origin: left;
-      transform: scaleX(0);
-      z-index: 200;
-    }
+/* ══ SCROLL HINT ══ */
+#scroll-hint{position:fixed;bottom:34px;left:50%;transform:translateX(-50%);
+  z-index:100;display:flex;flex-direction:column;align-items:center;gap:9px;
+  color:rgba(255,255,255,.3);font-size:.65rem;letter-spacing:.3em;
+  font-family:'Space Grotesk',sans-serif}
+.scroll-line{width:1px;height:46px;background:linear-gradient(to bottom,rgba(255,255,255,.6),transparent);
+  animation:sp 2.2s ease infinite}
+@keyframes sp{0%,100%{opacity:.2;transform:scaleY(.75)}55%{opacity:1;transform:scaleY(1)}}
 
-    /* ─── Logo ─── */
-    .site-logo {
-      position: fixed;
-      top: 28px;
-      right: 40px;
-      z-index: 100;
-      font-family: 'Space Grotesk', sans-serif;
-      font-weight: 700;
-      font-size: 1.15rem;
-      letter-spacing: .08em;
-      color: rgba(255,255,255,.9);
-      text-decoration: none;
-      mix-blend-mode: difference;
-    }
+/* ══ CHAPTERS ══ */
+.chapter{position:relative;z-index:10;min-height:100vh;
+  display:flex;align-items:center;justify-content:center;padding:120px 80px}
+.inner{max-width:1000px;width:100%}
 
-    /* ─── Nav dots ─── */
-    .nav-dots {
-      position: fixed;
-      left: 28px;
-      top: 50%;
-      transform: translateY(-50%);
-      z-index: 100;
-      display: flex;
-      flex-direction: column;
-      gap: 14px;
-    }
+/* ══ TYPE SYSTEM ══ */
+.eyebrow{font-family:'Space Grotesk',sans-serif;font-size:.72rem;letter-spacing:.38em;
+  text-transform:uppercase;color:var(--acc);opacity:0;transform:translateY(18px);
+  margin-bottom:18px;display:block}
+.divline{width:0;height:2px;background:linear-gradient(90deg,var(--acc),transparent);
+  margin-bottom:22px;opacity:0}
+.title{font-size:clamp(2.8rem,7vw,6rem);font-weight:900;line-height:1.04;
+  color:#fff;opacity:0;transform:translateY(40px);margin-bottom:26px}
+.title .hl{background:linear-gradient(130deg,var(--acc),var(--acc2));
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.sub{font-size:clamp(.95rem,2vw,1.25rem);font-weight:300;color:var(--c2);
+  opacity:0;transform:translateY(26px);line-height:1.9;max-width:560px;margin-bottom:44px}
 
-    .nav-dot {
-      width: 5px;
-      height: 5px;
-      border-radius: 50%;
-      background: rgba(255,255,255,.25);
-      cursor: pointer;
-      transition: all .35s ease;
-      border: 1px solid rgba(255,255,255,.15);
-    }
+/* ══ HERO ══ */
+#ch-0{text-align:center;justify-content:center}
+#ch-0 .inner{display:flex;flex-direction:column;align-items:center}
+.hero-name{font-family:'Tajawal',sans-serif;font-size:1.15rem;font-weight:500;
+  color:rgba(255,255,255,.55);letter-spacing:.08em;margin-bottom:12px;
+  opacity:0;transform:translateY(14px);display:block}
+.hero-eyebrow{font-family:'Space Grotesk',sans-serif;font-size:.76rem;letter-spacing:.42em;
+  text-transform:uppercase;color:rgba(200,160,255,.65);margin-bottom:22px;
+  opacity:0;transform:translateY(16px);display:block}
+.hero-title{font-size:clamp(5rem,14vw,13rem);font-weight:900;line-height:.9;
+  font-family:'Space Grotesk',sans-serif;letter-spacing:-.05em;
+  background:linear-gradient(135deg,#fff 30%,rgba(200,160,255,.9));
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
+  opacity:0;transform:translateY(60px);margin-bottom:28px}
+.hero-sub{font-size:clamp(1rem,2.5vw,1.45rem);font-weight:300;color:var(--c2);
+  opacity:0;transform:translateY(28px);line-height:1.8;margin-bottom:52px;text-align:center}
+.hero-sub em{color:rgba(200,160,255,.75);font-style:normal;
+  font-family:'Space Grotesk',sans-serif;font-size:.82em;letter-spacing:.06em}
+.hero-cta{display:inline-flex;align-items:center;gap:14px;
+  padding:16px 36px;background:rgba(139,92,246,.12);
+  border:1px solid rgba(139,92,246,.35);border-radius:100px;
+  color:var(--acc);text-decoration:none;font-size:.9rem;letter-spacing:.12em;
+  font-family:'Space Grotesk',sans-serif;opacity:0;transform:translateY(20px);
+  transition:background .3s,transform .3s,box-shadow .3s;
+  box-shadow:0 0 0 0 rgba(139,92,246,0)}
+.hero-cta:hover{background:rgba(139,92,246,.22);transform:translateY(-3px) !important;
+  box-shadow:0 0 40px rgba(139,92,246,.3)}
+.hero-cta .arr{transition:transform .3s}
+.hero-cta:hover .arr{transform:translateX(-4px)}
 
-    .nav-dot.active {
-      background: var(--accent);
-      transform: scale(1.6);
-      box-shadow: 0 0 12px var(--accent);
-    }
+/* ══ STATS ══ */
+.stats{display:flex;gap:48px;flex-wrap:wrap;opacity:0;transform:translateY(22px)}
+.stat-n{font-family:'Space Grotesk',sans-serif;font-size:2.8rem;font-weight:900;
+  color:#fff;line-height:1;background:linear-gradient(130deg,#fff,var(--acc));
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.stat-l{font-size:.8rem;color:var(--c3);margin-top:4px}
 
-    /* ─── Scroll indicator ─── */
-    #scroll-indicator {
-      position: fixed;
-      bottom: 32px;
-      left: 50%;
-      transform: translateX(-50%);
-      z-index: 100;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 8px;
-      color: rgba(255,255,255,.35);
-      font-size: .68rem;
-      letter-spacing: .25em;
-      font-family: 'Space Grotesk', sans-serif;
-    }
+/* ══ ABOUT LAYOUT ══ */
+.about-wrap{display:grid;grid-template-columns:1.1fr 1fr;gap:80px;align-items:center}
+.about-visual{opacity:0;transform:translateY(30px);position:relative;height:380px}
+.av-box{width:100%;height:100%;
+  background:rgba(139,92,246,.06);
+  border:1px solid rgba(139,92,246,.15);
+  border-radius:28px;display:flex;align-items:center;justify-content:center;
+  font-size:5rem;
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.07),0 30px 80px rgba(0,0,0,.5),0 0 80px rgba(139,92,246,.1)}
+.ftag{position:absolute;
+  background:rgba(0,0,0,.75);border:1px solid rgba(139,92,246,.2);
+  border-radius:10px;padding:9px 15px;font-size:.74rem;color:var(--c2);
+  font-family:'Space Grotesk',sans-serif;backdrop-filter:blur(16px);white-space:nowrap}
+.ftag.t1{top:18px;left:-24px}
+.ftag.t2{bottom:70px;right:-24px}
+.ftag.t3{bottom:22px;left:22px}
 
-    .scroll-line {
-      width: 1px;
-      height: 44px;
-      background: linear-gradient(to bottom, rgba(255,255,255,.5), transparent);
-      animation: scrollPulse 2s ease infinite;
-    }
+/* ══ GLASS CARDS ══ */
+.grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.grid-2{display:grid;grid-template-columns:repeat(2,1fr);gap:20px}
 
-    @keyframes scrollPulse {
-      0%,100% { opacity: .3; transform: scaleY(.8); }
-      50% { opacity: 1; transform: scaleY(1); }
-    }
+.g-card{
+  background:rgba(255,255,255,.04);
+  backdrop-filter:blur(24px);-webkit-backdrop-filter:blur(24px);
+  border:1px solid rgba(255,255,255,.08);
+  border-radius:22px;padding:34px 26px;
+  opacity:0;transform:translateY(36px);
+  transition:border-color .35s,box-shadow .35s;
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.06),0 20px 60px rgba(0,0,0,.5);
+  cursor:default;will-change:transform}
+.g-card:hover{
+  border-color:rgba(139,92,246,.35);
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.1),0 20px 60px rgba(0,0,0,.5),0 0 50px rgba(139,92,246,.12)}
 
-    /* ─── Chapters ─── */
-    .chapter {
-      position: relative;
-      z-index: 10;
-      min-height: 100vh;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      padding: 110px 80px;
-    }
+.p-card{border-radius:24px;padding:38px}
+.p-card:hover{box-shadow:inset 0 1px 0 rgba(255,255,255,.12),0 20px 60px rgba(0,0,0,.5),0 0 70px rgba(139,92,246,.18)}
 
-    .chapter-inner { max-width: 960px; width: 100%; }
+.card-icon{font-size:2.2rem;margin-bottom:18px}
+.card-title{font-size:1.05rem;font-weight:700;color:#fff;margin-bottom:10px}
+.card-desc{font-size:.88rem;color:var(--c2);line-height:1.78}
 
-    /* ─── Typography system ─── */
-    .chapter-label {
-      font-family: 'Space Grotesk', sans-serif;
-      font-size: .72rem;
-      letter-spacing: .35em;
-      text-transform: uppercase;
-      color: var(--accent);
-      opacity: 0;
-      transform: translateY(18px);
-      margin-bottom: 18px;
-      display: block;
-    }
+.badge{display:inline-block;padding:4px 13px;border-radius:100px;font-size:.67rem;
+  letter-spacing:.15em;font-family:'Space Grotesk',sans-serif;
+  background:rgba(139,92,246,.14);color:var(--acc);border:1px solid rgba(139,92,246,.22);
+  margin-bottom:16px}
+.proj-title{font-size:1.5rem;font-weight:700;color:#fff;margin-bottom:10px}
+.proj-desc{font-size:.88rem;color:var(--c2);line-height:1.78}
 
-    .line-divider {
-      width: 0;
-      height: 2px;
-      background: linear-gradient(90deg, var(--accent), transparent);
-      margin-bottom: 22px;
-      opacity: 0;
-    }
+/* ══ CONTACT ══ */
+.c-links{display:flex;flex-direction:column;gap:18px;max-width:540px}
+.c-link{display:flex;align-items:center;gap:18px;padding:22px 30px;
+  background:rgba(255,255,255,.04);backdrop-filter:blur(20px);
+  border:1px solid rgba(255,255,255,.08);border-radius:18px;
+  text-decoration:none;color:#fff;opacity:0;transform:translateY(22px);
+  transition:background .3s,border-color .3s,transform .3s,box-shadow .3s;
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.06)}
+.c-link:hover{background:rgba(139,92,246,.09);border-color:rgba(139,92,246,.35);
+  transform:translateX(-8px) !important;box-shadow:inset 0 1px 0 rgba(255,255,255,.1),0 0 40px rgba(139,92,246,.12)}
+.c-ico{font-size:1.5rem;width:38px;text-align:center;flex-shrink:0}
+.c-lbl{font-size:.7rem;color:var(--c3);display:block;margin-bottom:3px}
+.c-val{font-size:.98rem;color:#fff;display:block}
 
-    .chapter-title {
-      font-size: clamp(2.8rem, 7vw, 6.5rem);
-      font-weight: 900;
-      line-height: 1.05;
-      color: #fff;
-      opacity: 0;
-      transform: translateY(40px);
-      margin-bottom: 28px;
-    }
+/* ══ FOOTER ══ */
+.footer-line{margin-top:60px;padding-top:38px;border-top:1px solid rgba(255,255,255,.06);
+  display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;
+  opacity:0;transform:translateY(16px)}
+.footer-line span{font-size:.76rem;color:var(--c3)}
+.footer-line a{font-family:'Space Grotesk',sans-serif;font-size:.76rem;
+  letter-spacing:.1em;color:var(--acc);text-decoration:none}
 
-    .chapter-title .hl {
-      background: linear-gradient(135deg, var(--accent), var(--accent2));
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-    }
+/* ══ SECTION SEPARATORS ══ */
+.chapter::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;
+  background:linear-gradient(90deg,transparent,rgba(139,92,246,.2),transparent)}
+#ch-0::before{display:none}
 
-    .chapter-sub {
-      font-size: clamp(.95rem, 2.2vw, 1.3rem);
-      font-weight: 300;
-      color: var(--c2);
-      opacity: 0;
-      transform: translateY(28px);
-      line-height: 1.85;
-      max-width: 580px;
-      margin-bottom: 48px;
-    }
-
-    /* ─── Hero ─── */
-    .hero-eyebrow {
-      font-family: 'Space Grotesk', sans-serif;
-      font-size: .78rem;
-      letter-spacing: .4em;
-      color: rgba(200,160,255,.65);
-      text-transform: uppercase;
-      margin-bottom: 20px;
-      opacity: 0;
-      transform: translateY(16px);
-      display: block;
-    }
-
-    .hero-title {
-      font-size: clamp(4.5rem, 13vw, 11rem);
-      font-weight: 900;
-      line-height: .9;
-      color: #fff;
-      opacity: 0;
-      transform: translateY(50px);
-      margin-bottom: 28px;
-      font-family: 'Space Grotesk', sans-serif;
-      letter-spacing: -.04em;
-    }
-
-    .hero-title .bee { color: #fff; }
-    .hero-title .work {
-      background: linear-gradient(135deg, var(--accent), var(--accent2));
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-    }
-
-    .hero-sub {
-      font-size: clamp(1rem, 2.4vw, 1.45rem);
-      font-weight: 300;
-      color: var(--c2);
-      opacity: 0;
-      transform: translateY(28px);
-      margin-bottom: 52px;
-      line-height: 1.8;
-    }
-
-    .hero-cta {
-      display: inline-flex;
-      align-items: center;
-      gap: 14px;
-      padding: 16px 34px;
-      background: rgba(200,160,255,.1);
-      border: 1px solid rgba(200,160,255,.28);
-      border-radius: 100px;
-      color: var(--accent);
-      text-decoration: none;
-      font-size: .88rem;
-      letter-spacing: .12em;
-      font-family: 'Space Grotesk', sans-serif;
-      opacity: 0;
-      transform: translateY(20px);
-      transition: background .3s, transform .3s;
-    }
-
-    .hero-cta:hover {
-      background: rgba(200,160,255,.18);
-      transform: translateY(-3px) !important;
-    }
-
-    .hero-cta .arr { transition: transform .3s; }
-    .hero-cta:hover .arr { transform: translateX(-4px); }
-
-    /* ─── About layout ─── */
-    .about-layout {
-      display: grid;
-      grid-template-columns: 1.1fr 1fr;
-      gap: 80px;
-      align-items: center;
-    }
-
-    .about-visual {
-      opacity: 0;
-      transform: translateY(30px);
-      position: relative;
-      height: 380px;
-    }
-
-    .av-box {
-      width: 100%;
-      height: 100%;
-      background: rgba(200,160,255,.04);
-      border: 1px solid rgba(200,160,255,.1);
-      border-radius: 28px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 5rem;
-    }
-
-    .ftag {
-      position: absolute;
-      background: rgba(8,8,20,.92);
-      border: 1px solid rgba(200,160,255,.18);
-      border-radius: 10px;
-      padding: 9px 15px;
-      font-size: .75rem;
-      color: var(--c2);
-      font-family: 'Space Grotesk', sans-serif;
-      backdrop-filter: blur(12px);
-      white-space: nowrap;
-    }
-
-    .ftag.t1 { top: 18px; left: -22px; }
-    .ftag.t2 { bottom: 70px; right: -22px; }
-    .ftag.t3 { bottom: 22px; left: 22px; }
-
-    /* ─── Stats ─── */
-    .stats-row {
-      display: flex;
-      gap: 44px;
-      flex-wrap: wrap;
-    }
-
-    .stat { display: flex; flex-direction: column; gap: 4px; }
-
-    .stat-n {
-      font-family: 'Space Grotesk', sans-serif;
-      font-size: 2.6rem;
-      font-weight: 700;
-      color: #fff;
-      line-height: 1;
-    }
-
-    .stat-l { font-size: .82rem; color: var(--c3); }
-
-    /* ─── Services ─── */
-    .services-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 22px;
-    }
-
-    .s-card {
-      background: rgba(255,255,255,.035);
-      border: 1px solid rgba(255,255,255,.07);
-      border-radius: 18px;
-      padding: 32px 24px;
-      backdrop-filter: blur(8px);
-      opacity: 0;
-      transform: translateY(30px);
-      transition: transform .35s cubic-bezier(.25,.46,.45,.94), border-color .35s;
-    }
-
-    .s-card:hover {
-      transform: translateY(-5px) !important;
-      border-color: rgba(200,160,255,.25);
-    }
-
-    .s-icon { font-size: 2rem; margin-bottom: 16px; }
-    .s-title { font-size: 1rem; font-weight: 700; color: #fff; margin-bottom: 10px; }
-    .s-desc { font-size: .88rem; color: var(--c2); line-height: 1.75; }
-
-    /* ─── Projects ─── */
-    .projects-grid {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 22px;
-    }
-
-    .p-card {
-      background: rgba(255,255,255,.035);
-      border: 1px solid rgba(255,255,255,.07);
-      border-radius: 22px;
-      padding: 36px;
-      cursor: pointer;
-      position: relative;
-      overflow: hidden;
-      opacity: 0;
-      transform: translateY(40px);
-      transition: transform .4s cubic-bezier(.25,.46,.45,.94);
-    }
-
-    .p-card::before {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(135deg, rgba(200,160,255,.08), transparent 60%);
-      opacity: 0;
-      transition: opacity .35s;
-    }
-
-    .p-card:hover { transform: translateY(-6px) scale(1.01) !important; }
-    .p-card:hover::before { opacity: 1; }
-
-    .p-badge {
-      display: inline-block;
-      padding: 4px 13px;
-      border-radius: 100px;
-      font-size: .68rem;
-      letter-spacing: .15em;
-      font-family: 'Space Grotesk', sans-serif;
-      background: rgba(200,160,255,.12);
-      color: var(--accent);
-      border: 1px solid rgba(200,160,255,.18);
-      margin-bottom: 16px;
-    }
-
-    .p-title { font-size: 1.45rem; font-weight: 700; color: #fff; margin-bottom: 10px; }
-    .p-desc { font-size: .88rem; color: var(--c2); line-height: 1.75; }
-
-    /* ─── Contact ─── */
-    .contact-wrap { display: flex; flex-direction: column; gap: 18px; max-width: 520px; }
-
-    .c-link {
-      display: flex;
-      align-items: center;
-      gap: 18px;
-      padding: 20px 28px;
-      background: rgba(255,255,255,.035);
-      border: 1px solid rgba(255,255,255,.07);
-      border-radius: 16px;
-      text-decoration: none;
-      color: #fff;
-      opacity: 0;
-      transform: translateY(22px);
-      transition: background .3s, border-color .3s, transform .3s;
-    }
-
-    .c-link:hover {
-      background: rgba(200,160,255,.07);
-      border-color: rgba(200,160,255,.28);
-      transform: translateX(-6px) !important;
-    }
-
-    .c-icon { font-size: 1.4rem; width: 36px; text-align: center; flex-shrink: 0; }
-    .c-lbl { font-size: .72rem; color: var(--c3); display: block; margin-bottom: 3px; }
-    .c-val { font-size: .95rem; color: #fff; display: block; }
-
-    /* ─── Footer line ─── */
-    .footer-line {
-      margin-top: 56px;
-      padding-top: 36px;
-      border-top: 1px solid rgba(255,255,255,.06);
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      flex-wrap: wrap;
-      gap: 12px;
-      opacity: 0;
-      transform: translateY(16px);
-    }
-
-    .footer-line span { font-size: .78rem; color: var(--c3); }
-    .footer-line a {
-      font-family: 'Space Grotesk', sans-serif;
-      font-size: .78rem;
-      letter-spacing: .1em;
-      color: var(--accent);
-      text-decoration: none;
-    }
-
-    /* ─── Responsive ─── */
-    @media (max-width: 900px) {
-      .chapter { padding: 80px 28px; }
-      .about-layout { grid-template-columns: 1fr; gap: 44px; }
-      .about-visual { height: 240px; }
-      .services-grid { grid-template-columns: 1fr; }
-      .projects-grid { grid-template-columns: 1fr; }
-      .nav-dots { display: none; }
-      .site-logo { right: 22px; }
-    }
-  </style>
+/* ══ RESPONSIVE ══ */
+@media(max-width:900px){
+  .chapter{padding:80px 24px}
+  .about-wrap,.grid-3,.grid-2{grid-template-columns:1fr}
+  .about-visual{height:240px}
+  .nav-dots{display:none}
+  .logo{right:22px}
+  .hero-title{font-size:clamp(4rem,18vw,7rem)}
+}
+</style>
 </head>
 <body>
 
-<canvas id="bg-canvas"></canvas>
-<div id="cursor-glow"></div>
-<div id="progress-bar"></div>
+<!-- Animated gradient blobs -->
+<div class="blobs">
+  <div class="blob b1" id="b1"></div>
+  <div class="blob b2" id="b2"></div>
+  <div class="blob b3" id="b3"></div>
+</div>
 
-<a href="#" class="site-logo">beework</a>
+<!-- Three.js 3D scene (transparent over blobs) -->
+<canvas id="three-canvas"></canvas>
 
-<nav class="nav-dots" id="nav-dots">
-  <div class="nav-dot active" data-t="ch-0"></div>
-  <div class="nav-dot" data-t="ch-1"></div>
-  <div class="nav-dot" data-t="ch-2"></div>
-  <div class="nav-dot" data-t="ch-3"></div>
-  <div class="nav-dot" data-t="ch-4"></div>
+<!-- Cursor spotlight -->
+<div id="spot"></div>
+<div id="prog"></div>
+
+<a href="#" class="logo">beework</a>
+
+<nav class="nav-dots">
+  <div class="dot on"  data-t="ch-0"></div>
+  <div class="dot"     data-t="ch-1"></div>
+  <div class="dot"     data-t="ch-2"></div>
+  <div class="dot"     data-t="ch-3"></div>
+  <div class="dot"     data-t="ch-4"></div>
 </nav>
 
-<div id="scroll-indicator">
+<div id="scroll-hint">
   <span>مرر</span>
   <div class="scroll-line"></div>
 </div>
 
 
-<!-- ══════════════════════════════════════
-     HERO
-═══════════════════════════════════════ -->
+<!-- ═══════════════════════ HERO ═══════════════════════ -->
 <section class="chapter" id="ch-0" data-ch="0">
-  <div class="chapter-inner">
-    <span class="hero-eyebrow" id="h-eyebrow">صانع التجارب الرقمية</span>
-    <h1 class="hero-title" id="h-title">
-      <span class="bee">bee</span><span class="work">work</span>
-    </h1>
-    <p class="hero-sub" id="h-sub">
+  <div class="inner">
+    <span class="hero-name" id="h-nm">حسين العولقي</span>
+    <span class="hero-eyebrow" id="h-ey">صانع التجارب الرقمية</span>
+    <h1 class="hero-title" id="h-ti">beework</h1>
+    <p class="hero-sub" id="h-su">
       نحوّل أفكارك إلى تجارب رقمية استثنائية<br>
-      <span style="font-family:'Space Grotesk',sans-serif;font-size:.8em;letter-spacing:.06em;color:rgba(200,160,255,.7);">Apps · AI Bots · Creative Websites</span>
+      <em>Apps · AI Bots · Creative Websites</em>
     </p>
-    <a href="#ch-1" class="hero-cta" id="h-cta">
+    <a href="#ch-1" class="hero-cta" id="h-ct">
       اكتشف الرحلة
       <span class="arr">↓</span>
     </a>
@@ -509,143 +257,119 @@
 </section>
 
 
-<!-- ══════════════════════════════════════
-     CHAPTER 1 — STORY
-═══════════════════════════════════════ -->
+<!-- ═══════════════════════ CH 1 — القصة ═══════════════════════ -->
 <section class="chapter" id="ch-1" data-ch="1">
-  <div class="chapter-inner">
-    <div class="about-layout">
-
+  <div class="inner">
+    <div class="about-wrap">
       <div>
-        <span class="chapter-label">الفصل الأول — القصة</span>
-        <div class="line-divider" id="d1"></div>
-        <h2 class="chapter-title">نبني ما<br><span class="hl">يُذهل</span></h2>
-        <p class="chapter-sub">
-          منذ 2018 ونحن نصنع حلولاً رقمية تجمع بين الجمال البصري
-          والأداء العالي. كل مشروع قصة، وكل سطر كود جزء منها.
+        <span class="eyebrow">الفصل الأول — القصة</span>
+        <div class="divline" id="d1"></div>
+        <h2 class="title">نبني ما<br><span class="hl">يُذهل</span></h2>
+        <p class="sub">
+          منذ 2018 ونحن نصنع حلولاً رقمية تجمع الجمال البصري
+          بالأداء العالي. كل مشروع قصة، وكل سطر كود جزء منها.
         </p>
-        <div class="stats-row" id="stats-row">
-          <div class="stat">
-            <span class="stat-n">+20</span>
-            <span class="stat-l">مشروع منجز</span>
-          </div>
-          <div class="stat">
-            <span class="stat-n">+5K</span>
-            <span class="stat-l">مستخدم نشط</span>
-          </div>
-          <div class="stat">
-            <span class="stat-n">3</span>
-            <span class="stat-l">تطبيقات على المتاجر</span>
-          </div>
+        <div class="stats" id="stats">
+          <div class="stat"><div class="stat-n">+20</div><div class="stat-l">مشروع منجز</div></div>
+          <div class="stat"><div class="stat-n">+5K</div><div class="stat-l">مستخدم نشط</div></div>
+          <div class="stat"><div class="stat-n">3</div><div class="stat-l">تطبيقات على المتاجر</div></div>
         </div>
       </div>
-
       <div class="about-visual" id="av">
         <div class="av-box">🎨</div>
         <div class="ftag t1">Flutter · Dart</div>
         <div class="ftag t2">Claude AI</div>
         <div class="ftag t3">Three.js · GSAP</div>
       </div>
-
     </div>
   </div>
 </section>
 
 
-<!-- ══════════════════════════════════════
-     CHAPTER 2 — SERVICES
-═══════════════════════════════════════ -->
+<!-- ═══════════════════════ CH 2 — الخدمات ═══════════════════════ -->
 <section class="chapter" id="ch-2" data-ch="2">
-  <div class="chapter-inner">
-    <span class="chapter-label">الفصل الثاني — الخدمات</span>
-    <div class="line-divider" id="d2"></div>
-    <h2 class="chapter-title">ما <span class="hl">نتقنه</span></h2>
-    <p class="chapter-sub">ثلاثة محاور تشكّل جوهر كل ما نصنعه</p>
-
-    <div class="services-grid">
-      <div class="s-card">
-        <div class="s-icon">📱</div>
-        <div class="s-title">تطبيقات الجوال</div>
-        <div class="s-desc">تطبيقات Flutter للـ iOS والأندرويد بتصميم سلس وأداء لا يُضاهى</div>
+  <div class="inner">
+    <span class="eyebrow">الفصل الثاني — الخدمات</span>
+    <div class="divline" id="d2"></div>
+    <h2 class="title">ما <span class="hl">نتقنه</span></h2>
+    <p class="sub">ثلاثة محاور تشكّل جوهر كل ما نصنعه</p>
+    <div class="grid-3">
+      <div class="g-card">
+        <div class="card-icon">📱</div>
+        <div class="card-title">تطبيقات الجوال</div>
+        <div class="card-desc">تطبيقات Flutter للـ iOS والأندرويد بتصميم سلس وأداء لا يُضاهى</div>
       </div>
-      <div class="s-card">
-        <div class="s-icon">🤖</div>
-        <div class="s-title">بوتات الذكاء الاصطناعي</div>
-        <div class="s-desc">بوتات تيليغرام مدعومة بـ Claude AI لأتمتة الأعمال وخدمة العملاء</div>
+      <div class="g-card">
+        <div class="card-icon">🤖</div>
+        <div class="card-title">بوتات الذكاء الاصطناعي</div>
+        <div class="card-desc">بوتات تيليغرام مدعومة بـ Claude AI لأتمتة الأعمال وخدمة العملاء</div>
       </div>
-      <div class="s-card">
-        <div class="s-icon">🌐</div>
-        <div class="s-title">المواقع الإبداعية</div>
-        <div class="s-desc">مواقع بـ Three.js وGSAP وLenis — تجارب بصرية تُبهر كل زائر</div>
+      <div class="g-card">
+        <div class="card-icon">🌐</div>
+        <div class="card-title">المواقع الإبداعية</div>
+        <div class="card-desc">مواقع بـ Three.js وGSAP وLenis — تجارب بصرية تُبهر كل زائر</div>
       </div>
     </div>
   </div>
 </section>
 
 
-<!-- ══════════════════════════════════════
-     CHAPTER 3 — PROJECTS
-═══════════════════════════════════════ -->
+<!-- ═══════════════════════ CH 3 — الأعمال ═══════════════════════ -->
 <section class="chapter" id="ch-3" data-ch="3">
-  <div class="chapter-inner">
-    <span class="chapter-label">الفصل الثالث — الأعمال</span>
-    <div class="line-divider" id="d3"></div>
-    <h2 class="chapter-title">ما <span class="hl">صنعناه</span></h2>
-
-    <div class="projects-grid">
-      <div class="p-card">
-        <span class="p-badge">FLUTTER APP</span>
-        <div class="p-title">BeeHive</div>
-        <div class="p-desc">سوق العمالة اليمني — يربط أصحاب العمل بالعمال المهرة في منصة واحدة</div>
+  <div class="inner">
+    <span class="eyebrow">الفصل الثالث — الأعمال</span>
+    <div class="divline" id="d3"></div>
+    <h2 class="title">ما <span class="hl">صنعناه</span></h2>
+    <div class="grid-2">
+      <div class="g-card p-card">
+        <span class="badge">FLUTTER APP</span>
+        <div class="proj-title">BeeHive</div>
+        <div class="proj-desc">سوق العمالة اليمني — يربط أصحاب العمل بالعمال المهرة في منصة واحدة</div>
       </div>
-      <div class="p-card">
-        <span class="p-badge">FINTECH APP</span>
-        <div class="p-title">YemenPay</div>
-        <div class="p-desc">محفظة رقمية آمنة — تحويلات، دفع، وإدارة مالية ذكية في تطبيق واحد</div>
+      <div class="g-card p-card">
+        <span class="badge">FINTECH APP</span>
+        <div class="proj-title">YemenPay</div>
+        <div class="proj-desc">محفظة رقمية آمنة — تحويلات، دفع، وإدارة مالية ذكية في تطبيق واحد</div>
       </div>
-      <div class="p-card">
-        <span class="p-badge">AI BOT</span>
-        <div class="p-title">@Alawlaqi_AI</div>
-        <div class="p-desc">بوت تيليغرام ذكي مدعوم بـ Claude — يُجيب ويُنجز ويُدير على مدار الساعة</div>
+      <div class="g-card p-card">
+        <span class="badge">AI BOT</span>
+        <div class="proj-title">@Alawlaqi_AI</div>
+        <div class="proj-desc">بوت تيليغرام ذكي مدعوم بـ Claude — يُجيب ويُنجز ويُدير على مدار الساعة</div>
       </div>
-      <div class="p-card">
-        <span class="p-badge">WEB PLATFORM</span>
-        <div class="p-title">beework.art</div>
-        <div class="p-desc">الموقع الشخصي — Netlify + Decap CMS + تصميم تفاعلي احترافي</div>
+      <div class="g-card p-card">
+        <span class="badge">WEB PLATFORM</span>
+        <div class="proj-title">beework.art</div>
+        <div class="proj-desc">الموقع الشخصي — Netlify + Decap CMS + تصميم تفاعلي احترافي</div>
       </div>
     </div>
   </div>
 </section>
 
 
-<!-- ══════════════════════════════════════
-     CHAPTER 4 — CONTACT
-═══════════════════════════════════════ -->
+<!-- ═══════════════════════ CH 4 — تواصل ═══════════════════════ -->
 <section class="chapter" id="ch-4" data-ch="4">
-  <div class="chapter-inner">
-    <span class="chapter-label">الفصل الأخير — تواصل</span>
-    <div class="line-divider" id="d4"></div>
-    <h2 class="chapter-title">لنبني<br><span class="hl">معاً</span></h2>
-    <p class="chapter-sub">فكرتك تستحق أن تُصنع — تواصل معنا الآن</p>
-
-    <div class="contact-wrap">
+  <div class="inner">
+    <span class="eyebrow">الفصل الأخير — تواصل</span>
+    <div class="divline" id="d4"></div>
+    <h2 class="title">لنبني<br><span class="hl">معاً</span></h2>
+    <p class="sub">فكرتك تستحق أن تُصنع — تواصل معنا الآن</p>
+    <div class="c-links">
       <a href="mailto:aldioli7@gmail.com" class="c-link">
-        <span class="c-icon">✉️</span>
+        <span class="c-ico">✉️</span>
         <div>
           <span class="c-lbl">البريد الإلكتروني</span>
           <span class="c-val">aldioli7@gmail.com</span>
         </div>
       </a>
-      <a href="https://t.me/Alawlaqi_AI_bot" class="c-link">
-        <span class="c-icon">✈️</span>
+      <a href="https://t.me/Alawlaqi_AI_bot" class="c-link" target="_blank">
+        <span class="c-ico">✈️</span>
         <div>
           <span class="c-lbl">تيليغرام</span>
           <span class="c-val">@Alawlaqi_AI_bot</span>
         </div>
       </a>
     </div>
-
-    <div class="footer-line" id="footer-line">
+    <div class="footer-line" id="footer">
       <span>© 2026 beework — جميع الحقوق محفوظة</span>
       <a href="https://beework.art" target="_blank">beework.art</a>
     </div>
@@ -653,307 +377,344 @@
 </section>
 
 
-<!-- ══════════════════════════════════════
-     SCRIPTS
-═══════════════════════════════════════ -->
+<!-- ═══════════════════════ LIBRARIES ═══════════════════════ -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r134/three.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/@studio-freight/lenis@1.0.42/dist/lenis.min.js"></script>
 
 <script>
-/* ═══════════════════════════════════════
-   THREE.JS — PAINTED TEXTURE BACKGROUND
-═══════════════════════════════════════ */
-const canvas  = document.getElementById('bg-canvas');
-const renderer = new THREE.WebGLRenderer({ canvas, antialias: false });
-renderer.setPixelRatio(Math.min(window.devicePixelRatio, 1.5));
-renderer.setSize(window.innerWidth, window.innerHeight);
+/* ════════════════════════════════════════════════════
+   THREE.JS — Transparent 3D scene over CSS blobs
+════════════════════════════════════════════════════ */
+const W = innerWidth, H = innerHeight;
+const renderer = new THREE.WebGLRenderer({
+  canvas: document.getElementById('three-canvas'),
+  antialias: true,
+  alpha: true,
+});
+renderer.setClearColor(0x000000, 0);
+renderer.setPixelRatio(Math.min(devicePixelRatio, 2));
+renderer.setSize(W, H);
 
-const scene  = new THREE.Scene();
-const camera = new THREE.OrthographicCamera(-1, 1, 1, -1, 0, 1);
+const scene = new THREE.Scene();
+const camera = new THREE.PerspectiveCamera(55, W / H, 0.1, 100);
+camera.position.set(0, 0, 7);
 
+/* ── FRESNEL SHADER ── */
 const VERT = `
-  varying vec2 vUv;
-  void main() { vUv = uv; gl_Position = vec4(position, 1.0); }
+  varying vec3 vWN;
+  varying vec3 vWP;
+  void main() {
+    vec4 wp = modelMatrix * vec4(position, 1.0);
+    vWP = wp.xyz;
+    vWN = normalize(mat3(transpose(inverse(modelMatrix))) * normal);
+    gl_Position = projectionMatrix * viewMatrix * wp;
+  }
 `;
-
 const FRAG = `
-  uniform float uTime;
-  uniform vec2  uMouse;
-  uniform vec3  uC1;
-  uniform vec3  uC2;
-  uniform vec3  uC3;
-  varying vec2  vUv;
-
-  /* ─ Simplex 3D noise ─ */
-  vec3 mod289v3(vec3 x){return x-floor(x*(1./289.))*289.;}
-  vec4 mod289v4(vec4 x){return x-floor(x*(1./289.))*289.;}
-  vec4 permute(vec4 x){return mod289v4(((x*34.)+1.)*x);}
-  vec4 taylorInvSqrt(vec4 r){return 1.79284291400159-.85373472095314*r;}
-
-  float snoise(vec3 v){
-    const vec2 C=vec2(1./6.,1./3.);
-    const vec4 D=vec4(0.,.5,1.,2.);
-    vec3 i=floor(v+dot(v,C.yyy));
-    vec3 x0=v-i+dot(i,C.xxx);
-    vec3 g=step(x0.yzx,x0.xyz);
-    vec3 l=1.-g;
-    vec3 i1=min(g.xyz,l.zxy);
-    vec3 i2=max(g.xyz,l.zxy);
-    vec3 x1=x0-i1+C.xxx;
-    vec3 x2=x0-i2+C.yyy;
-    vec3 x3=x0-D.yyy;
-    i=mod289v3(i);
-    vec4 p=permute(permute(permute(
-      i.z+vec4(0.,i1.z,i2.z,1.))
-      +i.y+vec4(0.,i1.y,i2.y,1.))
-      +i.x+vec4(0.,i1.x,i2.x,1.));
-    float n_=.142857142857;
-    vec3 ns=n_*D.wyz-D.xzx;
-    vec4 j=p-49.*floor(p*ns.z*ns.z);
-    vec4 x_=floor(j*ns.z);
-    vec4 y_=floor(j-7.*x_);
-    vec4 x=x_*ns.x+ns.yyyy;
-    vec4 y=y_*ns.x+ns.yyyy;
-    vec4 h=1.-abs(x)-abs(y);
-    vec4 b0=vec4(x.xy,y.xy);
-    vec4 b1=vec4(x.zw,y.zw);
-    vec4 s0=floor(b0)*2.+1.;
-    vec4 s1=floor(b1)*2.+1.;
-    vec4 sh=-step(h,vec4(0.));
-    vec4 a0=b0.xzyw+s0.xzyw*sh.xxyy;
-    vec4 a1=b1.xzyw+s1.xzyw*sh.zzww;
-    vec3 p0=vec3(a0.xy,h.x);
-    vec3 p1=vec3(a0.zw,h.y);
-    vec3 p2=vec3(a1.xy,h.z);
-    vec3 p3=vec3(a1.zw,h.w);
-    vec4 norm=taylorInvSqrt(vec4(dot(p0,p0),dot(p1,p1),dot(p2,p2),dot(p3,p3)));
-    p0*=norm.x; p1*=norm.y; p2*=norm.z; p3*=norm.w;
-    vec4 m=max(.6-vec4(dot(x0,x0),dot(x1,x1),dot(x2,x2),dot(x3,x3)),0.);
-    m=m*m;
-    return 42.*dot(m*m,vec4(dot(p0,x0),dot(p1,x1),dot(p2,x2),dot(p3,x3)));
-  }
-
-  void main(){
-    vec2 uv = vUv;
-
-    /* cursor ripple */
-    vec2 toM = uMouse - uv;
-    float mDist = length(toM);
-    uv += toM * exp(-mDist * 3.8) * 0.065;
-
-    /* layered painted noise */
-    float n1 = snoise(vec3(uv * 1.6 + vec2(0., uTime*.045), uTime*.025));
-    float n2 = snoise(vec3(uv * 3.2 + vec2(uTime*.038, 0.), uTime*.04));
-    float n3 = snoise(vec3(uv * 6.4 + vec2(-uTime*.028, uTime*.018), uTime*.035));
-
-    float noise = (n1*.5 + n2*.3 + n3*.2) * .5 + .5;
-
-    float s1 = smoothstep(.28, .6, noise);
-    float s2 = smoothstep(.55, .88, noise + n2 * .18);
-
-    vec3 col = mix(uC1, uC2, s1);
-    col = mix(col, uC3, s2 * .65);
-
-    /* vignette */
-    vec2 vig = vUv * 2. - 1.;
-    float v = 1. - smoothstep(.35, 1.45, length(vig));
-    col *= .55 + v * .45;
-
-    gl_FragColor = vec4(col, 1.0);
+  uniform float uT;
+  uniform vec3 uCA;
+  uniform vec3 uCB;
+  varying vec3 vWN;
+  varying vec3 vWP;
+  void main() {
+    vec3 vd = normalize(cameraPosition - vWP);
+    float fr = pow(1.0 - abs(dot(vd, vWN)), 2.3);
+    float pulse = sin(uT * 1.4) * .5 + .5;
+    vec3 col = mix(uCA, uCB, fr + pulse * .22);
+    float alpha = fr * .92 + .04;
+    gl_FragColor = vec4(col * (1.5 + pulse * .4), alpha);
   }
 `;
 
-const uniforms = {
-  uTime:  { value: 0 },
-  uMouse: { value: new THREE.Vector2(.5, .5) },
-  uC1:    { value: new THREE.Color(.02, .02, .08) },
-  uC2:    { value: new THREE.Color(.08, .04, .2)  },
-  uC3:    { value: new THREE.Color(.16, .08, .35) },
-};
-
-const mesh = new THREE.Mesh(
-  new THREE.PlaneGeometry(2, 2),
-  new THREE.ShaderMaterial({ vertexShader: VERT, fragmentShader: FRAG, uniforms })
+/* ── MAIN ORB ── */
+const orbU = { uT:{value:0}, uCA:{value:new THREE.Color('#8b5cf6')}, uCB:{value:new THREE.Color('#ec4899')} };
+const orb = new THREE.Mesh(
+  new THREE.SphereGeometry(1.65, 128, 128),
+  new THREE.ShaderMaterial({ uniforms:orbU, vertexShader:VERT, fragmentShader:FRAG,
+    transparent:true, blending:THREE.AdditiveBlending, depthWrite:false })
 );
-scene.add(mesh);
+scene.add(orb);
 
-/* chapter color palettes */
-const PALETTES = [
-  { c1:[.02,.02,.08], c2:[.08,.04,.2],  c3:[.16,.08,.35] },  /* hero  – deep violet   */
-  { c1:[.04,.02,.14], c2:[.12,.06,.3],  c3:[.2,.1,.5]    },  /* ch1   – purple        */
-  { c1:[.01,.06,.15], c2:[.04,.16,.34], c3:[0,.24,.42]   },  /* ch2   – ocean blue    */
-  { c1:[.06,.03,.01], c2:[.2,.1,0],     c3:[.32,.16,0]   },  /* ch3   – amber / gold  */
-  { c1:[.03,.015,.07],c2:[.1,.04,.2],   c3:[.2,.08,.32]  },  /* ch4   – deep violet   */
+/* ── ORB INNER GLOW ── */
+scene.add(new THREE.Mesh(
+  new THREE.SphereGeometry(1.2, 32, 32),
+  new THREE.MeshBasicMaterial({ color:0x8b5cf6, transparent:true, opacity:.07,
+    blending:THREE.AdditiveBlending, depthWrite:false })
+));
+
+/* ── RINGS ── */
+function ring(r, tube, col, op, rx, rz) {
+  const m = new THREE.Mesh(
+    new THREE.TorusGeometry(r, tube, 16, 300),
+    new THREE.MeshBasicMaterial({ color:col, transparent:true, opacity:op,
+      blending:THREE.AdditiveBlending, depthWrite:false })
+  );
+  m.rotation.x = rx; m.rotation.z = rz;
+  scene.add(m); return m;
+}
+const r1 = ring(2.7,  .007, 0x8b5cf6, .45, Math.PI*.38,  .15);
+const r2 = ring(3.5,  .005, 0xec4899, .28, Math.PI*.52, -.2);
+const r3 = ring(4.3,  .003, 0x3b82f6, .18, Math.PI*.28,  .38);
+
+/* ── PARTICLES (sphere shell) ── */
+const PC = 2800;
+const pPos = new Float32Array(PC * 3);
+for (let i = 0; i < PC; i++) {
+  const r2r = 2.8 + Math.random() * 7;
+  const th = Math.random() * Math.PI * 2;
+  const ph = Math.acos(2 * Math.random() - 1);
+  pPos[i*3]   = r2r * Math.sin(ph) * Math.cos(th);
+  pPos[i*3+1] = r2r * Math.sin(ph) * Math.sin(th);
+  pPos[i*3+2] = r2r * Math.cos(ph) - 2;
+}
+const pGeo = new THREE.BufferGeometry();
+pGeo.setAttribute('position', new THREE.BufferAttribute(pPos, 3));
+scene.add(new THREE.Points(pGeo, new THREE.PointsMaterial({
+  color:0xffffff, size:.028, transparent:true, opacity:.55,
+  blending:THREE.AdditiveBlending, depthWrite:false, sizeAttenuation:true
+})));
+
+/* ── SATELLITE ORBS ── */
+function sat(sz, col, x, y, z) {
+  const m = new THREE.Mesh(
+    new THREE.SphereGeometry(sz, 16, 16),
+    new THREE.MeshBasicMaterial({ color:col, transparent:true, opacity:.75,
+      blending:THREE.AdditiveBlending, depthWrite:false })
+  );
+  m.position.set(x, y, z);
+  scene.add(m); return m;
+}
+const s1 = sat(.13, 0x3b82f6,  3.5,  1.5, -1);
+const s2 = sat(.09, 0xec4899, -4.0, -1.0, -.5);
+const s3 = sat(.11, 0x8b5cf6,  2.0, -3.0, -2);
+const s4 = sat(.07, 0xfbbf24, -2.5,  2.8, -1.5);
+
+/* ── BLOB THEMES PER SECTION ── */
+const THEMES = [
+  [[139,92,246,.55],[236,72,153,.45],[59,130,246,.4]],   /* hero  – violet/pink/blue  */
+  [[109,40,217,.5], [219,39,119,.38],[109,40,217,.3]],   /* ch1   – deep purple       */
+  [[29,78,216,.5],  [124,58,237,.4], [8,145,178,.32]],   /* ch2   – ocean blue        */
+  [[217,119,6,.5],  [220,38,38,.38], [124,58,237,.28]],  /* ch3   – amber/red         */
+  [[124,58,237,.52],[236,72,153,.4], [37,99,235,.3]],    /* ch4   – violet/pink       */
+];
+const blobs = [document.getElementById('b1'), document.getElementById('b2'), document.getElementById('b3')];
+const bProxy = [
+  {r:139,g:92,b:246,a:.55},
+  {r:236,g:72,b:153,a:.45},
+  {r:59,g:130,b:246,a:.4},
 ];
 
-function setPalette(i){
-  const p = PALETTES[i];
-  gsap.to(uniforms.uC1.value, { r:p.c1[0], g:p.c1[1], b:p.c1[2], duration:1.6, ease:'power2.inOut' });
-  gsap.to(uniforms.uC2.value, { r:p.c2[0], g:p.c2[1], b:p.c2[2], duration:1.6, ease:'power2.inOut' });
-  gsap.to(uniforms.uC3.value, { r:p.c3[0], g:p.c3[1], b:p.c3[2], duration:1.6, ease:'power2.inOut' });
+function blobUpdate() {
+  blobs.forEach((el, i) => {
+    const p = bProxy[i];
+    el.style.background = `radial-gradient(circle,rgba(${Math.round(p.r)},${Math.round(p.g)},${Math.round(p.b)},${p.a.toFixed(2)}),transparent 68%)`;
+  });
 }
 
-/* ═══════════════════════════════════════
-   LENIS — SMOOTH SCROLL
-═══════════════════════════════════════ */
-const lenis = new Lenis({ lerp: .075, smoothWheel: true });
+function applyTheme(idx) {
+  const t = THEMES[idx];
+  bProxy.forEach((p, i) => {
+    gsap.to(p, {r:t[i][0], g:t[i][1], b:t[i][2], a:t[i][3], duration:1.6,
+      ease:'power2.inOut', onUpdate:blobUpdate});
+  });
+}
 
+/* ── ORB COLOR THEMES ── */
+const ORB_THEMES = [
+  ['#8b5cf6','#ec4899'],
+  ['#7c3aed','#db2777'],
+  ['#1d4ed8','#7c3aed'],
+  ['#d97706','#dc2626'],
+  ['#7c3aed','#ec4899'],
+];
+function applyOrbTheme(i) {
+  const t = ORB_THEMES[i];
+  gsap.to(orbU.uCA.value, {r:parseInt(t[0].slice(1,3),16)/255, g:parseInt(t[0].slice(3,5),16)/255, b:parseInt(t[0].slice(5),16)/255, duration:1.6});
+  gsap.to(orbU.uCB.value, {r:parseInt(t[1].slice(1,3),16)/255, g:parseInt(t[1].slice(3,5),16)/255, b:parseInt(t[1].slice(5),16)/255, duration:1.6});
+}
+
+/* ════════════════════════════════════════════════════
+   LENIS
+════════════════════════════════════════════════════ */
+const lenis = new Lenis({ lerp:.075, smoothWheel:true });
 gsap.registerPlugin(ScrollTrigger);
 lenis.on('scroll', ScrollTrigger.update);
 gsap.ticker.add(t => lenis.raf(t * 1000));
 gsap.ticker.lagSmoothing(0);
 
-/* ═══════════════════════════════════════
+/* ════════════════════════════════════════════════════
    MOUSE
-═══════════════════════════════════════ */
-const mouse  = { x:.5, y:.5 };
-const target = { x:.5, y:.5 };
-const glow   = document.getElementById('cursor-glow');
+════════════════════════════════════════════════════ */
+const mouse  = { x:0, y:0 };
+const target = { x:0, y:0 };
+const spot   = document.getElementById('spot');
 
 document.addEventListener('mousemove', e => {
-  target.x = e.clientX / innerWidth;
-  target.y = 1 - e.clientY / innerHeight;
-  glow.style.left = e.clientX + 'px';
-  glow.style.top  = e.clientY + 'px';
+  target.x = (e.clientX / innerWidth  - .5) * 2;
+  target.y = (e.clientY / innerHeight - .5) * 2;
+  spot.style.left = e.clientX + 'px';
+  spot.style.top  = e.clientY + 'px';
 });
 
-/* ═══════════════════════════════════════
+/* ── 3D CARD TILT ── */
+document.querySelectorAll('.g-card').forEach(card => {
+  card.addEventListener('mousemove', e => {
+    const r = card.getBoundingClientRect();
+    const x = (e.clientX - r.left) / r.width  - .5;
+    const y = (e.clientY - r.top)  / r.height - .5;
+    gsap.to(card, { rotateY:x*12, rotateX:-y*10, transformPerspective:700, duration:.4, ease:'power2.out' });
+  });
+  card.addEventListener('mouseleave', () => {
+    gsap.to(card, { rotateY:0, rotateX:0, duration:.7, ease:'power3.out' });
+  });
+});
+
+/* ════════════════════════════════════════════════════
    PROGRESS BAR
-═══════════════════════════════════════ */
+════════════════════════════════════════════════════ */
 ScrollTrigger.create({
-  trigger: 'body',
-  start: 'top top',
-  end: 'bottom bottom',
-  onUpdate: s => gsap.set('#progress-bar', { scaleX: s.progress }),
+  trigger:'body', start:'top top', end:'bottom bottom',
+  onUpdate: s => gsap.set('#prog', { scaleX:s.progress })
 });
 
-/* ═══════════════════════════════════════
-   CHAPTER TRIGGERS — color + nav dots
-═══════════════════════════════════════ */
+/* ════════════════════════════════════════════════════
+   CHAPTER TRIGGERS — blobs + dots + orb color
+════════════════════════════════════════════════════ */
 document.querySelectorAll('.chapter').forEach((ch, i) => {
   ScrollTrigger.create({
-    trigger: ch,
-    start: 'top 55%',
-    end: 'bottom 45%',
-    onEnter:     () => { setPalette(i); activateDot(i); },
-    onEnterBack: () => { setPalette(i); activateDot(i); },
+    trigger:ch, start:'top 55%', end:'bottom 45%',
+    onEnter:     () => { applyTheme(i); applyOrbTheme(i); activateDot(i); },
+    onEnterBack: () => { applyTheme(i); applyOrbTheme(i); activateDot(i); },
   });
 });
 
-function activateDot(i){
-  document.querySelectorAll('.nav-dot').forEach((d, idx) => {
-    d.classList.toggle('active', idx === i);
-  });
+function activateDot(i) {
+  document.querySelectorAll('.dot').forEach((d, idx) => d.classList.toggle('on', idx===i));
 }
 
-/* ═══════════════════════════════════════
-   HERO — load animation
-═══════════════════════════════════════ */
-gsap.timeline({ delay: .2 })
-  .to('#h-eyebrow', { opacity:1, y:0, duration:.8, ease:'power3.out' })
-  .to('#h-title',   { opacity:1, y:0, duration:1,  ease:'power3.out' }, '-=.4')
-  .to('#h-sub',     { opacity:1, y:0, duration:.8, ease:'power3.out' }, '-=.5')
-  .to('#h-cta',     { opacity:1, y:0, duration:.7, ease:'power3.out' }, '-=.4');
+/* ── Scroll-driven orb scale + camera push ── */
+let scrollProg = 0;
+lenis.on('scroll', ({ progress }) => { scrollProg = progress; });
 
-/* ═══════════════════════════════════════
-   CHAPTER 1 — cinematic reveal
-═══════════════════════════════════════ */
-gsap.set('#stats-row', { opacity:0, y:22 });
+/* ════════════════════════════════════════════════════
+   HERO ANIMATIONS (on load)
+════════════════════════════════════════════════════ */
+gsap.timeline({ delay:.25 })
+  .to('#h-nm', { opacity:1, y:0, duration:.7, ease:'power3.out' })
+  .to('#h-ey', { opacity:1, y:0, duration:.8, ease:'power3.out' }, '-=.3')
+  .to('#h-ti', { opacity:1, y:0, duration:1.1, ease:'power3.out' }, '-=.4')
+  .to('#h-su', { opacity:1, y:0, duration:.85, ease:'power3.out' }, '-=.55')
+  .to('#h-ct', { opacity:1, y:0, duration:.75, ease:'power3.out' }, '-=.45');
 
-gsap.timeline({
-  scrollTrigger:{ trigger:'#ch-1', start:'top 62%', toggleActions:'play none none reverse' }
-})
-.to('#ch-1 .chapter-label', { opacity:1, y:0, duration:.7, ease:'power3.out' })
-.to('#d1',                   { opacity:1, width:'60px', duration:.55, ease:'power2.out' }, .1)
-.to('#ch-1 .chapter-title',  { opacity:1, y:0, duration:1,  ease:'power3.out' }, .2)
-.to('#ch-1 .chapter-sub',    { opacity:1, y:0, duration:.8, ease:'power3.out' }, .4)
-.to('#stats-row',            { opacity:1, y:0, duration:.7, ease:'power3.out' }, .6)
-.to('#av',                   { opacity:1, y:0, duration:.9, ease:'power3.out' }, .3);
+/* ════════════════════════════════════════════════════
+   CINEMATIC SECTION REVEALS
+════════════════════════════════════════════════════ */
+function reveal(id, extras) {
+  const tl = gsap.timeline({ scrollTrigger:{trigger:`#${id}`, start:'top 63%', toggleActions:'play none none reverse'} });
+  tl.to(`#${id} .eyebrow`, { opacity:1, y:0, duration:.7, ease:'power3.out' })
+    .to(`#${id} .divline`, { opacity:1, width:'60px', duration:.55, ease:'power2.out' }, .1)
+    .to(`#${id} .title`,   { opacity:1, y:0, duration:1.0, ease:'power3.out' }, .2)
+    .to(`#${id} .sub`,     { opacity:1, y:0, duration:.85, ease:'power3.out' }, .42);
+  if (extras) extras(tl);
+  return tl;
+}
 
-/* ═══════════════════════════════════════
-   CHAPTER 2 — stagger cards
-═══════════════════════════════════════ */
-gsap.timeline({
-  scrollTrigger:{ trigger:'#ch-2', start:'top 62%', toggleActions:'play none none reverse' }
-})
-.to('#ch-2 .chapter-label', { opacity:1, y:0, duration:.7, ease:'power3.out' })
-.to('#d2',                   { opacity:1, width:'60px', duration:.55, ease:'power2.out' }, .1)
-.to('#ch-2 .chapter-title',  { opacity:1, y:0, duration:1,  ease:'power3.out' }, .2)
-.to('#ch-2 .chapter-sub',    { opacity:1, y:0, duration:.8, ease:'power3.out' }, .4)
-.to('#ch-2 .s-card',         { opacity:1, y:0, duration:.65, stagger:.14, ease:'power3.out' }, .6);
-
-/* ═══════════════════════════════════════
-   CHAPTER 3 — stagger project cards
-═══════════════════════════════════════ */
-gsap.timeline({
-  scrollTrigger:{ trigger:'#ch-3', start:'top 62%', toggleActions:'play none none reverse' }
-})
-.to('#ch-3 .chapter-label', { opacity:1, y:0, duration:.7, ease:'power3.out' })
-.to('#d3',                   { opacity:1, width:'60px', duration:.55, ease:'power2.out' }, .1)
-.to('#ch-3 .chapter-title',  { opacity:1, y:0, duration:1,  ease:'power3.out' }, .2)
-.to('#ch-3 .p-card',         { opacity:1, y:0, duration:.7, stagger:.12, ease:'power3.out' }, .4);
-
-/* ═══════════════════════════════════════
-   CHAPTER 4 — contact links
-═══════════════════════════════════════ */
-gsap.timeline({
-  scrollTrigger:{ trigger:'#ch-4', start:'top 62%', toggleActions:'play none none reverse' }
-})
-.to('#ch-4 .chapter-label', { opacity:1, y:0, duration:.7, ease:'power3.out' })
-.to('#d4',                   { opacity:1, width:'60px', duration:.55, ease:'power2.out' }, .1)
-.to('#ch-4 .chapter-title',  { opacity:1, y:0, duration:1,  ease:'power3.out' }, .2)
-.to('#ch-4 .chapter-sub',    { opacity:1, y:0, duration:.8, ease:'power3.out' }, .4)
-.to('#ch-4 .c-link',         { opacity:1, y:0, duration:.6, stagger:.13, ease:'power3.out' }, .6)
-.to('#footer-line',          { opacity:1, y:0, duration:.6, ease:'power3.out' }, .9);
-
-/* ═══════════════════════════════════════
-   SCROLL INDICATOR — hide after hero
-═══════════════════════════════════════ */
-ScrollTrigger.create({
-  trigger: '#ch-1',
-  start: 'top 85%',
-  onEnter:     () => gsap.to('#scroll-indicator', { opacity:0, duration:.5 }),
-  onLeaveBack: () => gsap.to('#scroll-indicator', { opacity:1, duration:.5 }),
+reveal('ch-1', tl => {
+  tl.to('#stats', { opacity:1, y:0, duration:.75, ease:'power3.out' }, .6)
+    .to('#av',    { opacity:1, y:0, duration:.9,  ease:'power3.out' }, .3);
 });
 
-/* ═══════════════════════════════════════
-   NAV DOTS click
-═══════════════════════════════════════ */
-document.querySelectorAll('.nav-dot').forEach(d => {
+reveal('ch-2', tl => {
+  tl.to('#ch-2 .g-card', { opacity:1, y:0, duration:.65, stagger:.13, ease:'power3.out' }, .6);
+});
+
+gsap.timeline({ scrollTrigger:{trigger:'#ch-3', start:'top 63%', toggleActions:'play none none reverse'} })
+  .to('#ch-3 .eyebrow', { opacity:1, y:0, duration:.7, ease:'power3.out' })
+  .to('#d3',            { opacity:1, width:'60px', duration:.55, ease:'power2.out' }, .1)
+  .to('#ch-3 .title',   { opacity:1, y:0, duration:1.0, ease:'power3.out' }, .2)
+  .to('#ch-3 .g-card',  { opacity:1, y:0, duration:.7,  stagger:.11, ease:'power3.out' }, .4);
+
+reveal('ch-4', tl => {
+  tl.to('#ch-4 .c-link',  { opacity:1, y:0, duration:.6, stagger:.13, ease:'power3.out' }, .65)
+    .to('#footer',         { opacity:1, y:0, duration:.6, ease:'power3.out' }, .95);
+});
+
+/* ── Hide scroll hint after first scroll ── */
+ScrollTrigger.create({
+  trigger:'#ch-1', start:'top 85%',
+  onEnter:     () => gsap.to('#scroll-hint', { opacity:0, duration:.5 }),
+  onLeaveBack: () => gsap.to('#scroll-hint', { opacity:1, duration:.5 }),
+});
+
+/* ════════════════════════════════════════════════════
+   NAV DOTS & HERO CTA
+════════════════════════════════════════════════════ */
+document.querySelectorAll('.dot').forEach(d => {
   d.addEventListener('click', () => {
-    lenis.scrollTo('#' + d.dataset.t, { duration: 1.8, easing: t => Math.min(1, 1.001 - Math.pow(2, -10*t)) });
+    lenis.scrollTo('#' + d.dataset.t, { duration:2, easing: t => Math.min(1, 1.001 - Math.pow(2, -10*t)) });
   });
 });
-
-/* ═══════════════════════════════════════
-   HERO CTA click
-═══════════════════════════════════════ */
-document.getElementById('h-cta').addEventListener('click', e => {
+document.getElementById('h-ct').addEventListener('click', e => {
   e.preventDefault();
-  lenis.scrollTo('#ch-1', { duration: 1.8 });
+  lenis.scrollTo('#ch-1', { duration:2 });
 });
 
-/* ═══════════════════════════════════════
+/* ════════════════════════════════════════════════════
    RENDER LOOP
-═══════════════════════════════════════ */
-function render(t){
+════════════════════════════════════════════════════ */
+function render(t) {
   requestAnimationFrame(render);
+  const time = t * .001;
 
+  /* Smooth mouse */
   mouse.x += (target.x - mouse.x) * .045;
   mouse.y += (target.y - mouse.y) * .045;
 
-  uniforms.uTime.value  = t * .001;
-  uniforms.uMouse.value.set(mouse.x, mouse.y);
+  /* Update orb shader */
+  orbU.uT.value = time;
+
+  /* Rotate everything */
+  orb.rotation.y  = time * .14;
+  orb.rotation.x  = time * .07;
+  r1.rotation.z   = time * .09;
+  r2.rotation.z   = -time * .07;
+  r3.rotation.z   = time * .05;
+  scene.children[scene.children.length - 5].rotation.y = time * .02; // particles
+
+  /* Mouse parallax on orb */
+  orb.position.x += (mouse.x * .9 - orb.position.x) * .04;
+  orb.position.y += (-mouse.y * .9 - orb.position.y) * .04;
+
+  /* Satellite orbits */
+  s1.position.x = Math.cos(time * .38) * 3.8;
+  s1.position.y = Math.sin(time * .38) * 2.2;
+  s1.position.z = Math.sin(time * .3) * 1.5 - 1;
+
+  s2.position.x = Math.cos(time * .28 + 2) * 4.6;
+  s2.position.y = Math.sin(time * .22 + 1) * 2.6;
+
+  s3.position.x = Math.cos(time * .48 + 4) * 3.2;
+  s3.position.z = Math.sin(time * .48 + 4) * 2.0 - 2;
+
+  s4.position.y = Math.sin(time * .35 + 3) * 1.8 + 1.5;
+  s4.position.x = Math.cos(time * .35 + 3) * 3.0;
+
+  /* Camera follows scroll */
+  camera.position.z = 7 - scrollProg * 2.5;
+  camera.position.y = scrollProg * 1.2;
+  camera.lookAt(0, 0, 0);
 
   renderer.render(scene, camera);
 }
 render(0);
 
-/* resize */
+/* ── Resize ── */
 window.addEventListener('resize', () => {
   renderer.setSize(innerWidth, innerHeight);
+  camera.aspect = innerWidth / innerHeight;
+  camera.updateProjectionMatrix();
   ScrollTrigger.refresh();
 });
 </script>
