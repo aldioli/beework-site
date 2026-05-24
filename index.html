@@ -180,15 +180,16 @@ body:hover #cur{opacity:1}
 }
 .hero-sub em{font-style:normal;font-family:'Space Grotesk',sans-serif;font-size:.82em;letter-spacing:.06em}
 
-/* BEE */
+/* ORB */
 .bee-wrap{
-  width:190px;height:260px;margin-bottom:14px;
+  width:300px;height:300px;margin-bottom:14px;
   will-change:transform;
+  animation:orbFloat 6s ease-in-out infinite;
+  filter:drop-shadow(0 0 50px rgba(245,192,51,.28)) drop-shadow(0 0 110px rgba(245,192,51,.10));
+  cursor:none;
 }
-.bee-hover{animation:bFloat 5s ease-in-out infinite}
-@keyframes bFloat{0%,100%{transform:translateY(0) rotate(-2deg)}50%{transform:translateY(-18px) rotate(2deg)}}
-.b-wings{transform-origin:100px 125px;animation:bWing .14s ease-in-out infinite alternate}
-@keyframes bWing{from{transform:scaleY(1) rotate(-1deg)}to{transform:scaleY(.78) rotate(1deg)}}
+@keyframes orbFloat{0%,100%{transform:translateY(0) scale(1)}50%{transform:translateY(-22px) scale(1.03)}}
+#bee-canvas{width:100%;height:100%;display:block;border-radius:50%}
 
 /* CTA */
 .cta-wrap{display:flex;gap:16px;flex-wrap:wrap;justify-content:center}
@@ -474,126 +475,7 @@ body:hover #cur{opacity:1}
 <section class="section" id="hero" data-ch="0">
   <div class="inner">
     <div class="bee-wrap" id="bee">
-      <svg viewBox="0 0 200 290" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <defs>
-          <linearGradient id="bAbd" x1="100" y1="128" x2="100" y2="258" gradientUnits="userSpaceOnUse">
-            <stop offset="0%" stop-color="#FFD966"/>
-            <stop offset="38%" stop-color="#F5C033"/>
-            <stop offset="100%" stop-color="#C08010"/>
-          </linearGradient>
-          <linearGradient id="bThr" x1="75" y1="92" x2="130" y2="140" gradientUnits="userSpaceOnUse">
-            <stop offset="0%" stop-color="#C89010"/>
-            <stop offset="100%" stop-color="#7A4800"/>
-          </linearGradient>
-          <radialGradient id="bWg" cx="34%" cy="26%" r="72%">
-            <stop offset="0%" stop-color="rgba(215,240,255,0.38)"/>
-            <stop offset="55%" stop-color="rgba(195,225,255,0.14)"/>
-            <stop offset="100%" stop-color="rgba(170,210,255,0.02)"/>
-          </radialGradient>
-          <radialGradient id="bHd" cx="36%" cy="30%" r="68%">
-            <stop offset="0%" stop-color="#3A2200"/>
-            <stop offset="100%" stop-color="#130900"/>
-          </radialGradient>
-          <filter id="bGl" x="-60%" y="-60%" width="220%" height="220%">
-            <feGaussianBlur stdDeviation="10" result="b"/>
-            <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
-          </filter>
-          <filter id="bSG" x="-40%" y="-40%" width="180%" height="180%">
-            <feGaussianBlur stdDeviation="5" result="b"/>
-            <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
-          </filter>
-          <clipPath id="bAC">
-            <ellipse cx="100" cy="192" rx="36" ry="66"/>
-          </clipPath>
-        </defs>
-
-        <!-- Amber body halo -->
-        <ellipse cx="100" cy="188" rx="62" ry="92" fill="rgba(245,192,51,0.06)" filter="url(#bGl)"/>
-
-        <!-- WINGS -->
-        <g class="b-wings">
-          <ellipse cx="49" cy="112" rx="64" ry="22" fill="url(#bWg)" stroke="rgba(205,232,255,0.58)" stroke-width="1.2" transform="rotate(-26 49 112)"/>
-          <ellipse cx="151" cy="112" rx="64" ry="22" fill="url(#bWg)" stroke="rgba(205,232,255,0.58)" stroke-width="1.2" transform="rotate(26 151 112)"/>
-          <ellipse cx="63" cy="134" rx="41" ry="15" fill="url(#bWg)" stroke="rgba(205,232,255,0.38)" stroke-width="0.9" transform="rotate(-18 63 134)"/>
-          <ellipse cx="137" cy="134" rx="41" ry="15" fill="url(#bWg)" stroke="rgba(205,232,255,0.38)" stroke-width="0.9" transform="rotate(18 137 134)"/>
-          <!-- Wing veins -->
-          <path d="M71 93L46 74" stroke="rgba(190,220,255,0.2)" stroke-width="0.8" stroke-linecap="round"/>
-          <path d="M71 93L43 106" stroke="rgba(190,220,255,0.16)" stroke-width="0.7" stroke-linecap="round"/>
-          <path d="M129 93L154 74" stroke="rgba(190,220,255,0.2)" stroke-width="0.8" stroke-linecap="round"/>
-          <path d="M129 93L157 106" stroke="rgba(190,220,255,0.16)" stroke-width="0.7" stroke-linecap="round"/>
-        </g>
-
-        <!-- ANTENNAE -->
-        <path d="M88 46C83 32 75 19 64 9" stroke="#291500" stroke-width="2.6" stroke-linecap="round"/>
-        <path d="M112 46C117 32 125 19 136 9" stroke="#291500" stroke-width="2.6" stroke-linecap="round"/>
-        <circle cx="63" cy="8" r="6" fill="#F5C033"/>
-        <circle cx="63" cy="8" r="3" fill="#FFE9A8"/>
-        <circle cx="137" cy="8" r="6" fill="#F5C033"/>
-        <circle cx="137" cy="8" r="3" fill="#FFE9A8"/>
-
-        <!-- HEAD -->
-        <circle cx="100" cy="63" r="36" fill="rgba(240,160,0,0.07)" filter="url(#bSG)"/>
-        <circle cx="100" cy="63" r="30" fill="url(#bHd)"/>
-        <!-- Fuzzy top hair -->
-        <path d="M76 51C83 38 94 34 100 34C106 34 117 38 124 51" stroke="#381D00" stroke-width="6" fill="none" stroke-linecap="round" opacity=".65"/>
-        <!-- Head highlight -->
-        <ellipse cx="87" cy="50" rx="15" ry="10" fill="rgba(245,192,51,0.13)" transform="rotate(-18 87 50)"/>
-        <!-- Compound eyes -->
-        <ellipse cx="80" cy="60" rx="12" ry="13" fill="#060606"/>
-        <ellipse cx="120" cy="60" rx="12" ry="13" fill="#060606"/>
-        <!-- Eye iridescent sheen -->
-        <ellipse cx="80" cy="60" rx="12" ry="13" fill="rgba(40,160,60,0.07)"/>
-        <ellipse cx="120" cy="60" rx="12" ry="13" fill="rgba(40,160,60,0.07)"/>
-        <!-- Eye main specular -->
-        <ellipse cx="76" cy="53" rx="5.5" ry="6" fill="rgba(255,255,255,0.88)" transform="rotate(-14 76 53)"/>
-        <ellipse cx="116" cy="53" rx="5.5" ry="6" fill="rgba(255,255,255,0.88)" transform="rotate(14 116 53)"/>
-        <!-- Eye secondary specular -->
-        <circle cx="83" cy="63" r="2.4" fill="rgba(255,255,255,0.28)"/>
-        <circle cx="123" cy="63" r="2.4" fill="rgba(255,255,255,0.28)"/>
-        <!-- Mandibles hint -->
-        <path d="M91 77Q100 83 109 77" stroke="rgba(245,192,51,0.32)" stroke-width="1.6" stroke-linecap="round" fill="none"/>
-
-        <!-- NECK -->
-        <ellipse cx="100" cy="93" rx="16" ry="11" fill="#291500"/>
-
-        <!-- THORAX -->
-        <ellipse cx="100" cy="118" rx="38" ry="32" fill="rgba(200,140,0,0.08)" filter="url(#bSG)"/>
-        <ellipse cx="100" cy="118" rx="32" ry="27" fill="url(#bThr)"/>
-        <!-- Fur texture lines -->
-        <path d="M71 107C81 100 93 98 100 98C107 98 119 100 129 107" stroke="rgba(255,205,70,0.24)" stroke-width="2.2" fill="none" stroke-linecap="round"/>
-        <path d="M69 116C79 109 91 107 100 107C109 107 121 109 131 116" stroke="rgba(255,205,70,0.17)" stroke-width="1.7" fill="none" stroke-linecap="round"/>
-        <path d="M71 125C80 118 92 116 100 116C108 116 120 118 129 125" stroke="rgba(255,205,70,0.12)" stroke-width="1.4" fill="none" stroke-linecap="round"/>
-        <!-- Thorax highlight -->
-        <ellipse cx="86" cy="107" rx="13" ry="7" fill="rgba(255,255,255,0.08)" transform="rotate(-22 86 107)"/>
-
-        <!-- LEGS -->
-        <path d="M81 121C67 128 54 136 43 149" stroke="#1C0C00" stroke-width="2.7" stroke-linecap="round"/>
-        <path d="M119 121C133 128 146 136 157 149" stroke="#1C0C00" stroke-width="2.7" stroke-linecap="round"/>
-        <path d="M74 136C58 143 45 153 33 167" stroke="#1C0C00" stroke-width="2.4" stroke-linecap="round"/>
-        <path d="M126 136C142 143 155 153 167 167" stroke="#1C0C00" stroke-width="2.4" stroke-linecap="round"/>
-        <path d="M69 155C54 163 39 174 31 191" stroke="#1C0C00" stroke-width="2.1" stroke-linecap="round"/>
-        <path d="M131 155C146 163 161 174 169 191" stroke="#1C0C00" stroke-width="2.1" stroke-linecap="round"/>
-
-        <!-- ABDOMEN -->
-        <ellipse cx="100" cy="192" rx="52" ry="82" fill="rgba(245,192,51,0.05)" filter="url(#bSG)"/>
-        <ellipse cx="100" cy="192" rx="36" ry="66" fill="#F5C033"/>
-        <!-- Stripes -->
-        <g clip-path="url(#bAC)">
-          <rect x="58" y="126" width="84" height="26" fill="#F5C033"/>
-          <rect x="58" y="152" width="84" height="16" fill="#160800" opacity=".93"/>
-          <rect x="58" y="168" width="84" height="17" fill="#EDB020"/>
-          <rect x="58" y="185" width="84" height="16" fill="#160800" opacity=".93"/>
-          <rect x="58" y="201" width="84" height="17" fill="#D49810"/>
-          <rect x="58" y="218" width="84" height="16" fill="#160800" opacity=".88"/>
-          <rect x="58" y="234" width="84" height="40" fill="#B86E0A"/>
-        </g>
-        <!-- Abdomen shine -->
-        <ellipse cx="83" cy="163" rx="13" ry="30" fill="rgba(255,255,255,0.08)" transform="rotate(-5 83 163)"/>
-        <ellipse cx="100" cy="192" rx="36" ry="66" stroke="rgba(110,55,0,0.22)" stroke-width="1"/>
-
-        <!-- STINGER -->
-        <path d="M96 255L100 274L104 255Q100 252 96 255Z" fill="#7A4000" opacity=".9"/>
-      </svg>
+      <canvas id="bee-canvas" width="300" height="300"></canvas>
     </div>
 
     <span class="hero-eyebrow rev" id="h-ey"><span class="rev-inner">حسين العولقي — صانع التجارب الرقمية</span></span>
@@ -754,6 +636,53 @@ body:hover #cur{opacity:1}
 <script src="https://cdn.jsdelivr.net/npm/@studio-freight/lenis@1.0.42/dist/lenis.min.js"></script>
 <script>
 gsap.registerPlugin(ScrollTrigger);
+
+/* ══ ORB SHADERS ══ */
+const ORB_VERT=`
+uniform float uTime;
+uniform vec2 uMouse;
+varying vec3 vNormal;
+varying vec3 vPos;
+varying vec3 vViewDir;
+void main(){
+  vec3 p=position;
+  float t=uTime;
+  float w1=sin(p.x*2.8+t*.65)*cos(p.y*2.3+t*.5)*sin(p.z*2.6+t*.55);
+  float w2=sin(p.x*5.1+t*1.0)*cos(p.z*4.7+t*.85)*.45;
+  float w3=cos(p.y*3.8+p.z*2.9+t*.7)*.3;
+  float mw=sin(p.x*3.+uMouse.x*2.+t*.8)*cos(p.y*3.+uMouse.y*2.+t*.6)*length(uMouse)*.3;
+  vec3 d=p+normal*((w1+w2+w3+mw)*.13);
+  vNormal=normalize(normalMatrix*normal);
+  vec4 wp=modelMatrix*vec4(d,1.);
+  vPos=wp.xyz;
+  vViewDir=normalize(cameraPosition-wp.xyz);
+  gl_Position=projectionMatrix*viewMatrix*wp;
+}`;
+const ORB_FRAG=`
+uniform float uTime;
+varying vec3 vNormal;
+varying vec3 vPos;
+varying vec3 vViewDir;
+void main(){
+  vec3 n=normalize(vNormal);
+  vec3 v=normalize(vViewDir);
+  float fr=pow(1.-max(dot(n,v),0.),2.6);
+  vec3 L1=normalize(vec3(.5,1.,.6));
+  vec3 L2=normalize(vec3(-.5,-.2,.4));
+  float d1=max(dot(n,L1),0.);
+  float d2=max(dot(n,L2),0.)*.28;
+  vec3 H=normalize(L1+v);
+  float spec=pow(max(dot(n,H),0.),80.);
+  vec3 cDark=vec3(.48,.20,.01);
+  vec3 cMid=vec3(.95,.71,.13);
+  vec3 cLight=vec3(1.,.93,.62);
+  vec3 col=mix(cDark,cMid,d1*.95+d2);
+  col=mix(col,cLight,spec*.88);
+  col+=cLight*fr*.72;
+  float sh=sin(n.z*5.+uTime*1.8)*.5+.5;
+  col+=vec3(.28,.18,.0)*sh*fr*.38;
+  gl_FragColor=vec4(col,1.);
+}`;
 
 /* ══ PRELOADER ══ */
 const cells = document.querySelectorAll('.hc-cell');
@@ -1070,6 +999,59 @@ function initSite() {
 
   chatSend.addEventListener('click', sendMsg);
   chatInput.addEventListener('keydown', e => { if (e.key==='Enter') { e.preventDefault(); sendMsg(); } });
+
+  /* ══ 3D GOLD ORB ══ */
+  (function(){
+    const cvs=document.getElementById('bee-canvas');
+    if(!cvs||!window.THREE) return;
+    const W=300,H=300;
+    const rdr=new THREE.WebGLRenderer({canvas:cvs,alpha:true,antialias:true});
+    rdr.setPixelRatio(Math.min(window.devicePixelRatio,2));
+    rdr.setSize(W,H);
+    rdr.setClearColor(0x000000,0);
+    const sc=new THREE.Scene();
+    const cam=new THREE.PerspectiveCamera(45,1,.1,100);
+    cam.position.z=3;
+    const geo=new THREE.SphereGeometry(1,128,128);
+    const mat=new THREE.ShaderMaterial({
+      vertexShader:ORB_VERT,
+      fragmentShader:ORB_FRAG,
+      uniforms:{uTime:{value:0},uMouse:{value:new THREE.Vector2(0,0)}}
+    });
+    sc.add(new THREE.Mesh(geo,mat));
+    /* Particle ring */
+    const pGeo=new THREE.BufferGeometry();
+    const pCount=180;
+    const pPos=new Float32Array(pCount*3);
+    for(let i=0;i<pCount;i++){
+      const a=Math.random()*Math.PI*2;
+      const r=1.4+Math.random()*.5;
+      pPos[i*3]=Math.cos(a)*r;
+      pPos[i*3+1]=(Math.random()-.5)*.6;
+      pPos[i*3+2]=Math.sin(a)*r;
+    }
+    pGeo.setAttribute('position',new THREE.BufferAttribute(pPos,3));
+    const pMat=new THREE.PointsMaterial({color:0xF5C033,size:.025,transparent:true,opacity:.55});
+    const pts=new THREE.Points(pGeo,pMat);
+    sc.add(pts);
+    /* Mouse */
+    const bEl=document.getElementById('bee');
+    bEl.addEventListener('mousemove',e=>{
+      const r=cvs.getBoundingClientRect();
+      mat.uniforms.uMouse.value.set((e.clientX-r.left)/r.width*2-1,-((e.clientY-r.top)/r.height)*2+1);
+    });
+    bEl.addEventListener('mouseleave',()=>mat.uniforms.uMouse.value.set(0,0));
+    /* Loop */
+    (function loop(t){
+      requestAnimationFrame(loop);
+      const s=t*.001;
+      mat.uniforms.uTime.value=s;
+      sc.children[0].rotation.y=s*.18;
+      sc.children[0].rotation.x=Math.sin(s*.28)*.08;
+      pts.rotation.y=-s*.08;
+      rdr.render(sc,cam);
+    })(0);
+  })();
 
 } // end initSite
 </script>
