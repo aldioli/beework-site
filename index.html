@@ -126,8 +126,23 @@ body:hover #cur{opacity:1}
   position:relative;z-index:10;min-height:100vh;
   display:flex;align-items:center;justify-content:center;
   padding:120px 80px;overflow:hidden;
+  will-change:transform,opacity,filter;
 }
 .inner{max-width:1100px;width:100%}
+
+/* ══ CHAR REVEAL (scrubbed) ══ */
+.char-mask{display:inline-block;overflow:hidden;vertical-align:bottom;line-height:1}
+.char-mask .ch{display:inline-block;transform:translateY(110%);opacity:.1;will-change:transform,opacity}
+
+/* ══ PORTFOLIO HORIZONTAL PINNED ══ */
+.h-pin-section{height:100vh;overflow:hidden;position:relative}
+.h-pin-section .h-scroll-wrap{width:100%;height:100%;display:flex;align-items:center}
+.h-pin-section .h-scroll-track{display:flex;gap:24px;padding:0 80px;will-change:transform}
+.h-pin-header{position:absolute;top:60px;left:0;right:0;padding:0 80px;z-index:5;pointer-events:none}
+.h-pin-header > *{pointer-events:auto}
+
+/* ══ APPLE-STYLE SECTION DEPTH FADE ══ */
+.depth-fade{will-change:transform,opacity,filter}
 
 /* Separator */
 .section+.section::before{
@@ -313,6 +328,10 @@ body:hover #cur{opacity:1}
 }
 .proj-title{font-size:1.35rem;font-weight:700;color:var(--white);margin-bottom:9px}
 .proj-desc{font-size:.85rem;color:var(--gray);line-height:1.82}
+.proj-img{width:84px;height:84px;border-radius:20px;margin-bottom:18px;display:block;object-fit:cover;box-shadow:0 8px 24px rgba(0,0,0,.4)}
+.proj-link{display:inline-flex;align-items:center;gap:8px;margin-top:18px;padding:10px 18px;border-radius:100px;background:rgba(245,192,51,.12);border:1px solid rgba(245,192,51,.3);color:var(--gold);font-size:.78rem;font-weight:600;text-decoration:none;font-family:'Space Grotesk',sans-serif;letter-spacing:.04em;transition:background .25s,transform .25s}
+.proj-link:hover{background:rgba(245,192,51,.22);transform:translateY(-2px)}
+.proj-link svg{width:16px;height:16px;fill:currentColor}
 
 /* Drag hint */
 .drag-hint{
@@ -575,20 +594,19 @@ body:hover #cur{opacity:1}
 </section>
 
 
-<!-- ══════════ PORTFOLIO — HORIZONTAL ══════════ -->
-<section class="section" id="portfolio" data-ch="3">
-  <div class="inner">
+<!-- ══════════ PORTFOLIO — HORIZONTAL PINNED ══════════ -->
+<section class="section h-pin-section" id="portfolio" data-ch="3">
+  <div class="h-pin-header">
     <span class="eyebrow rev"><span class="rev-inner">الفصل الثالث — الأعمال</span></span>
     <div class="div-line" id="d3"></div>
-    <h2 class="section-title">
+    <h2 class="section-title" style="margin-bottom:0">
       <span class="split-word"><span class="w">ما</span></span>
       <span class="split-word"><span class="w hl">صنعناه</span></span>
     </h2>
   </div>
-  <div class="drag-hint rev"><span class="rev-inner" style="display:flex;align-items:center;gap:10px"><span class="drag-line"></span>اسحب للاستكشاف<span class="drag-line"></span></span></div>
   <div class="h-scroll-wrap">
     <div class="h-scroll-track" id="htrack">
-      <div class="p-card"><span class="badge">FLUTTER APP</span><div class="proj-title">BeeHive</div><div class="proj-desc">سوق العمالة اليمني — يربط أصحاب العمل بالعمال المهرة في منصة واحدة</div></div>
+      <div class="p-card"><img src="beehive-icon.png" alt="BeeHive" class="proj-img"><span class="badge">FLUTTER APP</span><div class="proj-title">BeeHive</div><div class="proj-desc">سوق العمالة اليمني — يربط أصحاب العمل بالعمال المهرة في منصة واحدة</div><a href="https://play.google.com/store/apps/details?id=com.aldioli.beehiveapp" target="_blank" rel="noopener" class="proj-link"><svg viewBox="0 0 24 24"><path d="M3.6 2.4c-.4.3-.6.8-.6 1.5v16.2c0 .7.2 1.2.6 1.5l9.3-9.3L3.6 2.4zm10.8 7.5L17.2 7l-9.8-5.6c-.6-.3-1.2-.3-1.7 0l8.7 8.5zm0 4.2l-8.7 8.5c.5.3 1.1.3 1.7 0L17.2 17l-2.8-2.9zm6-3.6l-3.4-2-3 2.9 3 2.9 3.4-2c.9-.5.9-1.3 0-1.8z"/></svg>تحميل من Google Play</a></div>
       <div class="p-card"><span class="badge">FINTECH APP</span><div class="proj-title">YemenPay</div><div class="proj-desc">محفظة رقمية آمنة — تحويلات، دفع، وإدارة مالية ذكية في تطبيق واحد</div></div>
       <div class="p-card"><span class="badge">AI BOT</span><div class="proj-title">@Alawlaqi_AI</div><div class="proj-desc">بوت تيليغرام ذكي مدعوم بـ Claude — يُجيب ويُنجز ويُدير على مدار الساعة</div></div>
       <div class="p-card"><span class="badge">WEB PLATFORM</span><div class="proj-title">beework.art</div><div class="proj-desc">الموقع الشخصي — Netlify + Decap CMS + تصميم تفاعلي احترافي</div></div>
@@ -707,7 +725,7 @@ const litInterval = setInterval(() => {
 
 function initSite() {
   /* ── LENIS ── */
-  const lenis = new Lenis({ lerp:.075, smoothWheel:true });
+  const lenis = new Lenis({ lerp:.055, smoothWheel:true, wheelMultiplier:.95, touchMultiplier:1.5 });
   lenis.on('scroll', ScrollTrigger.update);
   gsap.ticker.add(t => lenis.raf(t * 1000));
   gsap.ticker.lagSmoothing(0);
@@ -885,14 +903,6 @@ function initSite() {
 
   ['about','services','portfolio','contact'].forEach(revealSection);
 
-  /* Portfolio cards */
-  const pcards = document.querySelectorAll('.p-card');
-  gsap.set(pcards, { opacity:0, y:30 });
-  ScrollTrigger.create({
-    trigger:'#portfolio', start:'top 65%',
-    onEnter: () => gsap.to(pcards, {opacity:1,y:0,duration:.65,stagger:.1,ease:'power3.out',delay:.4})
-  });
-
   /* Contact links */
   gsap.set('.c-link', { opacity:0, x:30 });
   ScrollTrigger.create({
@@ -905,14 +915,119 @@ function initSite() {
     onEnter: () => gsap.to('#footer', {opacity:1,y:0,duration:.6})
   });
 
-  /* ══ SCRUBBED PARALLAX ══ */
+  /* ══ APPLE-STYLE SCRUBBED PARALLAX + DEPTH FADE ══ */
   document.querySelectorAll('.section').forEach(sec => {
-    gsap.to(sec.querySelector('.inner'), {
-      y: -60,
-      ease:'none',
-      scrollTrigger: { trigger:sec, start:'top bottom', end:'bottom top', scrub:1.5 }
+    if (sec.id === 'portfolio') return; // pinned separately
+    const inner = sec.querySelector('.inner');
+    if (!inner) return;
+    inner.classList.add('depth-fade');
+    // Cinematic enter: rise + fade-in + slight scale (scrubbed to scroll)
+    gsap.fromTo(inner,
+      { y: 80, opacity:.35, scale:.96, filter:'blur(4px)' },
+      { y: 0, opacity: 1, scale: 1, filter:'blur(0px)', ease:'none',
+        scrollTrigger:{ trigger:sec, start:'top bottom', end:'top 35%', scrub:1.2 } }
+    );
+    // Cinematic exit: lift + fade as section leaves
+    gsap.to(inner, {
+      y: -80, opacity:.25, scale:.97, filter:'blur(3px)', ease:'none',
+      scrollTrigger:{ trigger:sec, start:'bottom 70%', end:'bottom top', scrub:1.2 }
     });
   });
+
+  /* ══ HERO SCRUB: orb shrinks + title scales as you scroll ══ */
+  gsap.to('#bee', {
+    scale:.55, y:-40, opacity:.35, ease:'none',
+    scrollTrigger:{ trigger:'#hero', start:'top top', end:'bottom 30%', scrub:1 }
+  });
+  gsap.to('.hero-title', {
+    scale:.85, y:-30, opacity:.6, ease:'none',
+    scrollTrigger:{ trigger:'#hero', start:'top top', end:'bottom 30%', scrub:1 }
+  });
+
+  /* ══ CHAR-BY-CHAR SCRUBBED TITLES (Apple-style) ══ */
+  document.querySelectorAll('.section-title').forEach(title => {
+    if (title.dataset.charSplit) return;
+    title.dataset.charSplit = '1';
+    // Split each .w into chars wrapped in .char-mask
+    title.querySelectorAll('.split-word .w').forEach(w => {
+      const txt = w.textContent;
+      const isHl = w.classList.contains('hl');
+      w.textContent = '';
+      w.style.display = 'inline-flex';
+      w.style.transition = 'none';
+      w.style.transform = 'translateY(0)';
+      [...txt].forEach(c => {
+        const mask = document.createElement('span');
+        mask.className = 'char-mask';
+        const ch = document.createElement('span');
+        ch.className = 'ch';
+        ch.textContent = c === ' ' ? ' ' : c;
+        if (isHl) {
+          ch.style.background = 'linear-gradient(135deg,var(--gold),var(--gold2))';
+          ch.style.webkitBackgroundClip = 'text';
+          ch.style.webkitTextFillColor = 'transparent';
+          ch.style.backgroundClip = 'text';
+        }
+        mask.appendChild(ch);
+        w.appendChild(mask);
+      });
+    });
+    const chars = title.querySelectorAll('.ch');
+    gsap.to(chars, {
+      y:0, opacity:1, ease:'power2.out', stagger:{ each:.04, from:'start' },
+      scrollTrigger:{ trigger:title, start:'top 85%', end:'top 45%', scrub:1.1 }
+    });
+  });
+
+  /* ══ PORTFOLIO HORIZONTAL PIN (Mac Pro style) ══ */
+  (function(){
+    const portfolio = document.getElementById('portfolio');
+    const track = document.getElementById('htrack');
+    if (!portfolio || !track) return;
+    // Wait for layout
+    requestAnimationFrame(() => {
+      const trackW = track.scrollWidth;
+      const viewW = window.innerWidth;
+      const distance = trackW - viewW + 120;
+      if (distance < 100) return;
+      gsap.to(track, {
+        x: -distance, ease:'none',
+        scrollTrigger:{
+          trigger: portfolio,
+          start:'top top',
+          end: () => '+=' + distance,
+          pin: true,
+          scrub: 1,
+          anticipatePin: 1,
+          invalidateOnRefresh: true
+        }
+      });
+      // Initial reveal stagger for cards (one-shot, fires on pin enter)
+      gsap.set(track.querySelectorAll('.p-card'), { scale:.92, opacity:.5 });
+      ScrollTrigger.create({
+        trigger: portfolio, start:'top 80%',
+        onEnter: () => gsap.to(track.querySelectorAll('.p-card'),
+          { scale:1, opacity:1, duration:.8, stagger:.08, ease:'power3.out' })
+      });
+    });
+  })();
+
+  /* ══ SERVICES CARDS SCRUBBED REVEAL ══ */
+  const srvCards = document.querySelectorAll('#services .g-card');
+  if (srvCards.length){
+    gsap.set(srvCards, { opacity:0, y:60, scale:.92 });
+    srvCards.forEach((card, i) => {
+      gsap.to(card, {
+        opacity:1, y:0, scale:1, ease:'power3.out',
+        scrollTrigger:{
+          trigger: card,
+          start:'top 90%',
+          end:'top 55%',
+          scrub: 1
+        }
+      });
+    });
+  }
 
   /* ══ COUNTER ANIMATION ══ */
   document.querySelectorAll('.stat-n[data-count]').forEach(el => {
@@ -931,17 +1046,7 @@ function initSite() {
     });
   });
 
-  /* ══ HORIZONTAL DRAG SCROLL ══ */
-  const track = document.getElementById('htrack');
-  let isDragging = false, startX = 0, scrollLeft = 0;
-  track.addEventListener('mousedown', e => { isDragging=true; startX=e.pageX-track.offsetLeft; scrollLeft=track.parentElement.scrollLeft; track.style.cursor='grabbing'; });
-  document.addEventListener('mouseup', () => { isDragging=false; track.style.cursor='grab'; });
-  document.addEventListener('mousemove', e => {
-    if (!isDragging) return;
-    const x = e.pageX - track.offsetLeft;
-    track.parentElement.scrollLeft = scrollLeft - (x - startX);
-  });
-  track.style.cursor = 'grab';
+  /* ══ (drag scroll removed — portfolio is now scroll-pinned horizontally) ══ */
 
   /* ══ HREF SMOOTH ══ */
   document.querySelectorAll('a[href^="#"]').forEach(a => {
