@@ -551,6 +551,11 @@ body:hover #cur{opacity:1}
       </span>
     </p>
 
+    <div class="steel-badge rev" id="h-steel" style="margin:22px 0 4px;text-align:center"><span class="rev-inner" style="display:inline-flex;align-items:center;gap:12px;padding:9px 18px;border:1px solid rgba(245,192,51,.28);border-radius:999px;background:rgba(245,192,51,.06)">
+      <img src="steel-logo.svg" alt="شعار الحديد" style="width:34px;height:34px;flex-shrink:0">
+      <span style="font-family:'Space Grotesk',sans-serif;letter-spacing:.04em;font-size:.92rem;color:var(--gold)">خبراء في مبيعات الحديد والمعادن</span>
+    </span></div>
+
     <div class="cta-wrap rev" id="h-ct"><span class="rev-inner" style="display:flex;gap:16px;flex-wrap:wrap;justify-content:center">
       <div class="mag"><a href="#about" class="btn btn-gold">اكتشف الأعمال</a></div>
       <div class="mag"><a href="#contact" class="btn btn-outline">تواصل معنا</a></div>
@@ -907,6 +912,7 @@ function initSite() {
     .to('#h-ey .rev-inner', { y:0, duration:.75 }, '-=.6')
     .to('#hero .split-word .w', { y:0, stagger:.12, duration:1.1, ease:'power3.out' }, '-=.45')
     .to('#h-su .rev-inner', { y:0, duration:.85 }, '-=.55')
+    .to('#h-steel .rev-inner', { y:0, duration:.75 }, '-=.5')
     .to('#h-ct .rev-inner', { y:0, duration:.75 }, '-=.45')
     .add(() => document.getElementById('bee').classList.add('bee-hover'));
 
