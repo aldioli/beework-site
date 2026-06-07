@@ -1,0 +1,460 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<meta name="theme-color" content="#1f6feb">
+<title>حاسبة الحديد — وزن وأسعار فورية</title>
+<meta name="description" content="احسب وزن وسعر أي حديد فوراً: كمرات IPE/UPN/HEA/HEB، صاج، زنك، مواسير، شبك، وكاشف المنشأ.">
+<meta property="og:type" content="website">
+<meta property="og:title" content="🏗️ حاسبة الحديد — وزن وأسعار فورية">
+<meta property="og:description" content="احسب وزن وسعر أي حديد فوراً: كمرات، صاج، مواسير، شبك، وكاشف المنشأ. — حسين سالم العولقي، بائع حديد.">
+<meta property="og:image" content="https://beework.art/site-logo.png">
+<meta property="og:url" content="https://beework.art/steel">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="حاسبة الحديد">
+<style>
+  * { box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
+  :root{
+    --bg:#0d1117; --card:#161b22; --card2:#1c2330; --line:#2d333b;
+    --blue:#1f6feb; --blue2:#388bfd; --green:#2ea043; --txt:#e6edf3;
+    --muted:#8b949e; --gold:#e3b341; --red:#f85149;
+  }
+  html,body{margin:0;padding:0;background:var(--bg);color:var(--txt);
+    font-family:"Segoe UI Semibold","Segoe UI",system-ui,Tahoma,Arial,sans-serif;}
+  body{padding:0 0 90px;}
+  header{position:sticky;top:0;z-index:20;background:linear-gradient(135deg,#1f6feb,#0d419d);
+    padding:16px 16px 12px;box-shadow:0 4px 16px rgba(0,0,0,.4);}
+  header h1{margin:0;font-size:20px;display:flex;align-items:center;gap:8px;}
+  header p{margin:4px 0 0;font-size:12px;opacity:.85;}
+  /* التبويبات */
+  .tabs{display:flex;flex-wrap:wrap;gap:6px;padding:12px 12px 0;justify-content:center;}
+  .tab{flex:0 0 auto;padding:9px 13px;border-radius:999px;background:var(--card2);
+    color:var(--muted);border:1px solid var(--line);font-size:13px;cursor:pointer;
+    white-space:nowrap;transition:.15s;font-family:inherit;}
+  .tab.active{background:var(--blue);color:#fff;border-color:var(--blue);font-weight:bold;}
+  /* البطاقة */
+  .wrap{padding:14px 12px;}
+  .card{background:var(--card);border:1px solid var(--line);border-radius:16px;
+    padding:16px;margin-bottom:14px;}
+  .row{display:flex;gap:10px;margin-bottom:12px;flex-wrap:wrap;}
+  .field{flex:1 1 120px;}
+  label{display:block;font-size:13px;color:var(--muted);margin-bottom:6px;}
+  input,select{width:100%;padding:13px;border-radius:11px;border:1px solid var(--line);
+    background:var(--card2);color:var(--txt);font-size:17px;font-family:inherit;
+    outline:none;transition:.15s;text-align:center;}
+  input:focus,select:focus{border-color:var(--blue2);background:#1a2332;}
+  select{text-align:right;}
+  .hint{font-size:11px;color:var(--muted);margin-top:4px;text-align:center;}
+  /* النتائج */
+  .results{background:linear-gradient(135deg,#0d2818,#0d1f17);
+    border:1px solid #1a4d2e;border-radius:16px;padding:6px 16px 16px;margin-bottom:14px;}
+  .resTitle{font-size:13px;color:var(--green);margin:12px 0 8px;font-weight:bold;}
+  .res{display:flex;justify-content:space-between;align-items:baseline;
+    padding:11px 0;border-bottom:1px dashed #1f3d2a;}
+  .res:last-child{border-bottom:none;}
+  .res .k{color:var(--muted);font-size:14px;}
+  .res .v{font-size:20px;font-weight:bold;}
+  .res .v small{font-size:12px;color:var(--muted);font-weight:normal;}
+  .big{background:#10331f;margin:8px -16px -16px;padding:14px 16px;border-radius:0 0 16px 16px;}
+  .big .v{font-size:26px;color:var(--green);}
+  .gold .v{color:var(--gold);}
+  /* الأزرار */
+  .btns{display:flex;gap:10px;}
+  button.act{flex:1;padding:14px;border-radius:13px;border:none;font-size:15px;
+    font-weight:bold;cursor:pointer;font-family:inherit;display:flex;
+    align-items:center;justify-content:center;gap:6px;}
+  .copy{background:var(--green);color:#fff;}
+  .wa{background:#25d366;color:#073;}
+  .copy:active,.wa:active{transform:scale(.97);}
+  .warn{background:#2d2410;border:1px solid #5c4a16;color:var(--gold);
+    border-radius:11px;padding:10px 12px;font-size:12px;margin-top:10px;line-height:1.6;}
+  .toast{position:fixed;bottom:24px;right:50%;transform:translateX(50%) translateY(100px);
+    background:var(--green);color:#fff;padding:12px 22px;border-radius:999px;
+    font-weight:bold;box-shadow:0 6px 20px rgba(0,0,0,.5);transition:.3s;z-index:50;}
+  .toast.show{transform:translateX(50%) translateY(0);}
+  .grid2{display:grid;grid-template-columns:1fr 1fr;gap:10px;}
+  .ipeTable{width:100%;border-collapse:collapse;font-size:13px;margin-top:6px;}
+  .ipeTable td{padding:5px;border-bottom:1px solid var(--line);text-align:center;}
+  details{margin-top:10px;}
+  summary{cursor:pointer;color:var(--blue2);font-size:13px;}
+  .link{display:flex;align-items:center;justify-content:center;gap:6px;padding:12px;
+    border-radius:11px;background:var(--card2);border:1px solid var(--line);
+    color:var(--txt);text-decoration:none;font-size:14px;font-weight:bold;transition:.15s;}
+  .link:active{transform:scale(.97);}
+  .link.wa2{background:#15321f;border-color:#1f6b3d;color:#3fd77a;}
+  .link.site{background:#16263f;border-color:#1f4d8a;color:#5aa6ff;}
+</style>
+</head>
+<body>
+<header>
+  <h1>🏗️ حاسبة الحديد</h1>
+  <p>وزن وسعر فوري — جملة وقطاعي</p>
+</header>
+
+<noscript><div style="background:#5c1a16;color:#fff;padding:14px;text-align:center;font-size:14px;line-height:1.7">
+⚠️ التبويبات لا تظهر لأن JavaScript معطّل.<br>أغلق هذه النافذة وافتح الملف في متصفح <b>Chrome</b> (لا في معاينة التطبيق).
+</div></noscript>
+
+<div class="tabs" id="tabs"></div>
+
+<div class="wrap">
+  <!-- مدخلات السعر العامة -->
+  <div class="card" id="priceCard">
+    <div class="row">
+      <div class="field">
+        <label>💰 سعر الطن (ريال)</label>
+        <input type="number" id="tonPrice" placeholder="مثال: 2700" inputmode="decimal">
+      </div>
+      <div class="field">
+        <label>🔢 الكمية (حبة / لوح)</label>
+        <input type="number" id="qty" value="1" inputmode="decimal">
+      </div>
+    </div>
+    <div class="row" id="originRow">
+      <div class="field">
+        <label>🌍 المنشأ (يعدّل الوزن الفعلي)</label>
+        <select id="origin">
+          <option value="1">أوروبي / كوري / سابك — مطابق 100%</option>
+          <option value="0.97">خليجي / تركي — انقص 3%</option>
+          <option value="0.90">صيني عادي — انقص 10%</option>
+          <option value="0.80">صيني خفيف — انقص 20%</option>
+        </select>
+      </div>
+    </div>
+  </div>
+
+  <!-- مدخلات الشكل (تتغير حسب التبويب) -->
+  <div class="card" id="inputs"></div>
+
+  <!-- النتائج -->
+  <div class="results" id="results"></div>
+
+  <!-- الأزرار -->
+  <div class="btns" id="btnRow">
+    <button class="act copy" onclick="copyQuote()">📋 نسخ عرض السعر</button>
+    <button class="act wa" onclick="waQuote()">💬 إرسال واتساب</button>
+  </div>
+
+  <div class="warn">
+    ⚠️ <b>تنبيه السوق:</b> الحديد الصيني الخفيف ينقص ١٥–٢٥٪ من الوزن النظري بسبب السماكة الفعلية الأقل.
+    اختر المنشأ الصحيح أعلاه، ووزن عينة عند الشك.
+  </div>
+
+  <!-- بطاقة المعلومات -->
+  <div class="card" style="text-align:center">
+    <div style="font-size:18px;font-weight:bold;color:var(--blue2);margin-bottom:4px">حسين سالم العولقي</div>
+    <div style="font-size:12px;color:var(--muted);margin-bottom:14px">بائع حديد — جملة وقطاعي</div>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px">
+      <a class="link wa2" href="https://wa.me/966537759626" target="_blank">💬 واتساب</a>
+      <a class="link" href="mailto:aldioli7@gmail.com">✉️ البريد</a>
+      <a class="link" href="https://drive.google.com/file/d/1vjo0rjTtbNuzgABBIi0jdmZevsyVadeY/view" target="_blank">📄 السيرة الذاتية</a>
+      <a class="link site" href="https://beework.art" target="_blank">🌐 beework.art</a>
+    </div>
+    <div style="font-size:11px;color:var(--muted);margin-top:14px;line-height:1.7">
+      📱 0537759626<br>
+      © <span id="year"></span> حسين سالم العولقي — جميع الحقوق محفوظة
+    </div>
+  </div>
+</div>
+
+<div class="toast" id="toast">✓ تم النسخ</div>
+
+<script>
+/* ===== بيانات الأشكال ===== */
+const IPE = {8:6.0,10:8.1,12:10.4,14:12.9,16:15.8,18:18.8,20:22.4,22:26.2,24:30.7,27:36.1,30:42.2,33:49.1,36:55.7,40:66.3,45:77.6,50:90.7,55:106,60:122};
+const UPN = {50:5.59,65:7.09,80:8.64,100:10.6,120:13.4,140:16.0,160:18.8,180:22.0,200:25.3,220:29.4,240:33.2,260:37.9,280:41.8,300:46.2,320:59.5,350:60.6,400:71.8};
+const IPN = {80:5.94,100:8.34,120:11.1,140:14.3,160:17.9,180:21.9,200:26.2,220:31.1,240:36.2,260:41.9,280:47.9,300:54.2,320:61.0,340:68.0,360:76.1,380:84.0,400:92.4};
+const HEA = {100:16.7,120:19.9,140:24.7,160:30.4,180:35.5,200:42.3,220:50.5,240:60.3,260:68.2,280:76.4,300:88.3,320:97.6,340:105,360:112,400:125,450:140,500:155,550:166,600:178};
+const HEB = {100:20.4,120:26.7,140:33.7,160:42.6,180:51.2,200:61.3,220:71.5,240:83.2,260:93.0,280:103,300:117,320:127,340:134,360:142,400:155,450:171,500:187,550:199,600:212};
+const PIPE_D = {"½":21.3,"¾":26.7,"1":33.4,"1¼":42.2,"1½":48.3,"2":60.3,"2½":73,"3":88.9,"4":114.3};
+const BEAMS = {IPE,UPN,IPN,HEA,HEB};
+
+const SHAPES = {
+  rect:{ name:"مربع/مستطيل", icon:"⬛", origin:true,
+    fields:[
+      {id:"a",label:"الضلع a (مم)",ph:"40"},
+      {id:"b",label:"الضلع b (مم)",ph:"40"},
+      {id:"t",label:"السماكة (مم)",ph:"1.2"},
+      {id:"L",label:"الطول (م)",val:"6"},
+    ],
+    perM:v=> 2*(v.a+v.b)*v.t*7.85/1000,
+    desc:v=> `مربع/مستطيل ${v.a}×${v.b} سماكة ${v.t} طول ${v.L}م`
+  },
+  flat:{ name:"بسطة (مصمت)", icon:"▬", origin:true,
+    fields:[
+      {id:"a",label:"العرض (مم)",ph:"40"},
+      {id:"t",label:"السماكة (مم)",ph:"5"},
+      {id:"L",label:"الطول (م)",val:"6"},
+    ],
+    perM:v=> v.a*v.t*7.85/1000,
+    desc:v=> `بسطة ${v.a}×${v.t} طول ${v.L}م`
+  },
+  sheet:{ name:"صاج/ألواح", icon:"▭", origin:true, perPiece:true,
+    fields:[
+      {id:"w",label:"العرض (م)",ph:"1.2"},
+      {id:"len",label:"الطول (م)",ph:"2.4"},
+      {id:"t",label:"السماكة (مم)",ph:"1"},
+    ],
+    perPieceFn:v=> v.w*v.len*v.t*7.85,
+    desc:v=> `صاج ${v.w}×${v.len}م سماكة ${v.t}مم`
+  },
+  zinc:{ name:"زنك مجلفن", icon:"〰️", origin:true, perPiece:true,
+    fields:[
+      {id:"w",label:"العرض (م)",val:"1"},
+      {id:"len",label:"الطول (م)",ph:"3"},
+      {id:"t",label:"السماكة (مم)",ph:"0.35"},
+    ],
+    perPieceFn:v=> v.w*v.len*v.t*7.85,
+    desc:v=> `زنك ${v.w}×${v.len}م سماكة ${v.t}مم`
+  },
+  pipe:{ name:"ماسورة مدوّر", icon:"⭕", origin:true,
+    fields:[
+      {id:"bsp",label:"المقاس (بوصة)",select:Object.keys(PIPE_D)},
+      {id:"t",label:"سماكة الجدار (مم)",ph:"1.2"},
+      {id:"L",label:"الطول (م)",val:"6"},
+    ],
+    perM:v=>{ const D=PIPE_D[v.bsp]||0; return 3.1416*(D-v.t)*v.t*7.85/1000; },
+    desc:v=> `ماسورة ${v.bsp}" سماكة ${v.t} طول ${v.L}م`
+  },
+  ipe:{ name:"كمر IPE", icon:"🇮", origin:true, table:IPE, tname:"IPE",
+    fields:[
+      {id:"size",label:"مقاس IPE",select:Object.keys(IPE)},
+      {id:"L",label:"الطول (م)",val:"12"},
+    ],
+    perM:v=> (IPE[v.size]||0),
+    desc:v=> `كمر IPE ${v.size} طول ${v.L}م`
+  },
+  upn:{ name:"قنال U", icon:"⊐", origin:true, table:UPN, tname:"UPN",
+    fields:[
+      {id:"size",label:"مقاس U (UPN)",select:Object.keys(UPN)},
+      {id:"L",label:"الطول (م)",val:"12"},
+    ],
+    perM:v=> (UPN[v.size]||0),
+    desc:v=> `قنال U ${v.size} طول ${v.L}م`
+  },
+  ipn:{ name:"كمر IPN", icon:"🇮", origin:true, table:IPN, tname:"IPN",
+    fields:[
+      {id:"size",label:"مقاس IPN",select:Object.keys(IPN)},
+      {id:"L",label:"الطول (م)",val:"12"},
+    ],
+    perM:v=> (IPN[v.size]||0),
+    desc:v=> `كمر IPN ${v.size} طول ${v.L}م`
+  },
+  hea:{ name:"كمر HEA", icon:"🇭", origin:true, table:HEA, tname:"HEA",
+    fields:[
+      {id:"size",label:"مقاس HEA (عريض خفيف)",select:Object.keys(HEA)},
+      {id:"L",label:"الطول (م)",val:"12"},
+    ],
+    perM:v=> (HEA[v.size]||0),
+    desc:v=> `كمر HEA ${v.size} طول ${v.L}م`
+  },
+  heb:{ name:"كمر HEB", icon:"🇭", origin:true, table:HEB, tname:"HEB",
+    fields:[
+      {id:"size",label:"مقاس HEB (عريض ثقيل)",select:Object.keys(HEB)},
+      {id:"L",label:"الطول (م)",val:"12"},
+    ],
+    perM:v=> (HEB[v.size]||0),
+    desc:v=> `كمر HEB ${v.size} طول ${v.L}م`
+  },
+  mesh:{ name:"شبك ملحوم", icon:"▦", origin:true, perPiece:true,
+    fields:[
+      {id:"w",label:"عرض اللوح (م)",val:"1"},
+      {id:"len",label:"طول اللوح (م)",val:"2"},
+      {id:"ox",label:"الفتحة العرضية (مم)",ph:"30"},
+      {id:"oy",label:"الفتحة الطولية (مم)",ph:"60"},
+      {id:"d",label:"قطر السلك (مم)",ph:"2"},
+    ],
+    perPieceFn:v=>{
+      if(!v.w||!v.len||!v.ox||!v.oy||!v.d) return 0;
+      const px=v.ox+v.d, py=v.oy+v.d;
+      const nV=Math.floor((v.w*1000)/px)+1;
+      const nH=Math.floor((v.len*1000)/py)+1;
+      const totLen=nV*v.len + nH*v.w;
+      return totLen*0.006165*v.d*v.d;
+    },
+    desc:v=> `شبك ${v.w}×${v.len}م فتحة ${v.ox}×${v.oy} سلك ${v.d}مم`
+  },
+  detector:{ name:"كاشف المنشأ", icon:"🔍", special:true, fields:[], desc:v=>"" },
+};
+
+let current="rect";
+let detType="IPE";
+
+/* ===== بناء الواجهة ===== */
+function buildTabs(){
+  const t=document.getElementById("tabs");
+  t.innerHTML="";
+  for(const k in SHAPES){
+    const b=document.createElement("div");
+    b.className="tab"+(k===current?" active":"");
+    b.textContent=SHAPES[k].icon+" "+SHAPES[k].name;
+    b.onclick=()=>{current=k;buildTabs();buildInputs();calc();};
+    t.appendChild(b);
+  }
+}
+
+function buildInputs(){
+  const s=SHAPES[current], box=document.getElementById("inputs");
+  if(current==="detector"){ buildDetector(box); return; }
+  let html='<div class="row">';
+  s.fields.forEach(f=>{
+    html+='<div class="field"><label>'+f.label+'</label>';
+    if(f.select){
+      html+='<select id="f_'+f.id+'" oninput="calc()">';
+      f.select.forEach(o=> html+='<option value="'+o+'">'+o+'</option>');
+      html+='</select>';
+    } else {
+      html+='<input type="number" id="f_'+f.id+'" inputmode="decimal" oninput="calc()" '+
+        (f.val?('value="'+f.val+'"'):'')+(f.ph?(' placeholder="'+f.ph+'"'):'')+'>';
+    }
+    html+='</div>';
+  });
+  html+='</div>';
+  if(s.table){
+    const T=s.table, nm=s.tname;
+    html+='<details><summary>📋 جدول أوزان '+nm+' المتري (كجم/م)</summary><table class="ipeTable">';
+    html+='<tr><td>المقاس</td><td>كجم/م</td><td>المقاس</td><td>كجم/م</td></tr>';
+    const keys=Object.keys(T);
+    for(let i=0;i<keys.length;i+=2){
+      html+='<tr><td>'+nm+' '+keys[i]+'</td><td>'+T[keys[i]]+'</td>';
+      html+= keys[i+1]?('<td>'+nm+' '+keys[i+1]+'</td><td>'+T[keys[i+1]]+'</td>'):'<td></td><td></td>';
+      html+='</tr>';
+    }
+    html+='</table></details>';
+  }
+  box.innerHTML=html;
+}
+
+/* ===== الحساب ===== */
+function num(id){ const e=document.getElementById(id); return e?parseFloat(e.value)||0:0; }
+function val(id){ const e=document.getElementById(id); return e?e.value:""; }
+
+let last={};
+function calc(){
+  const isDet=current==="detector";
+  document.getElementById("priceCard").style.display=isDet?"none":"";
+  document.getElementById("btnRow").style.display=isDet?"none":"";
+  if(isDet){ calcDetector(); return; }
+  const s=SHAPES[current];
+  const v={};
+  s.fields.forEach(f=> v[f.id]= f.select? val("f_"+f.id) : num("f_"+f.id));
+  const origin=parseFloat(val("origin"))||1;
+  const tonPrice=num("tonPrice");
+  const qty=num("qty")||1;
+
+  let perPiece, perM=0, L=parseFloat(v.L)||0;
+  if(s.perPiece){ perPiece=(s.perPieceFn(v))*origin; }
+  else { perM=(s.perM(v))*origin; perPiece=perM*L; }
+
+  const totalW = perPiece*qty;
+  const perTon = perPiece>0 ? 1000/perPiece : 0;
+  const piecePrice = perPiece*tonPrice/1000;
+  const totalPrice = totalW*tonPrice/1000;
+
+  last={s,v,origin,tonPrice,qty,perPiece,perM,totalW,perTon,piecePrice,totalPrice};
+  render();
+}
+
+function fmt(n,d=2){ if(!isFinite(n))return "—"; return n.toLocaleString("en-US",{minimumFractionDigits:d,maximumFractionDigits:d}); }
+
+function render(){
+  const r=last, R=document.getElementById("results");
+  if(!r.perPiece || r.perPiece<=0){ R.innerHTML='<div class="resTitle">📊 النتائج</div><div class="res"><span class="k">أدخل المقاسات لعرض النتيجة</span></div>'; return; }
+  let h='<div class="resTitle">📊 النتائج '+(r.origin!=1?'<span style="color:var(--gold)">(معدّل للمنشأ '+Math.round(r.origin*100)+'٪)</span>':'')+'</div>';
+  h+=row("وزن "+(r.s.perPiece?"اللوح":"الحبة"), fmt(r.perPiece)+' <small>كجم</small>');
+  if(!r.s.perPiece) h+=row("وزن المتر", fmt(r.perM)+' <small>كجم</small>');
+  h+=row((r.s.perPiece?"ألواح":"حبات")+"/طن", fmt(r.perTon,0)+' <small>قطعة</small>');
+  if(r.tonPrice>0){
+    h+=row("سعر "+(r.s.perPiece?"اللوح":"الحبة"), fmt(r.piecePrice)+' <small>ريال</small>');
+  }
+  h+=row("الوزن الكلي ("+fmt(r.qty,0)+" قطعة)", fmt(r.totalW)+' <small>كجم = '+fmt(r.totalW/1000,3)+' طن</small>');
+  if(r.tonPrice>0){
+    h+='<div class="res big gold"><span class="k">💵 الإجمالي</span><span class="v">'+fmt(r.totalPrice)+' <small>ريال</small></span></div>';
+  }
+  R.innerHTML=h;
+}
+function row(k,v){ return '<div class="res"><span class="k">'+k+'</span><span class="v">'+v+'</span></div>'; }
+
+/* ===== عرض السعر ===== */
+function quoteText(){
+  const r=last;
+  if(!r.perPiece||r.perPiece<=0) return "أدخل المقاسات أولاً";
+  const oNames={"1":"أوروبي/كوري","0.97":"خليجي/تركي","0.90":"صيني عادي","0.80":"صيني خفيف"};
+  let t="📋 *عرض سعر — حديد*\n";
+  t+="━━━━━━━━━━━━━━\n";
+  t+="🔹 "+r.s.desc(r.v)+"\n";
+  t+="🌍 المنشأ: "+(oNames[String(r.origin)]||"—")+"\n";
+  t+="⚖️ وزن "+(r.s.perPiece?"اللوح":"الحبة")+": "+fmt(r.perPiece)+" كجم\n";
+  t+="🔢 الكمية: "+fmt(r.qty,0)+" قطعة\n";
+  t+="📦 الوزن الكلي: "+fmt(r.totalW)+" كجم ("+fmt(r.totalW/1000,3)+" طن)\n";
+  if(r.tonPrice>0){
+    t+="💰 سعر الطن: "+fmt(r.tonPrice,0)+" ريال\n";
+    t+="💵 سعر "+(r.s.perPiece?"اللوح":"الحبة")+": "+fmt(r.piecePrice)+" ريال\n";
+    t+="━━━━━━━━━━━━━━\n";
+    t+="*الإجمالي: "+fmt(r.totalPrice)+" ريال*\n";
+  }
+  t+="\n📌 السعر شامل الضريبة · غير شامل التوصيل.";
+  t+="\n━━━━━━━━━━━━━━\n";
+  t+="🤝 حسين سالم العولقي — بائع حديد\n";
+  t+="📱 0537759626\n";
+  t+="🌐 beework.art";
+  return t;
+}
+function toast(msg){ const e=document.getElementById("toast"); e.textContent=msg; e.classList.add("show"); setTimeout(()=>e.classList.remove("show"),1800); }
+function copyQuote(){
+  const t=quoteText();
+  navigator.clipboard.writeText(t).then(()=>toast("✓ تم نسخ العرض")).catch(()=>{
+    const ta=document.createElement("textarea");ta.value=t;document.body.appendChild(ta);ta.select();document.execCommand("copy");ta.remove();toast("✓ تم النسخ");
+  });
+}
+function waQuote(){ window.open("https://wa.me/?text="+encodeURIComponent(quoteText()),"_blank"); }
+
+/* ===== كاشف المنشأ ===== */
+function buildDetector(box){
+  const types=["IPE","UPN","IPN","HEA","HEB"].map(t=>'<option'+(t===detType?' selected':'')+'>'+t+'</option>').join('');
+  const sizes=Object.keys(BEAMS[detType]).map(k=>'<option>'+k+'</option>').join('');
+  box.innerHTML=
+    '<div class="row">'+
+      '<div class="field"><label>نوع الكمر</label>'+
+        '<select id="d_type" onchange="detType=this.value;buildInputs();calc()">'+types+'</select></div>'+
+      '<div class="field"><label>المقاس</label>'+
+        '<select id="d_size" oninput="calc()">'+sizes+'</select></div>'+
+    '</div>'+
+    '<div class="row">'+
+      '<div class="field"><label>⚖️ وزن الحبة الفعلي (كجم)</label>'+
+        '<input id="d_w" type="number" inputmode="decimal" oninput="calc()" placeholder="من الميزان"></div>'+
+      '<div class="field"><label>طول الحبة (م)</label>'+
+        '<input id="d_L" type="number" inputmode="decimal" oninput="calc()" value="12"></div>'+
+    '</div>'+
+    '<div class="hint">زِن حبة واحدة وأدخل وزنها وطولها → يظهر التصنيف تلقائياً.<br>لمعرفة وزن المتر مباشرة: ضع الطول = 1.</div>';
+}
+function calcDetector(){
+  const R=document.getElementById("results");
+  const type=detType, size=val("d_size"), actual=num("d_w"), L=num("d_L")||0;
+  const perMtable=(BEAMS[type]||{})[size]||0;
+  const pieceTable=perMtable*L;
+  const actualPerM=L>0?actual/L:0;
+  const ratio=(perMtable>0&&actual>0)?actualPerM/perMtable*100:0;
+  let cls,color,bg;
+  if(ratio>=95){cls="مطابق ✅ أوروبي/كوري/خليجي";color="#3fb950";bg="#0d2818";}
+  else if(ratio>=85){cls="صيني عادي (ثقيل) ⚠️";color="#e3b341";bg="#2d2410";}
+  else if(ratio>=70){cls="صيني خفيف ⚠️⚠️";color="#f0883e";bg="#2d1d10";}
+  else if(ratio>0){cls="خفيف جداً — تحقّق ❗";color="#f85149";bg="#2d1417";}
+  else {cls="أدخل الوزن والمقاس";color="#8b949e";bg="#161b22";}
+  let h='<div class="resTitle">🔍 نتيجة كشف المنشأ</div>';
+  h+=row(type+" "+size+" — وزن المتر بالجدول", fmt(perMtable)+' <small>كجم</small>');
+  if(L>0) h+=row("الوزن المفترض ("+fmt(L,0)+"م)", fmt(pieceTable)+' <small>كجم</small>');
+  if(actual>0) h+=row("وزن المتر الفعلي", fmt(actualPerM)+' <small>كجم</small>');
+  h+='<div class="res big" style="background:'+bg+'"><span class="k">النسبة من الجدول</span><span class="v" style="color:'+color+'">'+(ratio>0?fmt(ratio,0)+'٪':'—')+'</span></div>';
+  h+='<div style="text-align:center;padding:14px;margin-top:8px;border-radius:12px;background:'+bg+';border:1px solid '+color+';color:'+color+';font-weight:bold;font-size:17px">'+cls+'</div>';
+  R.innerHTML=h;
+}
+
+/* تشغيل */
+document.getElementById("year").textContent=new Date().getFullYear();
+buildTabs(); buildInputs(); calc();
+["tonPrice","qty","origin"].forEach(id=>document.getElementById(id).addEventListener("input",calc));
+</script>
+</body>
+</html>
