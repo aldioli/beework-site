@@ -173,9 +173,9 @@ const BEAMS = {IPE,UPN,IPN,HEA,HEB};
 const SHAPES = {
   rect:{ name:"مربع/مستطيل", icon:"⬛", origin:true,
     fields:[
-      {id:"a",label:"الضلع a (مم)",ph:"40"},
-      {id:"b",label:"الضلع b (مم)",ph:"40"},
-      {id:"t",label:"السماكة (مم)",ph:"1.2"},
+      {id:"a",label:"الضلع a (مم)",val:"40"},
+      {id:"b",label:"الضلع b (مم)",val:"40"},
+      {id:"t",label:"السماكة (مم)",val:"1.2"},
       {id:"L",label:"الطول (م)",val:"6"},
     ],
     perM:v=> 2*(v.a+v.b)*v.t*7.85/1000,
@@ -183,8 +183,8 @@ const SHAPES = {
   },
   flat:{ name:"بسطة (مصمت)", icon:"▬", origin:true,
     fields:[
-      {id:"a",label:"العرض (مم)",ph:"40"},
-      {id:"t",label:"السماكة (مم)",ph:"5"},
+      {id:"a",label:"العرض (مم)",val:"40"},
+      {id:"t",label:"السماكة (مم)",val:"5"},
       {id:"L",label:"الطول (م)",val:"6"},
     ],
     perM:v=> v.a*v.t*7.85/1000,
@@ -192,9 +192,9 @@ const SHAPES = {
   },
   sheet:{ name:"صاج/ألواح", icon:"▭", origin:true, perPiece:true,
     fields:[
-      {id:"w",label:"العرض (م)",ph:"1.2"},
-      {id:"len",label:"الطول (م)",ph:"2.4"},
-      {id:"t",label:"السماكة (مم)",ph:"1"},
+      {id:"w",label:"العرض (م)",val:"1.2"},
+      {id:"len",label:"الطول (م)",val:"2.4"},
+      {id:"t",label:"السماكة (مم)",val:"1"},
     ],
     perPieceFn:v=> v.w*v.len*v.t*7.85,
     desc:v=> `صاج ${v.w}×${v.len}م سماكة ${v.t}مم`
@@ -202,8 +202,8 @@ const SHAPES = {
   zinc:{ name:"زنك مجلفن", icon:"〰️", origin:true, perPiece:true,
     fields:[
       {id:"w",label:"العرض (م)",val:"1"},
-      {id:"len",label:"الطول (م)",ph:"3"},
-      {id:"t",label:"السماكة (مم)",ph:"0.35"},
+      {id:"len",label:"الطول (م)",val:"3"},
+      {id:"t",label:"السماكة (مم)",val:"0.35"},
     ],
     perPieceFn:v=> v.w*v.len*v.t*7.85,
     desc:v=> `زنك ${v.w}×${v.len}م سماكة ${v.t}مم`
@@ -211,7 +211,7 @@ const SHAPES = {
   pipe:{ name:"ماسورة مدوّر", icon:"⭕", origin:true,
     fields:[
       {id:"bsp",label:"المقاس (بوصة)",select:Object.keys(PIPE_D)},
-      {id:"t",label:"سماكة الجدار (مم)",ph:"1.2"},
+      {id:"t",label:"سماكة الجدار (مم)",val:"1.2"},
       {id:"L",label:"الطول (م)",val:"6"},
     ],
     perM:v=>{ const D=PIPE_D[v.bsp]||0; return 3.1416*(D-v.t)*v.t*7.85/1000; },
@@ -261,9 +261,9 @@ const SHAPES = {
     fields:[
       {id:"w",label:"عرض اللوح (م)",val:"1"},
       {id:"len",label:"طول اللوح (م)",val:"2"},
-      {id:"ox",label:"الفتحة العرضية (مم)",ph:"30"},
-      {id:"oy",label:"الفتحة الطولية (مم)",ph:"60"},
-      {id:"d",label:"قطر السلك (مم)",ph:"2"},
+      {id:"ox",label:"الفتحة العرضية (مم)",val:"30"},
+      {id:"oy",label:"الفتحة الطولية (مم)",val:"60"},
+      {id:"d",label:"قطر السلك (مم)",val:"2"},
     ],
     perPieceFn:v=>{
       if(!v.w||!v.len||!v.ox||!v.oy||!v.d) return 0;
