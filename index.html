@@ -551,9 +551,9 @@ body:hover #cur{opacity:1}
       </span>
     </p>
 
-    <div class="steel-badge rev" id="h-steel" style="margin:22px 0 4px;text-align:center"><span class="rev-inner" style="display:inline-flex;align-items:center;gap:12px;padding:9px 18px;border:1px solid rgba(245,192,51,.28);border-radius:999px;background:rgba(245,192,51,.06)">
-      <img src="steel-logo.svg" alt="شعار الحديد" style="width:34px;height:34px;flex-shrink:0">
-      <span style="font-family:'Space Grotesk',sans-serif;letter-spacing:.04em;font-size:.92rem;color:var(--gold)">خبراء في مبيعات الحديد والمعادن</span>
+    <div class="steel-badge rev" id="h-steel" style="margin:26px 0 6px;text-align:center"><span class="rev-inner" style="display:inline-flex;align-items:center;gap:16px;padding:14px 26px;border:1px solid rgba(245,192,51,.32);border-radius:999px;background:rgba(245,192,51,.07)">
+      <img src="steel-logo.svg" alt="شعار الحديد" style="width:64px;height:64px;flex-shrink:0">
+      <span style="font-family:'Space Grotesk',sans-serif;letter-spacing:.03em;font-size:1.3rem;font-weight:600;color:var(--gold)">خبراء في مبيعات الحديد والمعادن</span>
     </span></div>
 
     <div class="cta-wrap rev" id="h-ct"><span class="rev-inner" style="display:flex;gap:16px;flex-wrap:wrap;justify-content:center">
@@ -963,6 +963,23 @@ function initSite() {
     trigger:'#footer', start:'top 90%',
     onEnter: () => gsap.to('#footer', {opacity:1,y:0,duration:.6})
   });
+
+  /* شبكة أمان: ضمان ظهور قسم التواصل والحقوق دائماً عند اقترابه */
+  ScrollTrigger.create({
+    trigger:'#contact', start:'top 98%',
+    onEnter: () => {
+      gsap.to('.c-link', {opacity:1,x:0,duration:.5,stagger:.1});
+      gsap.to('#footer', {opacity:1,y:0,duration:.5});
+    }
+  });
+  /* احتياط نهائي: عند الوصول لأسفل الصفحة أظهر كل شيء فوراً */
+  window.addEventListener('scroll', () => {
+    if (window.innerHeight + window.scrollY >= document.body.scrollHeight - 120) {
+      gsap.set('.c-link', {opacity:1,x:0});
+      gsap.set('#footer', {opacity:1,y:0});
+    }
+  }, { passive:true });
+  ScrollTrigger.refresh();
 
   /* ══ APPLE-STYLE SCRUBBED PARALLAX + DEPTH FADE ══ */
   document.querySelectorAll('.section').forEach(sec => {
