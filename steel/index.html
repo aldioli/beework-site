@@ -163,12 +163,13 @@
 <script>
 /* ===== بيانات الأشكال ===== */
 const IPE = {8:6.0,10:8.1,12:10.4,14:12.9,16:15.8,18:18.8,20:22.4,22:26.2,24:30.7,27:36.1,30:42.2,33:49.1,36:55.7,40:66.3,45:77.6,50:90.7,55:106,60:122};
+const IPEAA = {80:5.0,100:6.72,120:8.36,140:10.05,160:12.3,180:15.4,200:18.4,220:22.2,240:26.2,270:30.7,300:36.1,330:43.0,360:49.0,400:57.4,450:67.2,500:79.4,550:92.1,600:108};
 const UPN = {50:5.59,65:7.09,80:8.64,100:10.6,120:13.4,140:16.0,160:18.8,180:22.0,200:25.3,220:29.4,240:33.2,260:37.9,280:41.8,300:46.2,320:59.5,350:60.6,400:71.8};
 const IPN = {80:5.94,100:8.34,120:11.1,140:14.3,160:17.9,180:21.9,200:26.2,220:31.1,240:36.2,260:41.9,280:47.9,300:54.2,320:61.0,340:68.0,360:76.1,380:84.0,400:92.4};
 const HEA = {100:16.7,120:19.9,140:24.7,160:30.4,180:35.5,200:42.3,220:50.5,240:60.3,260:68.2,280:76.4,300:88.3,320:97.6,340:105,360:112,400:125,450:140,500:155,550:166,600:178};
 const HEB = {100:20.4,120:26.7,140:33.7,160:42.6,180:51.2,200:61.3,220:71.5,240:83.2,260:93.0,280:103,300:117,320:127,340:134,360:142,400:155,450:171,500:187,550:199,600:212};
 const PIPE_D = {"½":21.3,"¾":26.7,"1":33.4,"1¼":42.2,"1½":48.3,"2":60.3,"2½":73,"3":88.9,"4":114.3};
-const BEAMS = {IPE,UPN,IPN,HEA,HEB};
+const BEAMS = {IPE,IPEAA,UPN,IPN,HEA,HEB};
 
 const SHAPES = {
   rect:{ name:"مربع/مستطيل", icon:"⬛", origin:true,
@@ -224,6 +225,14 @@ const SHAPES = {
     ],
     perM:v=> (IPE[v.size]||0),
     desc:v=> `كمر IPE ${v.size} طول ${v.L}م`
+  },
+  ipeaa:{ name:"كمر IPE AA (خفيف)", icon:"🅰️", origin:true, table:IPEAA, tname:"IPE AA",
+    fields:[
+      {id:"size",label:"مقاس IPE AA",select:Object.keys(IPEAA)},
+      {id:"L",label:"الطول (م)",val:"12"},
+    ],
+    perM:v=> (IPEAA[v.size]||0),
+    desc:v=> `كمر IPE AA ${v.size} طول ${v.L}م`
   },
   upn:{ name:"قنال U", icon:"⊐", origin:true, table:UPN, tname:"UPN",
     fields:[
@@ -412,7 +421,7 @@ function waQuote(){ window.open("https://wa.me/?text="+encodeURIComponent(quoteT
 
 /* ===== كاشف المنشأ ===== */
 function buildDetector(box){
-  const types=["IPE","UPN","IPN","HEA","HEB"].map(t=>'<option'+(t===detType?' selected':'')+'>'+t+'</option>').join('');
+  const types=["IPE","IPEAA","UPN","IPN","HEA","HEB"].map(t=>'<option'+(t===detType?' selected':'')+'>'+t+'</option>').join('');
   const sizes=Object.keys(BEAMS[detType]).map(k=>'<option>'+k+'</option>').join('');
   box.innerHTML=
     '<div class="row">'+
