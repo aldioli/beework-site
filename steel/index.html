@@ -120,7 +120,7 @@
       </div>
       <div class="field">
         <label>📦 حبات/ربطة</label>
-        <input type="number" id="bundleQty" placeholder="اختياري" inputmode="decimal">
+        <input type="number" id="bundleQty" placeholder="يُحفظ للمقاس" inputmode="decimal">
       </div>
     </div>
     <div class="row" id="originRow">
@@ -379,7 +379,20 @@ function buildInputs(){
 function num(id){ const e=document.getElementById(id); return e?parseFloat(e.value)||0:0; }
 function val(id){ const e=document.getElementById(id); return e?e.value:""; }
 
-let last={};
+/* ===== ذاكرة حبات الربطة (تتعلّم من إدخال المستخدم لكل مقاس) ===== */
+function bundleKey(cur,v){
+  const s=SHAPES[cur];
+  if(cur==="rect"||cur==="angle") return cur+"|"+(v.a||"")+"x"+(v.b||"");
+  if(cur==="flat") return "flat|"+(v.a||"");
+  if(cur==="pipe") return "pipe|"+(v.bsp||"");
+  if(s&&s.table) return cur+"|"+(v.size||"");
+  return cur+"|"+(v.w||"")+"x"+(v.len||"");
+}
+/* بذور أولية (أمثلة المستخدم) — تُكتب مرة إن لم تكن محفوظة */
+const BUNDLE_SEED={"rect|40x80":"50"};
+try{ for(const k in BUNDLE_SEED){ if(localStorage.getItem("bundle:"+k)===null) localStorage.setItem("bundle:"+k,BUNDLE_SEED[k]); } }catch(e){}
+
+let last={}, lastBKey=null;
 function calc(){
   const isDet=current==="detector";
   document.getElementById("priceCard").style.display=isDet?"none":"";
@@ -401,7 +414,16 @@ function calc(){
   const piecePrice = perPiece*tonPrice/1000;
   const totalPrice = totalW*tonPrice/1000;
 
+  // حبات الربطة: تحميل تلقائي للمقاس من الذاكرة، وحفظ ما يُدخله المستخدم
+  const bkey=bundleKey(current,v);
+  const bel=document.getElementById("bundleQty");
+  if(bel && bkey!==lastBKey){
+    let saved=null; try{ saved=localStorage.getItem("bundle:"+bkey); }catch(e){}
+    bel.value = saved!==null ? saved : "";
+    lastBKey=bkey;
+  }
   const bundleQty = num("bundleQty");
+  if(bel && bundleQty>0){ try{ localStorage.setItem("bundle:"+bkey, String(bundleQty)); }catch(e){} }
   const bundleW = perPiece*bundleQty;
   const bundlePrice = bundleW*tonPrice/1000;
 
@@ -423,7 +445,8 @@ function render(){
   }
   h+=row("الوزن الكلي ("+fmt(r.qty,0)+" قطعة)", fmt(r.totalW)+' <small>كجم = '+fmt(r.totalW/1000,3)+' طن</small>');
   if(r.bundleQty>0){
-    h+=row("📦 وزن الربطة ("+fmt(r.bundleQty,0)+" حبة)", fmt(r.bundleW)+' <small>كجم = '+fmt(r.bundleW/1000,3)+' طن</small>');
+    h+=row("📦 حبات الربطة", fmt(r.bundleQty,0)+' <small>حبة</small>');
+    h+=row("📦 وزن الربطة", fmt(r.bundleW)+' <small>كجم = '+fmt(r.bundleW/1000,3)+' طن</small>');
     if(r.tonPrice>0) h+=row("📦 سعر الربطة", fmt(r.bundlePrice)+' <small>ريال</small>');
   }
   if(r.tonPrice>0){
