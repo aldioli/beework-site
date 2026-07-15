@@ -199,6 +199,17 @@ const SHAPES = {
     perM:v=> 2*(v.a+v.b)*v.t*7.85/1000,
     desc:v=> `مربع/مستطيل ${v.a}×${v.b} سماكة ${v.t} طول ${v.L}م`
   },
+  rect2:{ name:"مربع/مستطيل (وزن دقيق)", icon:"◻", origin:true,
+    fields:[
+      {id:"a",label:"الضلع a (مم)",val:"40"},
+      {id:"b",label:"الضلع b (مم)",val:"80"},
+      {id:"t",label:"السماكة (مم)",val:"2"},
+      {id:"L",label:"الطول (م)",val:"6"},
+    ],
+    /* المعادلة الدقيقة: تطرح الأركان الأربعة (4t) فلا تُحسب مرتين */
+    perM:v=> (2*(v.a+v.b) - 4*v.t)*v.t*7.85/1000,
+    desc:v=> `مربع/مستطيل (دقيق) ${v.a}×${v.b} سماكة ${v.t} طول ${v.L}م`
+  },
   flat:{ name:"بسطة (مصمت)", icon:"▬", origin:true,
     fields:[
       {id:"a",label:"العرض (مم)",val:"40"},
@@ -383,7 +394,7 @@ function val(id){ const e=document.getElementById(id); return e?e.value:""; }
 /* ===== ذاكرة حبات الربطة (تتعلّم من إدخال المستخدم لكل مقاس) ===== */
 function bundleKey(cur,v){
   const s=SHAPES[cur];
-  if(cur==="rect"||cur==="angle") return cur+"|"+(v.a||"")+"x"+(v.b||"");
+  if(cur==="rect"||cur==="rect2"||cur==="angle") return cur+"|"+(v.a||"")+"x"+(v.b||"");
   if(cur==="flat") return "flat|"+(v.a||"");
   if(cur==="pipe") return "pipe|"+(v.bsp||"");
   if(s&&s.table) return cur+"|"+(v.size||"");
