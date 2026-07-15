@@ -273,13 +273,13 @@ const SHAPES = {
     perM:v=> (IPEAA[v.size]||0),
     desc:v=> `كمر IPE AA ${v.size} طول ${v.L}م`
   },
-  upn:{ name:"قنال U", icon:"⊐", origin:true, table:UPN, tname:"UPN",
+  upn:{ name:"كمر UPN (يو)", icon:"⊐", origin:true, table:UPN, tname:"UPN",
     fields:[
-      {id:"size",label:"مقاس U (UPN)",select:Object.keys(UPN)},
+      {id:"size",label:"مقاس UPN (يو)",select:Object.keys(UPN)},
       {id:"L",label:"الطول (م)",val:"12"},
     ],
     perM:v=> (UPN[v.size]||0),
-    desc:v=> `قنال U ${v.size} طول ${v.L}م`
+    desc:v=> `كمر UPN (يو) ${v.size} طول ${v.L}م`
   },
   ipn:{ name:"كمر IPN", icon:"🇮", origin:true, table:IPN, tname:"IPN",
     fields:[
@@ -311,15 +311,16 @@ const SHAPES = {
       {id:"len",label:"طول اللوح (م)",val:"2"},
       {id:"ox",label:"الفتحة العرضية (مم)",val:"30"},
       {id:"oy",label:"الفتحة الطولية (مم)",val:"60"},
-      {id:"d",label:"قطر السلك (مم)",val:"2"},
+      {id:"d",label:"قطر السلك (مم)",select:["1.5","2","2.5","2.7","3","3.5","4","5","6"],val:"2"},
     ],
     perPieceFn:v=>{
-      if(!v.w||!v.len||!v.ox||!v.oy||!v.d) return 0;
-      const px=v.ox+v.d, py=v.oy+v.d;
-      const nV=Math.floor((v.w*1000)/px)+1;
-      const nH=Math.floor((v.len*1000)/py)+1;
-      const totLen=nV*v.len + nH*v.w;
-      return totLen*0.006165*v.d*v.d;
+      const w=+v.w, len=+v.len, ox=+v.ox, oy=+v.oy, d=+v.d;
+      if(!w||!len||!ox||!oy||!d) return 0;
+      const px=ox+d, py=oy+d;
+      const nV=Math.floor((w*1000)/px)+1;
+      const nH=Math.floor((len*1000)/py)+1;
+      const totLen=nV*len + nH*w;
+      return totLen*0.006165*d*d;
     },
     desc:v=> `شبك ${v.w}×${v.len}م فتحة ${v.ox}×${v.oy} سلك ${v.d}مم`
   },
@@ -350,7 +351,7 @@ function buildInputs(){
     html+='<div class="field"><label>'+f.label+'</label>';
     if(f.select){
       html+='<select id="f_'+f.id+'" oninput="calc()">';
-      f.select.forEach(o=> html+='<option value="'+o+'">'+o+'</option>');
+      f.select.forEach(o=> html+='<option value="'+o+'"'+(f.val!=null&&String(f.val)===String(o)?' selected':'')+'>'+o+'</option>');
       html+='</select>';
     } else {
       html+='<input type="number" id="f_'+f.id+'" inputmode="decimal" oninput="calc()" '+
